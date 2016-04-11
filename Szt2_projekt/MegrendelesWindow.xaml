@@ -39,7 +39,7 @@
         <Label Margin="183,0,63,0" Grid.Row="3" x:Name="labelVideokartyaMegrendeles" Content="labelVideokartyaMegrendeles:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
         <Label Margin="183,0,63,0" Grid.Row="4" x:Name="labelMemoriameMegrendeles" Content="labelMemoriameMegrendeles:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
         <Label Margin="183,0,63,0" Grid.Row="5" x:Name="labelWinchesterMegrendeles" Content="labelWinchesterMegrendeles:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
-        <Label Margin="183,0,63,0" Grid.Row="6" x:Name="labelSSDmegrendele" Content="labelSSDmegrendeles:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
+        <Label Margin="183,0,63,0" Grid.Row="6" x:Name="labelSSDmegrendeles" Content="labelSSDmegrendeles:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
         <Label Margin="183,0,63,0" Grid.Row="7" x:Name="labelTapegysemMegrendeles" Content="labelTapegysemMegrendeles:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
         <Label Margin="183,0,63,0" Grid.Row="8" x:Name="labelHazmegrendeles" Content="labelHazmegrendeles:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
         <Label Margin="183,0,63,0" Grid.Row="9" x:Name="labelOsszar" Content="labelOsszar:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" />
