@@ -1,0 +1,34 @@
+﻿<Window x:Class="Szt2_projekt.UgyintezoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Szt2_projekt"
+        mc:Ignorable="d"
+        Title="UgyintezoWindow" Height="500" Width="500">
+    <Grid>
+        <TabControl Background="White" >
+            <TabItem Header="Termékek">
+                <Grid >
+                    <Label x:Name="label" Content="Termékek" HorizontalAlignment="Left" Margin="47,37,0,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="144" Margin="47,75,0,0" VerticalAlignment="Top" Width="249"/>
+                    <Button x:Name="button1" Content="Törlés" HorizontalAlignment="Left" Margin="336,102,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Button x:Name="button2" Content="Módosítás" HorizontalAlignment="Left" Margin="336,129,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Button x:Name="button3" Content="Hozzáadás" HorizontalAlignment="Left" Margin="336,75,0,0" VerticalAlignment="Top" Width="124"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Megrendelések">
+                <Grid>
+                    <Label x:Name="label2" Content="Megrendelések:" HorizontalAlignment="Left" Margin="47,37,0,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="144" Margin="47,75,0,0" VerticalAlignment="Top" Width="249"/>
+                    <Button x:Name="button32" Content="Megtekintés" HorizontalAlignment="Left" Margin="336,75,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label x:Name="label3" Content="Kiválasztott megrendelés állapota:" HorizontalAlignment="Left" Margin="47,257,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label4" Content="Állapot" HorizontalAlignment="Left" Margin="281,257,0,0" VerticalAlignment="Top"/>
+                </Grid>
+                
+            </TabItem>
+        </TabControl>
+        <Button x:Name="button" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="337,421,0,0" VerticalAlignment="Top" Width="125"/>
+    </Grid>
+</Window>

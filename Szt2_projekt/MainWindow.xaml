@@ -1,0 +1,20 @@
+﻿<Window x:Class="Szt2_projekt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Szt2_projekt"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="350">
+    <Grid>
+        <Label x:Name="label" Content="Név:" HorizontalAlignment="Left" Margin="64,68,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Jelszó:" HorizontalAlignment="Left" Margin="64,108,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="161,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="23" Margin="161,111,0,0"  VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="bejelentkezesButton" Content="Bejelentkezés" HorizontalAlignment="Left" Margin="64,160,0,0" VerticalAlignment="Top" Width="100" Click="button_Click"/>
+        <Button x:Name="regisztracioButton" Content="Regisztráció" HorizontalAlignment="Left" Margin="184,160,0,0" VerticalAlignment="Top" Width="100" Click="regisztracioButton_Click"/>
+        <Label x:Name="label2" Content="Üdvözöljük!" HorizontalAlignment="Left" Height="32" Margin="122,22,0,0" VerticalAlignment="Top" Width="144"/>
+
+
+    </Grid>
+</Window>
