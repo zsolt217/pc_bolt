@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdatbazisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ALAPLAP">
+    <Key>
+      <PropertyRef Name="ALAPLAP_ID" />
+    </Key>
+    <Property Name="ALAPLAP_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPUFOGLALAT" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MEMORIASLOTOK" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="MEMORIATIPUS" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CHIPSET" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MERETSZABVANY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="RENDELESEK" Relationship="Self.ALAPLAP_FOREIGN_KEY" FromRole="ALAPLAP" ToRole="RENDELESEK" />
+  </EntityType>
+  <EntityType Name="CPU">
+    <Key>
+      <PropertyRef Name="CPU_ID" />
+    </Key>
+    <Property Name="CPU_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPUFOGLALAT" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FOGYASZTAS" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="SEBESSEG" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <NavigationProperty Name="RENDELESEK" Relationship="Self.CPU_FOREIGN_KEY" FromRole="CPU" ToRole="RENDELESEK" />
+  </EntityType>
+  <EntityType Name="FELHASZNALO">
+    <Key>
+      <PropertyRef Name="FELHASZNALO_ID" />
+    </Key>
+    <Property Name="FELHASZNALO_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NEV" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BEOSZTAS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JELSZO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="RENDELESEK" Relationship="Self.FELHASZNALO_FOREIGN_KEY" FromRole="FELHASZNALO" ToRole="RENDELESEK" />
+  </EntityType>
+  <EntityType Name="GPU">
+    <Key>
+      <PropertyRef Name="GPU_ID" />
+    </Key>
+    <Property Name="GPU_ID" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MEMORIA" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="FOGYASZTAS" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+    <NavigationProperty Name="RENDELESEK" Relationship="Self.GPU_FOREIGN_KEY" FromRole="GPU" ToRole="RENDELESEK" />
+  </EntityType>
+  <EntityType Name="HAZ">
+    <Key>
+      <PropertyRef Name="HAZ_ID" />
+    </Key>
+    <Property Name="HAZ_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MERETSZABVANY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="RENDELESEK" Relationship="Self.HAZ_FOREIGN_KEY" FromRole="HAZ" ToRole="RENDELESEK" />
+  </EntityType>
+  <EntityType Name="HDD">
+    <Key>
+      <PropertyRef Name="HDD_ID" />
+    </Key>
+    <Property Name="HDD_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KAPACITAS" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <NavigationProperty Name="RENDELESEK" Relationship="Self.HDD_FOREIGN_KEY" FromRole="HDD" ToRole="RENDELESEK" />
+  </EntityType>
+  <EntityType Name="MEMORIA">
+    <Key>
+      <PropertyRef Name="MEMORIA_ID" />
+    </Key>
+    <Property Name="MEMORIA_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MEMORIATIPUS" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SEBESSEG" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="KAPACITAS" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <NavigationProperty Name="RENDELESEK" Relationship="Self.MEMORIA_FOREIGN_KEY" FromRole="MEMORIA" ToRole="RENDELESEK" />
+  </EntityType>
+  <EntityType Name="RENDELESEK">
+    <Key>
+      <PropertyRef Name="RENDELES_ID" />
+    </Key>
+    <Property Name="RENDELES_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="FELHASZNALO_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="ALAPLAP_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="CPU_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="MEMORIA_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="GPU_ID" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="TAP_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="HDD_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="SSD_ID" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="HAZ_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <NavigationProperty Name="ALAPLAP" Relationship="Self.ALAPLAP_FOREIGN_KEY" FromRole="RENDELESEK" ToRole="ALAPLAP" />
+    <NavigationProperty Name="CPU" Relationship="Self.CPU_FOREIGN_KEY" FromRole="RENDELESEK" ToRole="CPU" />
+    <NavigationProperty Name="FELHASZNALO" Relationship="Self.FELHASZNALO_FOREIGN_KEY" FromRole="RENDELESEK" ToRole="FELHASZNALO" />
+    <NavigationProperty Name="GPU" Relationship="Self.GPU_FOREIGN_KEY" FromRole="RENDELESEK" ToRole="GPU" />
+    <NavigationProperty Name="HAZ" Relationship="Self.HAZ_FOREIGN_KEY" FromRole="RENDELESEK" ToRole="HAZ" />
+    <NavigationProperty Name="HDD" Relationship="Self.HDD_FOREIGN_KEY" FromRole="RENDELESEK" ToRole="HDD" />
+    <NavigationProperty Name="MEMORIA" Relationship="Self.MEMORIA_FOREIGN_KEY" FromRole="RENDELESEK" ToRole="MEMORIA" />
+    <NavigationProperty Name="SSD" Relationship="Self.SSD_FOREIGN_KEY" FromRole="RENDELESEK" ToRole="SSD" />
+    <NavigationProperty Name="TAP" Relationship="Self.TAP_FOREIGN_KEY" FromRole="RENDELESEK" ToRole="TAP" />
+  </EntityType>
+  <EntityType Name="SSD">
+    <Key>
+      <PropertyRef Name="SSD_ID" />
+    </Key>
+    <Property Name="SSD_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KAPACITAS" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <NavigationProperty Name="RENDELESEK" Relationship="Self.SSD_FOREIGN_KEY" FromRole="SSD" ToRole="RENDELESEK" />
+  </EntityType>
+  <EntityType Name="TAP">
+    <Key>
+      <PropertyRef Name="TAP_ID" />
+    </Key>
+    <Property Name="TAP_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TELJESITMENY" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+    <NavigationProperty Name="RENDELESEK" Relationship="Self.TAP_FOREIGN_KEY" FromRole="TAP" ToRole="RENDELESEK" />
+  </EntityType>
+  <Association Name="ALAPLAP_FOREIGN_KEY">
+    <End Role="ALAPLAP" Type="Self.ALAPLAP" Multiplicity="1" />
+    <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ALAPLAP">
+        <PropertyRef Name="ALAPLAP_ID" />
+      </Principal>
+      <Dependent Role="RENDELESEK">
+        <PropertyRef Name="ALAPLAP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CPU_FOREIGN_KEY">
+    <End Role="CPU" Type="Self.CPU" Multiplicity="1" />
+    <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CPU">
+        <PropertyRef Name="CPU_ID" />
+      </Principal>
+      <Dependent Role="RENDELESEK">
+        <PropertyRef Name="CPU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FELHASZNALO_FOREIGN_KEY">
+    <End Role="FELHASZNALO" Type="Self.FELHASZNALO" Multiplicity="1" />
+    <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FELHASZNALO">
+        <PropertyRef Name="FELHASZNALO_ID" />
+      </Principal>
+      <Dependent Role="RENDELESEK">
+        <PropertyRef Name="FELHASZNALO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GPU_FOREIGN_KEY">
+    <End Role="GPU" Type="Self.GPU" Multiplicity="1" />
+    <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GPU">
+        <PropertyRef Name="GPU_ID" />
+      </Principal>
+      <Dependent Role="RENDELESEK">
+        <PropertyRef Name="GPU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HAZ_FOREIGN_KEY">
+    <End Role="HAZ" Type="Self.HAZ" Multiplicity="1" />
+    <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HAZ">
+        <PropertyRef Name="HAZ_ID" />
+      </Principal>
+      <Dependent Role="RENDELESEK">
+        <PropertyRef Name="HAZ_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HDD_FOREIGN_KEY">
+    <End Role="HDD" Type="Self.HDD" Multiplicity="1" />
+    <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HDD">
+        <PropertyRef Name="HDD_ID" />
+      </Principal>
+      <Dependent Role="RENDELESEK">
+        <PropertyRef Name="HDD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MEMORIA_FOREIGN_KEY">
+    <End Role="MEMORIA" Type="Self.MEMORIA" Multiplicity="1" />
+    <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEMORIA">
+        <PropertyRef Name="MEMORIA_ID" />
+      </Principal>
+      <Dependent Role="RENDELESEK">
+        <PropertyRef Name="MEMORIA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SSD_FOREIGN_KEY">
+    <End Role="SSD" Type="Self.SSD" Multiplicity="0..1" />
+    <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SSD">
+        <PropertyRef Name="SSD_ID" />
+      </Principal>
+      <Dependent Role="RENDELESEK">
+        <PropertyRef Name="SSD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TAP_FOREIGN_KEY">
+    <End Role="TAP" Type="Self.TAP" Multiplicity="1" />
+    <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAP">
+        <PropertyRef Name="TAP_ID" />
+      </Principal>
+      <Dependent Role="RENDELESEK">
+        <PropertyRef Name="TAP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AdatbazisEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ALAPLAP" EntityType="Self.ALAPLAP" />
+    <EntitySet Name="CPU" EntityType="Self.CPU" />
+    <EntitySet Name="FELHASZNALO" EntityType="Self.FELHASZNALO" />
+    <EntitySet Name="GPU" EntityType="Self.GPU" />
+    <EntitySet Name="HAZ" EntityType="Self.HAZ" />
+    <EntitySet Name="HDD" EntityType="Self.HDD" />
+    <EntitySet Name="MEMORIA" EntityType="Self.MEMORIA" />
+    <EntitySet Name="RENDELESEK" EntityType="Self.RENDELESEK" />
+    <EntitySet Name="SSD" EntityType="Self.SSD" />
+    <EntitySet Name="TAP" EntityType="Self.TAP" />
+    <AssociationSet Name="ALAPLAP_FOREIGN_KEY" Association="Self.ALAPLAP_FOREIGN_KEY">
+      <End Role="ALAPLAP" EntitySet="ALAPLAP" />
+      <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+    </AssociationSet>
+    <AssociationSet Name="CPU_FOREIGN_KEY" Association="Self.CPU_FOREIGN_KEY">
+      <End Role="CPU" EntitySet="CPU" />
+      <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+    </AssociationSet>
+    <AssociationSet Name="FELHASZNALO_FOREIGN_KEY" Association="Self.FELHASZNALO_FOREIGN_KEY">
+      <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
+      <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+    </AssociationSet>
+    <AssociationSet Name="GPU_FOREIGN_KEY" Association="Self.GPU_FOREIGN_KEY">
+      <End Role="GPU" EntitySet="GPU" />
+      <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+    </AssociationSet>
+    <AssociationSet Name="HAZ_FOREIGN_KEY" Association="Self.HAZ_FOREIGN_KEY">
+      <End Role="HAZ" EntitySet="HAZ" />
+      <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+    </AssociationSet>
+    <AssociationSet Name="HDD_FOREIGN_KEY" Association="Self.HDD_FOREIGN_KEY">
+      <End Role="HDD" EntitySet="HDD" />
+      <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+    </AssociationSet>
+    <AssociationSet Name="MEMORIA_FOREIGN_KEY" Association="Self.MEMORIA_FOREIGN_KEY">
+      <End Role="MEMORIA" EntitySet="MEMORIA" />
+      <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+    </AssociationSet>
+    <AssociationSet Name="SSD_FOREIGN_KEY" Association="Self.SSD_FOREIGN_KEY">
+      <End Role="SSD" EntitySet="SSD" />
+      <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+    </AssociationSet>
+    <AssociationSet Name="TAP_FOREIGN_KEY" Association="Self.TAP_FOREIGN_KEY">
+      <End Role="TAP" EntitySet="TAP" />
+      <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

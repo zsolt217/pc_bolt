@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f23bd12e24d24c998a24f1ded2f9d97e" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="AdatbazisModel.ALAPLAP" Width="1.5" PointX="0.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdatbazisModel.CPU" Width="1.5" PointX="0.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdatbazisModel.FELHASZNALO" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdatbazisModel.GPU" Width="1.5" PointX="7.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdatbazisModel.HAZ" Width="1.5" PointX="7.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdatbazisModel.HDD" Width="1.5" PointX="7.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdatbazisModel.MEMORIA" Width="1.5" PointX="7.375" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdatbazisModel.RENDELESEK" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdatbazisModel.SSD" Width="1.5" PointX="4.125" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdatbazisModel.TAP" Width="1.5" PointX="2.375" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="AdatbazisModel.ALAPLAP_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="AdatbazisModel.CPU_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="AdatbazisModel.FELHASZNALO_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="AdatbazisModel.GPU_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="AdatbazisModel.HAZ_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="AdatbazisModel.HDD_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="AdatbazisModel.MEMORIA_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="AdatbazisModel.SSD_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="AdatbazisModel.TAP_FOREIGN_KEY" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

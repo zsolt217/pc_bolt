@@ -73,3 +73,7 @@ C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\UserWindow.baml
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt.g.resources
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt.Properties.Resources.resources
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt.csproj.GenerateResource.Cache
+C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\EntityFramework.dll
+C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\EntityFramework.xml
+C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\EntityFramework.SqlServer.xml
