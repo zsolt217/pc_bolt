@@ -19,9 +19,15 @@ namespace Szt2_projekt
     /// </summary>
     public partial class RegisztracioWindow : Window
     {
+        
         public RegisztracioWindow()
         {
             InitializeComponent();
+        }
+
+        private void regButton_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

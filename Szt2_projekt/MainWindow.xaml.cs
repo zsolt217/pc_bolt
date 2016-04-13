@@ -43,6 +43,7 @@ namespace Szt2_projekt
         {
             string bevittFelhNev = felhasznalonevTextBox.Text;
             string bevittJelszo = jelszoPasswordBox.Password;
+            
 
             if (bevittFelhNev != "" && bevittJelszo != "")
             {

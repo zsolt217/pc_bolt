@@ -113,3 +113,4 @@ C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\SharedResource.pdb
 C:\Users\Krisz\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\Szt2_projekt.exe.config
 C:\Users\Krisz\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt.exe
 C:\Users\Krisz\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt.pdb
+C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\GeneratedInternalTypeHelper.g.cs
