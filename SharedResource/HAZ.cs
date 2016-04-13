@@ -7,23 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Szt2_projekt
+namespace SharedResource
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class FELHASZNALO
+    public partial class HAZ
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FELHASZNALO()
+        public HAZ()
         {
             this.RENDELESEK = new HashSet<RENDELESEK>();
         }
     
-        public decimal FELHASZNALO_ID { get; set; }
-        public string NEV { get; set; }
-        public string BEOSZTAS { get; set; }
-        public string JELSZO { get; set; }
+        public decimal HAZ_ID { get; set; }
+        public string TIPUSSZAM { get; set; }
+        public string MERETSZABVANY { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }

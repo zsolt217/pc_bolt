@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SharedResource;
 
 namespace Szt2_projekt
 {
@@ -33,30 +34,49 @@ namespace Szt2_projekt
 
         private void regisztracioButton_Click(object sender, RoutedEventArgs e)
         {
-            RegisztracioWindow regisztracioAblak = new RegisztracioWindow();
-            regisztracioAblak.ShowDialog();
+            
+            try
+            {
+                var akarmi = from x in Megosztott.adatb.ALAPLAP
+                             select x.CPUFOGLALAT;
+                foreach (var item in akarmi)
+                {
+                    Debug.WriteLine(item.ToString());
+                }
+            }
+            catch (Exception j)
+            {
+
+                MessageBox.Show(j.Message);
+
+            }
+           
+            
+        
+            //RegisztracioWindow regisztracioAblak = new RegisztracioWindow();
+            //regisztracioAblak.ShowDialog();
             
         }
 
         private void bejelentkezesButton_Click(object sender, RoutedEventArgs e)
         {
-            string bevittFelhNev = felhasznalonevTextBox.Text;
-            string bevittJelszo = jelszoPasswordBox.Password;
+            //string bevittFelhNev = felhasznalonevTextBox.Text;
+            //string bevittJelszo = jelszoPasswordBox.Password;
 
-            if (bevittFelhNev != "" && bevittJelszo != "")
-            {
-                if (felhKezelo.Bejelentkezes(bevittFelhNev, bevittJelszo))
-                {
-                    UserWindow ablak = new UserWindow();
-                    ablak.Show();
+            //if (bevittFelhNev != "" && bevittJelszo != "")
+            //{
+            //    if (felhKezelo.Bejelentkezes(bevittFelhNev, bevittJelszo))
+            //    {
+            //        UserWindow ablak = new UserWindow();
+            //        ablak.Show();
 
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Hibás felhasználónév és/vagy jelszó!");
-                }
-            }
+            //        this.Close();
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Hibás felhasználónév és/vagy jelszó!");
+            //    }
+            //}
         }
     }
 }

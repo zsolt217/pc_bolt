@@ -11,6 +11,21 @@
     <AssemblyName>SharedResource</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,8 +45,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,8 +67,111 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adatbazis.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Adatbazis.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Adatbazis.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Adatbazis.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Adatbazis.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ALAPLAP.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CPU.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FELHASZNALO.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GPU.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HAZ.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HDD.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
     <Compile Include="Megosztott.cs" />
+    <Compile Include="MEMORIA.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RENDELESEK.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SSD.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SZEMELYES_ADATOK.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TAP.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UZENETEK.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Adatbazis.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Adatbazis_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Adatbazis.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Adatbazis.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Adatbazis.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Adatbazis.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Adatbazis.edmx</DependentUpon>
+      <LastGenOutput>Adatbazis.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Adatbazis.edmx.diagram">
+      <DependentUpon>Adatbazis.edmx</DependentUpon>
+    </None>
+    <None Include="Adatbazis.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Adatbazis.edmx</DependentUpon>
+      <LastGenOutput>Adatbazis.cs</LastGenOutput>
+    </None>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

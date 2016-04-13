@@ -7,22 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Szt2_projekt
+namespace SharedResource
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SSD
+    public partial class ALAPLAP
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SSD()
+        public ALAPLAP()
         {
             this.RENDELESEK = new HashSet<RENDELESEK>();
         }
     
-        public decimal SSD_ID { get; set; }
+        public decimal ALAPLAP_ID { get; set; }
         public string TIPUSSZAM { get; set; }
-        public decimal KAPACITAS { get; set; }
+        public string CPUFOGLALAT { get; set; }
+        public decimal MEMORIASLOTOK { get; set; }
+        public string MEMORIATIPUS { get; set; }
+        public string CHIPSET { get; set; }
+        public string MERETSZABVANY { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }

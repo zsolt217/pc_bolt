@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Szt2_projekt
+namespace SharedResource
 {
     using System;
     using System.Data.Entity;
@@ -34,6 +34,8 @@ namespace Szt2_projekt
         public virtual DbSet<MEMORIA> MEMORIA { get; set; }
         public virtual DbSet<RENDELESEK> RENDELESEK { get; set; }
         public virtual DbSet<SSD> SSD { get; set; }
+        public virtual DbSet<SZEMELYES_ADATOK> SZEMELYES_ADATOK { get; set; }
         public virtual DbSet<TAP> TAP { get; set; }
+        public virtual DbSet<UZENETEK> UZENETEK { get; set; }
     }
 }
