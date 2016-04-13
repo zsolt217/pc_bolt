@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Szt2_projekt
+namespace SharedResource
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AdatbazisEntities1 : DbContext
+    public partial class AdatbazisEntities : DbContext
     {
-        public AdatbazisEntities1()
-            : base("name=AdatbazisEntities1")
+        public AdatbazisEntities()
+            : base("name=AdatbazisEntities")
         {
         }
     
@@ -34,6 +34,7 @@ namespace Szt2_projekt
         public virtual DbSet<MEMORIA> MEMORIA { get; set; }
         public virtual DbSet<RENDELESEK> RENDELESEK { get; set; }
         public virtual DbSet<SSD> SSD { get; set; }
+        public virtual DbSet<SZEMELYES_ADATOK> SZEMELYES_ADATOK { get; set; }
         public virtual DbSet<TAP> TAP { get; set; }
         public virtual DbSet<UZENETEK> UZENETEK { get; set; }
     }

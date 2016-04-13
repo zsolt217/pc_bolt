@@ -7,22 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Szt2_projekt
+namespace SharedResource
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class TAP
+    public partial class HDD
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TAP()
+        public HDD()
         {
             this.RENDELESEK = new HashSet<RENDELESEK>();
         }
     
-        public decimal TAP_ID { get; set; }
+        public decimal HDD_ID { get; set; }
         public string TIPUSSZAM { get; set; }
-        public decimal TELJESITMENY { get; set; }
+        public decimal KAPACITAS { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }

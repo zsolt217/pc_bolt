@@ -7,24 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Szt2_projekt
+namespace SharedResource
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CPU
+    public partial class MEMORIA
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CPU()
+        public MEMORIA()
         {
             this.RENDELESEK = new HashSet<RENDELESEK>();
         }
     
-        public decimal CPU_ID { get; set; }
+        public decimal MEMORIA_ID { get; set; }
         public string TIPUSSZAM { get; set; }
-        public string CPUFOGLALAT { get; set; }
-        public decimal FOGYASZTAS { get; set; }
+        public string MEMORIATIPUS { get; set; }
         public decimal SEBESSEG { get; set; }
+        public decimal KAPACITAS { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }

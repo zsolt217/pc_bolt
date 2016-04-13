@@ -7,23 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Szt2_projekt
+namespace SharedResource
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class GPU
+    public partial class TAP
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GPU()
+        public TAP()
         {
             this.RENDELESEK = new HashSet<RENDELESEK>();
         }
     
-        public decimal GPU_ID { get; set; }
+        public decimal TAP_ID { get; set; }
         public string TIPUSSZAM { get; set; }
-        public decimal MEMORIA { get; set; }
-        public decimal FOGYASZTAS { get; set; }
+        public decimal TELJESITMENY { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }
