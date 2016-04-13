@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,15 +21,14 @@ namespace Szt2_projekt
     /// </summary>
     public partial class MainWindow : Window
     {
+        private FelhasznaloKezelo felhKezelo;
+
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            UserWindow ablak = new UserWindow();
-            ablak.ShowDialog();
+            felhKezelo = new FelhasznaloKezelo();
+
         }
 
         private void regisztracioButton_Click(object sender, RoutedEventArgs e)
@@ -36,6 +36,27 @@ namespace Szt2_projekt
             RegisztracioWindow regisztracioAblak = new RegisztracioWindow();
             regisztracioAblak.ShowDialog();
             
+        }
+
+        private void bejelentkezesButton_Click(object sender, RoutedEventArgs e)
+        {
+            string bevittFelhNev = felhasznalonevTextBox.Text;
+            string bevittJelszo = jelszoPasswordBox.Password;
+
+            if (bevittFelhNev != "" && bevittJelszo != "")
+            {
+                if (felhKezelo.Bejelentkezes(bevittFelhNev, bevittJelszo))
+                {
+                    UserWindow ablak = new UserWindow();
+                    ablak.Show();
+
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Hibás felhasználónév és/vagy jelszó!");
+                }
+            }
         }
     }
 }

@@ -19,15 +19,25 @@ namespace Szt2_projekt
     /// </summary>
     public partial class UserWindow : Window
     {
+        private FelhasznaloKezelo fk;
+
         public UserWindow()
         {
             InitializeComponent();
+            fk = new FelhasznaloKezelo();
+            
         }
 
         private void MegrendelésButton_Click(object sender, RoutedEventArgs e)
         {
             MegrendelesWindow ujablak = new MegrendelesWindow();
             ujablak.ShowDialog();
+            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = fk;
         }
     }
 }

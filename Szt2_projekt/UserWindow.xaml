@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Szt2_projekt"
         mc:Ignorable="d"
-        Title="UserWindow" Height="550" Width="700">
+        Title="UserWindow" Height="550" Width="700" Loaded="Window_Loaded">
     <Grid>
         <TabControl Background="White" Margin="0,8,0,32">
             <TabItem Header="Adatok" >
@@ -105,5 +105,6 @@
 
         </TabControl>
         <Button x:Name="kijelentkezesButton" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="504,0,0,5" VerticalAlignment="Bottom" Width="124"/>
+        <Label Content="Label1" HorizontalAlignment="Left" Margin="418,494,0,0" VerticalAlignment="Top" Width="81" Height="20" FontSize="9"/>
     </Grid>
 </Window>

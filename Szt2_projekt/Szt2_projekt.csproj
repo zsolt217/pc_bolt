@@ -94,6 +94,7 @@
     <Compile Include="FELHASZNALO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="FelhasznaloKezelo.cs" />
     <Compile Include="GPU.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
