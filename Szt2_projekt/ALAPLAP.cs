@@ -7,29 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SharedResource
+namespace Szt2_projekt
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class FELHASZNALO
+    public partial class ALAPLAP
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FELHASZNALO()
+        public ALAPLAP()
         {
             this.RENDELESEK = new HashSet<RENDELESEK>();
-            this.UZENETEK = new HashSet<UZENETEK>();
         }
     
-        public decimal FELHASZNALO_ID { get; set; }
-        public string NEV { get; set; }
-        public string BEOSZTAS { get; set; }
-        public string JELSZO { get; set; }
+        public decimal ALAPLAP_ID { get; set; }
+        public string TIPUSSZAM { get; set; }
+        public string CPUFOGLALAT { get; set; }
+        public decimal MEMORIASLOTOK { get; set; }
+        public string MEMORIATIPUS { get; set; }
+        public string CHIPSET { get; set; }
+        public string MERETSZABVANY { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }
-        public virtual SZEMELYES_ADATOK SZEMELYES_ADATOK { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UZENETEK> UZENETEK { get; set; }
     }
 }

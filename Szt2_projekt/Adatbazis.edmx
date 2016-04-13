@@ -94,17 +94,6 @@
           <Property Name="TIPUSSZAM" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="KAPACITAS" Type="numeric" Precision="10" Scale="0" Nullable="false" />
         </EntityType>
-        <EntityType Name="SZEMELYES_ADATOK">
-          <Key>
-            <PropertyRef Name="FELHASZNALO_ID" />
-          </Key>
-          <Property Name="FELHASZNALO_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="VEZETEKNEV" Type="varchar" MaxLength="30" />
-          <Property Name="KERESZTNEV" Type="varchar" MaxLength="30" />
-          <Property Name="EMAILCIM" Type="varchar" MaxLength="50" />
-          <Property Name="CIM" Type="varchar" MaxLength="100" />
-          <Property Name="TELEFONSZAM" Type="varchar" MaxLength="30" />
-        </EntityType>
         <EntityType Name="TAP">
           <Key>
             <PropertyRef Name="TAP_ID" />
@@ -220,18 +209,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="SZEMELYES_FOREIGN_KEY">
-          <End Role="FELHASZNALO" Type="Self.FELHASZNALO" Multiplicity="1" />
-          <End Role="SZEMELYES_ADATOK" Type="Self.SZEMELYES_ADATOK" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="FELHASZNALO">
-              <PropertyRef Name="FELHASZNALO_ID" />
-            </Principal>
-            <Dependent Role="SZEMELYES_ADATOK">
-              <PropertyRef Name="FELHASZNALO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="TAP_FOREIGN_KEY">
           <End Role="TAP" Type="Self.TAP" Multiplicity="1" />
           <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
@@ -266,7 +243,6 @@
           <EntitySet Name="MEMORIA" EntityType="Self.MEMORIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RENDELESEK" EntityType="Self.RENDELESEK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SSD" EntityType="Self.SSD" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SZEMELYES_ADATOK" EntityType="Self.SZEMELYES_ADATOK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAP" EntityType="Self.TAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UZENETEK" EntityType="Self.UZENETEK" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="ALAPLAP_FOREIGN_KEY" Association="Self.ALAPLAP_FOREIGN_KEY">
@@ -300,10 +276,6 @@
           <AssociationSet Name="SSD_FOREIGN_KEY" Association="Self.SSD_FOREIGN_KEY">
             <End Role="SSD" EntitySet="SSD" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
-          </AssociationSet>
-          <AssociationSet Name="SZEMELYES_FOREIGN_KEY" Association="Self.SZEMELYES_FOREIGN_KEY">
-            <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
-            <End Role="SZEMELYES_ADATOK" EntitySet="SZEMELYES_ADATOK" />
           </AssociationSet>
           <AssociationSet Name="TAP_FOREIGN_KEY" Association="Self.TAP_FOREIGN_KEY">
             <End Role="TAP" EntitySet="TAP" />
@@ -352,7 +324,6 @@
           <Property Name="BEOSZTAS" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="JELSZO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.FELHASZNALO_FOREIGN_KEY" FromRole="FELHASZNALO" ToRole="RENDELESEK" />
-          <NavigationProperty Name="SZEMELYES_ADATOK" Relationship="Self.SZEMELYES_FOREIGN_KEY" FromRole="FELHASZNALO" ToRole="SZEMELYES_ADATOK" />
           <NavigationProperty Name="UZENETEK" Relationship="Self.UZENETFELHASZNALO_FOREIGN_KEY" FromRole="FELHASZNALO" ToRole="UZENETEK" />
         </EntityType>
         <EntityType Name="GPU">
@@ -427,18 +398,6 @@
           <Property Name="KAPACITAS" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.SSD_FOREIGN_KEY" FromRole="SSD" ToRole="RENDELESEK" />
         </EntityType>
-        <EntityType Name="SZEMELYES_ADATOK">
-          <Key>
-            <PropertyRef Name="FELHASZNALO_ID" />
-          </Key>
-          <Property Name="FELHASZNALO_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="VEZETEKNEV" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="KERESZTNEV" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="EMAILCIM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CIM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="TELEFONSZAM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="FELHASZNALO" Relationship="Self.SZEMELYES_FOREIGN_KEY" FromRole="SZEMELYES_ADATOK" ToRole="FELHASZNALO" />
-        </EntityType>
         <EntityType Name="TAP">
           <Key>
             <PropertyRef Name="TAP_ID" />
@@ -492,18 +451,6 @@
               <PropertyRef Name="FELHASZNALO_ID" />
             </Principal>
             <Dependent Role="RENDELESEK">
-              <PropertyRef Name="FELHASZNALO_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SZEMELYES_FOREIGN_KEY">
-          <End Role="FELHASZNALO" Type="Self.FELHASZNALO" Multiplicity="1" />
-          <End Role="SZEMELYES_ADATOK" Type="Self.SZEMELYES_ADATOK" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="FELHASZNALO">
-              <PropertyRef Name="FELHASZNALO_ID" />
-            </Principal>
-            <Dependent Role="SZEMELYES_ADATOK">
               <PropertyRef Name="FELHASZNALO_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -592,7 +539,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AdatbazisEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AdatbazisEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ALAPLAP" EntityType="Self.ALAPLAP" />
           <EntitySet Name="CPU" EntityType="Self.CPU" />
           <EntitySet Name="FELHASZNALO" EntityType="Self.FELHASZNALO" />
@@ -602,7 +549,6 @@
           <EntitySet Name="MEMORIA" EntityType="Self.MEMORIA" />
           <EntitySet Name="RENDELESEK" EntityType="Self.RENDELESEK" />
           <EntitySet Name="SSD" EntityType="Self.SSD" />
-          <EntitySet Name="SZEMELYES_ADATOK" EntityType="Self.SZEMELYES_ADATOK" />
           <EntitySet Name="TAP" EntityType="Self.TAP" />
           <EntitySet Name="UZENETEK" EntityType="Self.UZENETEK" />
           <AssociationSet Name="ALAPLAP_FOREIGN_KEY" Association="Self.ALAPLAP_FOREIGN_KEY">
@@ -616,10 +562,6 @@
           <AssociationSet Name="FELHASZNALO_FOREIGN_KEY" Association="Self.FELHASZNALO_FOREIGN_KEY">
             <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
-          </AssociationSet>
-          <AssociationSet Name="SZEMELYES_FOREIGN_KEY" Association="Self.SZEMELYES_FOREIGN_KEY">
-            <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
-            <End Role="SZEMELYES_ADATOK" EntitySet="SZEMELYES_ADATOK" />
           </AssociationSet>
           <AssociationSet Name="UZENETFELHASZNALO_FOREIGN_KEY" Association="Self.UZENETFELHASZNALO_FOREIGN_KEY">
             <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
@@ -655,7 +597,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AdatbazisModelStoreContainer" CdmEntityContainer="AdatbazisEntities">
+        <EntityContainerMapping StorageEntityContainer="AdatbazisModelStoreContainer" CdmEntityContainer="AdatbazisEntities1">
           <EntitySetMapping Name="ALAPLAP">
             <EntityTypeMapping TypeName="AdatbazisModel.ALAPLAP">
               <MappingFragment StoreEntitySet="ALAPLAP">
@@ -751,18 +693,6 @@
                 <ScalarProperty Name="SSD_ID" ColumnName="SSD_ID" />
                 <ScalarProperty Name="TIPUSSZAM" ColumnName="TIPUSSZAM" />
                 <ScalarProperty Name="KAPACITAS" ColumnName="KAPACITAS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SZEMELYES_ADATOK">
-            <EntityTypeMapping TypeName="AdatbazisModel.SZEMELYES_ADATOK">
-              <MappingFragment StoreEntitySet="SZEMELYES_ADATOK">
-                <ScalarProperty Name="FELHASZNALO_ID" ColumnName="FELHASZNALO_ID" />
-                <ScalarProperty Name="VEZETEKNEV" ColumnName="VEZETEKNEV" />
-                <ScalarProperty Name="KERESZTNEV" ColumnName="KERESZTNEV" />
-                <ScalarProperty Name="EMAILCIM" ColumnName="EMAILCIM" />
-                <ScalarProperty Name="CIM" ColumnName="CIM" />
-                <ScalarProperty Name="TELEFONSZAM" ColumnName="TELEFONSZAM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

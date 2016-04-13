@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SharedResource
+namespace Szt2_projekt
 {
     using System;
     using System.Collections.Generic;

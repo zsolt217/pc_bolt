@@ -19,12 +19,12 @@ namespace Szt2_projekt
     /// </summary>
     public partial class UserWindow : Window
     {
-        private FelhasznaloKezelo fk;
+        private BejelentkezoVM fk;
 
         public UserWindow()
         {
             InitializeComponent();
-            fk = new FelhasznaloKezelo();
+            fk = new BejelentkezoVM();
             
         }
 

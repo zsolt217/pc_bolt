@@ -107,5 +107,6 @@ C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Ugyintezo\Ugyintez
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Felhasznalo\UserWindow.baml
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\Adatbazis.mdf
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\Adatbazis_log.ldf
-C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\SharedResource.dll
-C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\SharedResource.pdb
+C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt_Content.g.cs
+C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\SharedSource.dll
+C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\SharedSource.pdb
