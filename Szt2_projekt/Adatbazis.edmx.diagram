@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0f9505498ed244b28b27c030b73ad728" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseModel.ALAPLAP" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.CPU" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.FELHASZNALO" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.GPU" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.HAZ" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.HDD" Width="1.5" PointX="0.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.MEMORIA" Width="1.5" PointX="0.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.RENDELESEK" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.SSD" Width="1.5" PointX="0.75" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.TAP" Width="1.5" PointX="0.75" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.UZENETEK" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseModel.ALAPLAP_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.CPU_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FELHASZNALO_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.UZENETFELHASZNALO_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.GPU_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.HAZ_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.HDD_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.MEMORIA_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.SSD_FOREIGN_KEY" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.TAP_FOREIGN_KEY" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

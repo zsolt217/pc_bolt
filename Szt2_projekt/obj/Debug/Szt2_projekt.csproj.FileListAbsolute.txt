@@ -105,7 +105,8 @@ C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Kozos\MegrendelesW
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Regisztralo_resz\RegisztracioWindow.baml
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Ugyintezo\UgyintezoWindow.baml
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Felhasznalo\UserWindow.baml
-C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\Adatbazis.mdf
-C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\Adatbazis_log.ldf
+C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\Database.mdf
+C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\Database_log.ldf
+C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt_Content.g.cs
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\SharedResource.dll
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\SharedResource.pdb
