@@ -82,7 +82,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AdminWindow.xaml.cs">
+    <Compile Include="Admin\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ALAPLAP.cs">
@@ -95,6 +95,11 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="FelhasznaloKezelo.cs" />
+    <Compile Include="Felhasznalo\FelhasznaloBSL.cs" />
+    <Compile Include="Felhasznalo\FelhasznaloVM.cs" />
+    <Compile Include="Felhasznalo\KedvencVezerlo.cs" />
+    <Compile Include="Felhasznalo\KompatibilitasVizsgalo.cs" />
+    <Compile Include="Felhasznalo\RendelesVezerlo.cs" />
     <Compile Include="GPU.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -104,9 +109,10 @@
     <Compile Include="HDD.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="MegrendelesWindow.xaml.cs">
+    <Compile Include="Kozos\MegrendelesWindow.xaml.cs">
       <DependentUpon>MegrendelesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Kozos\UzetnetKezelo.cs" />
     <Compile Include="MEMORIA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -125,7 +131,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="RegisztracioWindow.xaml.cs">
+    <Compile Include="Regisztralo_resz\RegisztracioWindow.xaml.cs">
       <DependentUpon>RegisztracioWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RENDELESEK.cs">
@@ -137,13 +143,15 @@
     <Compile Include="TAP.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="UgyintezoWindow.xaml.cs">
+    <Compile Include="Admin\AdminVM.cs" />
+    <Compile Include="Ugyintezo\UgyintezoVM.cs" />
+    <Compile Include="Ugyintezo\UgyintezoWindow.xaml.cs">
       <DependentUpon>UgyintezoWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserWindow.xaml.cs">
+    <Compile Include="Felhasznalo\UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="AdminWindow.xaml">
+    <Page Include="Admin\AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,19 +167,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MegrendelesWindow.xaml">
+    <Page Include="Kozos\MegrendelesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegisztracioWindow.xaml">
+    <Page Include="Regisztralo_resz\RegisztracioWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UgyintezoWindow.xaml">
+    <Page Include="Ugyintezo\UgyintezoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserWindow.xaml">
+    <Page Include="Felhasznalo\UserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -250,6 +258,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
