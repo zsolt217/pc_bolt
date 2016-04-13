@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,9 @@ namespace Szt2_projekt
 
         private void regButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            string pass1 = passwordBox1.Password;
+            string pass2 = passwordBox2.Password;
+            Debug.Print(pass1 + "/" + pass2);
         }
     }
 }
