@@ -1,4 +1,0 @@
-C:\Users\Anonimus\Source\Repos\pc_bolt\SharedSource\bin\Debug\SharedSource.dll
-C:\Users\Anonimus\Source\Repos\pc_bolt\SharedSource\bin\Debug\SharedSource.pdb
-C:\Users\Anonimus\Source\Repos\pc_bolt\SharedSource\obj\Debug\SharedSource.dll
-C:\Users\Anonimus\Source\Repos\pc_bolt\SharedSource\obj\Debug\SharedSource.pdb
