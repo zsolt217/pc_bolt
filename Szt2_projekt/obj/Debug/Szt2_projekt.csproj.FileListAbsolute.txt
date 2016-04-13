@@ -110,3 +110,6 @@ C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\Database_log.ldf
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt_Content.g.cs
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\SharedResource.dll
 C:\Users\Anonimus\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\SharedResource.pdb
+C:\Users\Krisz\Source\Repos\pc_bolt\Szt2_projekt\bin\Debug\Szt2_projekt.exe.config
+C:\Users\Krisz\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt.exe
+C:\Users\Krisz\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt.pdb

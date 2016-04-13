@@ -9,7 +9,7 @@ namespace Szt2_projekt
 {
     class BejelentkezoVM
     {
-
+        // Próbakomment by Kristóf
         private FELHASZNALO aktualisFelhasznalo;
 
         public string AktualisFelhasznaloID
