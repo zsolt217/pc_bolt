@@ -26,7 +26,6 @@ namespace Szt2_projekt
         public MainWindow()
         {
             InitializeComponent();
-           
             bejelentkezo = new BejelentkezoVM();
 
         }
@@ -35,8 +34,8 @@ namespace Szt2_projekt
         {
 
             RegisztracioWindow regisztracioAblak = new RegisztracioWindow();
-            regisztracioAblak.Show();
-            this.Close();
+            regisztracioAblak.ShowDialog();
+            
 
         }
 

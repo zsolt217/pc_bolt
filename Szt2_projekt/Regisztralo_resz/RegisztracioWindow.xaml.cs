@@ -34,13 +34,13 @@ namespace Szt2_projekt
             VM.Jelszo2 = passwordBox2.Password;
             if (VM.Regisztralas())
             {
-                DialogResult = true;
+                this.DialogResult = true;
             }
         }
 
         private void megsemButton_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            this.DialogResult = true;
         }
     }
 }
