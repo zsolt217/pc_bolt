@@ -62,8 +62,8 @@ namespace Szt2_projekt
                 FELHASZNALO ujfelh = new FELHASZNALO { FELHASZNALO_ID = newId, JELSZO = jelszo1, BEOSZTAS = "FELHASZNALO", NEV = felhasznalonev };
                 db.FELHASZNALO.Add(ujfelh);
                 SZEMELYES_ADATOK ujadat = new SZEMELYES_ADATOK { FELHASZNALO_ID = newId, VEZETEKNEV = vezeteknev, KERESZTNEV = keresztnev, CIM = cim, EMAILCIM = email, TELEFONSZAM = telefonszam };
-                db.SZEMELYES_ADATOK.Add(ujadat);
-                db.SaveChanges();
+               // db.SZEMELYES_ADATOK.Add(ujadat);
+                //db.SaveChanges();
                 return true;
             }
             catch (Exception e)
