@@ -26,7 +26,7 @@ namespace Szt2_projekt
         public MainWindow()
         {
             InitializeComponent();
-
+           
             bejelentkezo = new BejelentkezoVM();
 
         }

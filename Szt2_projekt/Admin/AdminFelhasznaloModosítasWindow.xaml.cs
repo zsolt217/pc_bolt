@@ -32,6 +32,31 @@ namespace Szt2_projekt.Admin
             
 
         }
+        AdatbazisEntities ab = new AdatbazisEntities();
+        private void felvetelButton_Click(object sender, RoutedEventArgs e) //felvétel
+        {
+            FELHASZNALO ujfelhasznalo = new FELHASZNALO();
+            ujfelhasznalo.FELHASZNALO_ID = ab.FELHASZNALO.Count() + 5; // azért nem +1,mert így ütközik a Gabival,akivel konkrétan semmit sem tudok csinálni
+            ujfelhasznalo.NEV = String.Format(tBoxFelhasznaloNev+" "+tBoxKeresztNev);
+            ujfelhasznalo.BEOSZTAS = cBoxBeosztas.SelectedItem.ToString();
+            ujfelhasznalo.JELSZO = passwordBox1.Password;
+            //ujfelhasznalo.RENDELESEK = new List<RENDELESEK>();
+            //ujfelhasznalo.UZENETEK = new List<UZENETEK>();
+            ab.FELHASZNALO.Add(ujfelhasznalo);
+            ab.SaveChanges();
+            this.DialogResult = true;
+
+        }
+
+        private void megsemButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) //módosítás
+        {
+            this.DialogResult = true;
+        }
 
         
     }

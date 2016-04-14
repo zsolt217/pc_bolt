@@ -15,17 +15,15 @@ namespace Szt2_projekt.Ugyintezo
         public void HozzaAd()
         {
             AdminFelhasznaloModosítasWindow ablak = new AdminFelhasznaloModosítasWindow();
-            ablak.Show();
-         
-            FELHASZNALO ujfelhasznalo = new FELHASZNALO();
-            ujfelhasznalo.FELHASZNALO_ID = ab.FELHASZNALO.Count() + 1;
-            ujfelhasznalo.NEV = "KisPista";
-            ujfelhasznalo.BEOSZTAS = "Paraszt";
-            ujfelhasznalo.JELSZO = "traktor";
-            //ujfelhasznalo.RENDELESEK = new List<RENDELESEK>();
-            //ujfelhasznalo.UZENETEK = new List<UZENETEK>();
-            ab.FELHASZNALO.Add(ujfelhasznalo);
-            ab.SaveChanges();
+            ablak.modositasButton.IsEnabled = false;
+            ablak.ShowDialog();                 
+        }
+
+        public void Modosit()
+        {
+            AdminFelhasznaloModosítasWindow ablak = new AdminFelhasznaloModosítasWindow();
+            ablak.felvetelButton.IsEnabled = false;
+            ablak.ShowDialog();
         }
     }
 }

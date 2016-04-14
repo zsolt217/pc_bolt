@@ -47,7 +47,6 @@ namespace Szt2_projekt
         private void button_Click(object sender, RoutedEventArgs e) // felhasználó hozzáadás
         {
             admin.HozzaAd();
-
             Frissit();
             
         }
@@ -63,7 +62,7 @@ namespace Szt2_projekt
 
                 ab.FELHASZNALO.Remove(torlo.First());
                 ab.SaveChanges();
-                //csak a kispistát törli
+                //Gabit miért nem tudja kitörölni?
                 Frissit();
 
             }
@@ -71,7 +70,8 @@ namespace Szt2_projekt
 
         private void button_Copy1_Click(object sender, RoutedEventArgs e) // felhasználó módosítása
         {
-
+            admin.Modosit();
+            Frissit();
         }
     }
 }
