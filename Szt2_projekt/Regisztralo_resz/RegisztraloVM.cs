@@ -62,7 +62,7 @@ namespace Szt2_projekt
                 FELHASZNALO ujfelh = new FELHASZNALO { FELHASZNALO_ID = newId, JELSZO = jelszo1, BEOSZTAS = "FELHASZNALO", NEV = felhasznalonev };
                 db.FELHASZNALO.Add(ujfelh);
                 SZEMELYES_ADATOK ujadat = new SZEMELYES_ADATOK { FELHASZNALO_ID = newId, VEZETEKNEV = vezeteknev, KERESZTNEV = keresztnev, CIM = cim, EMAILCIM = email, TELEFONSZAM = telefonszam };
-               // db.SZEMELYES_ADATOK.Add(ujadat);
+                //db.SZEMELYES_ADATOK.Add(ujadat);   //<--- hol van olyan tábla h személyes adatok? ha ezt a sort bennehagyom,nem fut le a cucc
                 //db.SaveChanges();
                 return true;
             }
