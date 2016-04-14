@@ -21,13 +21,13 @@ namespace Szt2_projekt
     /// </summary>
     public partial class MainWindow : Window
     {
-        private BejelentkezoVM felhKezelo;
+        private BejelentkezoVM bejelentkezo;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            felhKezelo = new BejelentkezoVM();
+            bejelentkezo = new BejelentkezoVM();
 
         }
 
@@ -35,7 +35,8 @@ namespace Szt2_projekt
         {
 
             RegisztracioWindow regisztracioAblak = new RegisztracioWindow();
-            regisztracioAblak.ShowDialog();
+            regisztracioAblak.Show();
+            this.Close();
 
         }
 
@@ -47,16 +48,12 @@ namespace Szt2_projekt
 
             if (bevittFelhNev != "" && bevittJelszo != "")
             {
-                if (felhKezelo.Bejelentkezes(bevittFelhNev, bevittJelszo))
-                {
-                    UserWindow ablak = new UserWindow();
-                    ablak.Show();
-
+                if (bejelentkezo.Bejelentkezes(bevittFelhNev, bevittJelszo))
                     this.Close();
-                }
                 else
                 {
                     MessageBox.Show("Hibás felhasználónév és/vagy jelszó!");
+                    Megosztott.Logolas("Hibás felhasználónév és/vagy jelszó! User: " + bevittFelhNev + ", Pass: " + bevittJelszo);
                 }
             }
         }

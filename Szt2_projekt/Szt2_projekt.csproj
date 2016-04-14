@@ -115,7 +115,7 @@
       <DependentUpon>Adatbazis.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="BejelenztkezoVM.cs" />
+    <Compile Include="BejelentkezoVM.cs" />
     <Compile Include="Felhasznalo\FelhasznaloBSL.cs" />
     <Compile Include="Felhasznalo\FelhasznaloVM.cs" />
     <Compile Include="Felhasznalo\KedvencVezerlo.cs" />

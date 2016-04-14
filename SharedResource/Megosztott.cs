@@ -11,7 +11,7 @@ namespace Szt2_projekt
         public static void Logolas(string szoveg)
         {
             using (System.IO.StreamWriter file =
-           new System.IO.StreamWriter("log.txt", true))
+           new System.IO.StreamWriter(@"log.txt", true))
             {
                 file.WriteLine(DateTime.Now + Environment.NewLine + szoveg);
             }

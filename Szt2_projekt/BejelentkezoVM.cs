@@ -44,6 +44,23 @@ namespace Szt2_projekt
             if (f != null)
             {
                 aktualisFelhasznalo = f;
+                Megosztott.Logolas("Logged in: " + aktualisFelhasznalo.NEV);
+
+                if (f.BEOSZTAS == "ADMIN")
+                {
+                    AdminWindow aw = new AdminWindow();
+                    aw.Show();
+                }
+                else if (f.BEOSZTAS == "UGYINTEZO")
+                {
+                    UgyintezoWindow uw = new UgyintezoWindow();
+                    uw.Show();
+                }
+                else
+                {
+                    UserWindow uw = new UserWindow();
+                    uw.Show();
+                }
             }
 
             return f != null;
@@ -57,21 +74,22 @@ namespace Szt2_projekt
 
         private FELHASZNALO TartalmazasVizsgalat(string felhasznalonev, string jelszo)
         {
-            var z = from f in db.FELHASZNALO
-                    where f.NEV.Equals(felhasznalonev.ToUpper())
-                    select f;
 
-            return z.First();
+            var z = db.FELHASZNALO.Where(f => f.NEV == felhasznalonev.ToUpper());
 
-            //var zu = db.FELHASZNALO.Where(x => x.NEV.Equals(felhasznalonev.ToUpper()) && x.JELSZO.Equals(jelszo.ToUpper())).First();
-            //return f;
+            if (z.Any())
+            {
+
+                var zz = z.Where(f => f.JELSZO == jelszo.ToUpper());
+
+                if (zz.Any())
+                    return z.First();
+
+            }
+
+            return null;
+            
         }
-
-        protected void Regisztracio()
-        {
-
-        }
-
 
     }
 }
