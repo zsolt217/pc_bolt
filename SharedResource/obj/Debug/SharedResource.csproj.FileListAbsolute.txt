@@ -3,8 +3,3 @@ C:\Users\Anonimus\Source\Repos\pc_bolt\SharedResource\bin\Debug\SharedResource.d
 C:\Users\Anonimus\Source\Repos\pc_bolt\SharedResource\bin\Debug\SharedResource.pdb
 C:\Users\Anonimus\Source\Repos\pc_bolt\SharedResource\obj\Debug\SharedResource.dll
 C:\Users\Anonimus\Source\Repos\pc_bolt\SharedResource\obj\Debug\SharedResource.pdb
-C:\Users\Mark\Source\Repos\pc_bolt\SharedResource\bin\Debug\SharedResource.dll
-C:\Users\Mark\Source\Repos\pc_bolt\SharedResource\bin\Debug\SharedResource.pdb
-C:\Users\Mark\Source\Repos\pc_bolt\SharedResource\obj\Debug\SharedResource.csprojResolveAssemblyReference.cache
-C:\Users\Mark\Source\Repos\pc_bolt\SharedResource\obj\Debug\SharedResource.dll
-C:\Users\Mark\Source\Repos\pc_bolt\SharedResource\obj\Debug\SharedResource.pdb

@@ -109,7 +109,7 @@
     <Compile Include="FELHASZNALO.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>
     </Compile>
-    <Compile Include="BejelenztkezoVM.cs" />
+    <Compile Include="BejelentkezoVM.cs" />
     <Compile Include="Felhasznalo\FelhasznaloBSL.cs" />
     <Compile Include="Felhasznalo\FelhasznaloVM.cs" />
     <Compile Include="Felhasznalo\KedvencVezerlo.cs" />
