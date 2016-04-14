@@ -35,12 +35,21 @@ namespace Szt2_projekt
 
         }
         AdminVM admin; // tök őszintén: minek neki usingolnia a "Szt2_projekt.Ugyintezo;"-t,ahogy h elérje az AdminVM osztályt?
+
+        void Frissit() // egyelőre ezzel a megoldással "frissül" a listbox(mármint minden gombnyomás után lefut a lekérdezés)
+        {
+            var felhasznalok = from akt in ab.FELHASZNALO
+                               orderby akt.NEV
+                               select akt.NEV;
+
+            lBoxAdminFelhasznalok.ItemsSource = felhasznalok.ToList();
+        }
         private void button_Click(object sender, RoutedEventArgs e) // felhasználó hozzáadás
         {
             admin.HozzaAd();
 
             Frissit();
-
+            
         }
 
         private void button_Copy_Click(object sender, RoutedEventArgs e) // felhasználó törlése
@@ -60,13 +69,9 @@ namespace Szt2_projekt
             }
         }
 
-        void Frissit() // egyelőre ezzel a megoldással "frissül" a listbox(mármint minden gombnyomás után lefut a lekérdezés)
+        private void button_Copy1_Click(object sender, RoutedEventArgs e) // felhasználó módosítása
         {
-            var felhasznalok = from akt in ab.FELHASZNALO
-                               orderby akt.NEV
-                               select akt.NEV;
 
-            lBoxAdminFelhasznalok.ItemsSource = felhasznalok.ToList();
         }
     }
 }

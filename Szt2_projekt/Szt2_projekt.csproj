@@ -100,6 +100,9 @@
       <DependentUpon>Adatbazis.edmx</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Admin\AdminFelhasznaloModosítasWindow.xaml.cs">
+      <DependentUpon>AdminFelhasznaloModosítasWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
@@ -174,6 +177,10 @@
       <DependentUpon>Adatbazis.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Page Include="Admin\AdminFelhasznaloModosítasWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Admin\AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

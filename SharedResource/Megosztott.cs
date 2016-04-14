@@ -16,5 +16,13 @@ namespace Szt2_projekt
                 file.WriteLine(DateTime.Now + Environment.NewLine + szoveg);
             }
         }
+
+        public enum Beosztasok 
+        {
+            Admin,
+            Ügyintéző,
+            Felhasználó
+        }
+
     }
 }

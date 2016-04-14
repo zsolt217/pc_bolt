@@ -164,3 +164,5 @@ C:\Users\Krisz\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Felhasznalo\UserWindo
 C:\Users\Krisz\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt.g.resources
 C:\Users\Krisz\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt.Properties.Resources.resources
 C:\Users\Krisz\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Szt2_projekt.csproj.GenerateResource.Cache
+C:\Users\Krisz\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Admin\AdminFelhasznaloModosítasWindow.baml
+C:\Users\Krisz\Source\Repos\pc_bolt\Szt2_projekt\obj\Debug\Admin\AdminFelhasznaloModosítasWindow.g.cs
