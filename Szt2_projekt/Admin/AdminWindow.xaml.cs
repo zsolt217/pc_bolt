@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Szt2_projekt.Ugyintezo;
 
 namespace Szt2_projekt
 {
@@ -19,9 +20,53 @@ namespace Szt2_projekt
     /// </summary>
     public partial class AdminWindow : Window
     {
+        AdatbazisEntities ab;
         public AdminWindow()
         {
             InitializeComponent();
+            admin = new AdminVM();
+            ab = new AdatbazisEntities();
+
+            var felhasznalok = from akt in ab.FELHASZNALO
+                               orderby akt.NEV
+                               select akt.NEV;
+
+            lBoxAdminFelhasznalok.ItemsSource = felhasznalok.ToList();
+
+        }
+        AdminVM admin; // tök őszintén: minek neki usingolnia a "Szt2_projekt.Ugyintezo;"-t,ahogy h elérje az AdminVM osztályt?
+        private void button_Click(object sender, RoutedEventArgs e) // felhasználó hozzáadás
+        {
+            admin.HozzaAd();
+
+            Frissit();
+
+        }
+
+        private void button_Copy_Click(object sender, RoutedEventArgs e) // felhasználó törlése
+        {
+            if (lBoxAdminFelhasznalok.SelectedIndex != -1)
+            {
+                string torlendouser = lBoxAdminFelhasznalok.SelectedItem.ToString();
+                var torlo = from akt in ab.FELHASZNALO
+                            where akt.NEV == torlendouser
+                            select akt;
+
+                ab.FELHASZNALO.Remove(torlo.First());
+                ab.SaveChanges();
+                //csak a kispistát törli
+                Frissit();
+
+            }
+        }
+
+        void Frissit() // egyelőre ezzel a megoldással "frissül" a listbox(mármint minden gombnyomás után lefut a lekérdezés)
+        {
+            var felhasznalok = from akt in ab.FELHASZNALO
+                               orderby akt.NEV
+                               select akt.NEV;
+
+            lBoxAdminFelhasznalok.ItemsSource = felhasznalok.ToList();
         }
     }
 }
