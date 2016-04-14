@@ -48,7 +48,7 @@ namespace Szt2_projekt
         {
             admin.HozzaAd();
             Frissit();
-            
+
         }
 
         private void button_Copy_Click(object sender, RoutedEventArgs e) // felhasználó törlése
@@ -70,8 +70,18 @@ namespace Szt2_projekt
 
         private void button_Copy1_Click(object sender, RoutedEventArgs e) // felhasználó módosítása
         {
-            admin.Modosit();
-            Frissit();
+            if (lBoxAdminFelhasznalok.SelectedIndex != -1)
+            {
+                
+                var q = from akt in ab.FELHASZNALO
+                          where akt.NEV == lBoxAdminFelhasznalok.SelectedItem.ToString()
+                          select akt;
+
+                FELHASZNALO f = q.First();
+                admin.Modosit(f);
+                Frissit();
+            }
+           
         }
     }
 }

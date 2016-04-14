@@ -15,12 +15,12 @@ using System.Windows.Shapes;
 namespace Szt2_projekt.Admin
 {
     /// <summary>
-    /// Interaction logic for AdminFelhasznaloModosítasWindow.xaml
+    /// Interaction logic for AdminFelhasznaloFelvetelWindow.xaml
     /// </summary>
-    public partial class AdminFelhasznaloModosítasWindow : Window
+    public partial class AdminFelhasznaloFelvetelWindow : Window
     {
         string[] beosztasok;
-        public AdminFelhasznaloModosítasWindow()
+        public AdminFelhasznaloFelvetelWindow()
         {
             InitializeComponent();
             beosztasok = new string[3];
@@ -55,6 +55,7 @@ namespace Szt2_projekt.Admin
 
         private void Button_Click(object sender, RoutedEventArgs e) //módosítás
         {
+            FELHASZNALO aktfelhasznalo = new FELHASZNALO();
             this.DialogResult = true;
         }
 
