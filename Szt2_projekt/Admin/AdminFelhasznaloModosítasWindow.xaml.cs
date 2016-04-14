@@ -37,9 +37,9 @@ namespace Szt2_projekt.Admin
         {
             FELHASZNALO ujfelhasznalo = new FELHASZNALO();
             ujfelhasznalo.FELHASZNALO_ID = ab.FELHASZNALO.Count() + 5; // azért nem +1,mert így ütközik a Gabival,akivel konkrétan semmit sem tudok csinálni
-            ujfelhasznalo.NEV = String.Format(tBoxFelhasznaloNev+" "+tBoxKeresztNev);
+            ujfelhasznalo.NEV = tBoxVezetekNev.Text + " " + tBoxKeresztNev.Text;
             ujfelhasznalo.BEOSZTAS = cBoxBeosztas.SelectedItem.ToString();
-            ujfelhasznalo.JELSZO = passwordBox1.Password;
+            ujfelhasznalo.JELSZO = passwordBox1.Password.ToString();
             //ujfelhasznalo.RENDELESEK = new List<RENDELESEK>();
             //ujfelhasznalo.UZENETEK = new List<UZENETEK>();
             ab.FELHASZNALO.Add(ujfelhasznalo);
