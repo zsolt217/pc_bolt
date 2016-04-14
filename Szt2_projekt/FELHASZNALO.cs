@@ -30,5 +30,6 @@ namespace Szt2_projekt
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UZENETEK> UZENETEK { get; set; }
+        public virtual SZEMELYES_ADATOK SZEMELYES_ADATOK { get; set; }
     }
 }

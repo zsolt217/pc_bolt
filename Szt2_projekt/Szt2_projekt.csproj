@@ -86,28 +86,34 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Adatbazis.Context.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Adatbazis.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Adatbazis.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Adatbazis.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Adatbazis.edmx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Admin\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ALAPLAP.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CPU.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="FELHASZNALO.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="BejelenztkezoVM.cs" />
     <Compile Include="Felhasznalo\FelhasznaloBSL.cs" />
@@ -117,12 +123,15 @@
     <Compile Include="Felhasznalo\RendelesVezerlo.cs" />
     <Compile Include="GPU.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="HAZ.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="HDD.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Kozos\MegrendelesWindow.xaml.cs">
       <DependentUpon>MegrendelesWindow.xaml</DependentUpon>
@@ -130,20 +139,29 @@
     <Compile Include="Kozos\UzetnetKezelo.cs" />
     <Compile Include="MEMORIA.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Regisztralo_resz\RegisztracioWindow.xaml.cs">
       <DependentUpon>RegisztracioWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminVM.cs" />
-    <Compile Include="Regisztralo_resz\RegisztraloVM.cs" />
+    <Compile Include="Regisztralo_resz\RegisztraloVM.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="RENDELESEK.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="SSD.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="SZEMELYES_ADATOK.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>
     </Compile>
     <Compile Include="TAP.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Ugyintezo\UgyintezoVM.cs" />
     <Compile Include="Ugyintezo\UgyintezoWindow.xaml.cs">
@@ -154,6 +172,7 @@
     </Compile>
     <Compile Include="UZENETEK.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Page Include="Admin\AdminWindow.xaml">
       <SubType>Designer</SubType>
@@ -209,19 +228,23 @@
     <EntityDeploy Include="Adatbazis.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Adatbazis.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EntityDeploy>
     <None Include="Adatbazis.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Adatbazis.edmx</DependentUpon>
       <LastGenOutput>Adatbazis.Context.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Adatbazis.edmx.diagram">
       <DependentUpon>Adatbazis.edmx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Adatbazis.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Adatbazis.edmx</DependentUpon>
       <LastGenOutput>Adatbazis.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -255,10 +278,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Database_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
   </ItemGroup>

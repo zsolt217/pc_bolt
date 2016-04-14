@@ -20,17 +20,27 @@ namespace Szt2_projekt
     /// </summary>
     public partial class RegisztracioWindow : Window
     {
-        
+        RegisztraloVM VM;
         public RegisztracioWindow()
         {
             InitializeComponent();
+            VM = new RegisztraloVM();
+            DataContext = VM;
         }
 
         private void regButton_Click(object sender, RoutedEventArgs e)
         {
-            string pass1 = passwordBox1.Password;
-            string pass2 = passwordBox2.Password;
-            Debug.Print(pass1 + "/" + pass2);
+            VM.Jelszo1 = passwordBox1.Password;
+            VM.Jelszo2 = passwordBox2.Password;
+            if (VM.Regisztralas())
+            {
+                DialogResult = true;
+            }
+        }
+
+        private void megsemButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }
