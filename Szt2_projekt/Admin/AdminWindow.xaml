@@ -14,7 +14,7 @@
         <Button x:Name="button_Copy1" Content="Módosítás" HorizontalAlignment="Left" Margin="331,122,0,0" VerticalAlignment="Top" Width="134" Click="button_Copy1_Click"/>
         <Label x:Name="label1" Content="Termékek:" HorizontalAlignment="Left" Margin="39,203,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="lBoxAdminTermekek" HorizontalAlignment="Left" Height="77" Margin="39,234,0,0" VerticalAlignment="Top" Width="252"/>
-        <Button x:Name="button_Copy2" Content="Hozzáadás" HorizontalAlignment="Left" Margin="331,234,0,0" VerticalAlignment="Top" Width="134"/>
+        <Button x:Name="button_Copy2" Content="Hozzáadás" HorizontalAlignment="Left" Margin="331,234,0,0" VerticalAlignment="Top" Width="134" Click="button_Copy2_Click"/>
         <Button x:Name="button_Copy3" Content="Törlés" HorizontalAlignment="Left" Margin="331,262,0,0" VerticalAlignment="Top" Width="134"/>
         <Button x:Name="button_Copy4" Content="Módosítás" HorizontalAlignment="Left" Margin="331,289,0,0" VerticalAlignment="Top" Width="134"/>
         <Button x:Name="button1" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="331,378,0,0" VerticalAlignment="Top" Width="134" Height="35"/>

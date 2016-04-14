@@ -12,19 +12,24 @@ namespace Szt2_projekt.Ugyintezo
         AdatbazisEntities ab = new AdatbazisEntities();
        
 
-        public void HozzaAd()
+        public void FelhasznaloHozzaAdas() //felhasználó
         {
             AdminFelhasznaloFelvetelWindow ablak = new AdminFelhasznaloFelvetelWindow();
             ablak.modositasButton.IsEnabled = false;
             ablak.ShowDialog();                 
         }
 
-        public void Modosit(FELHASZNALO modositando)
+        public void FelhasznaloModositas(FELHASZNALO modositando) //termék
         {
             AdminFelhasznaloFelvetelWindow ablak = new AdminFelhasznaloFelvetelWindow();
             ablak.felvetelButton.IsEnabled = false;
             ablak.DataContext = modositando;
             ablak.ShowDialog();
+        }
+
+        public void TermekFelhasznaloHozzaAdas()
+        { 
+        
         }
     }
 }

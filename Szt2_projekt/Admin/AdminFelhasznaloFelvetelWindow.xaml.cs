@@ -24,15 +24,16 @@ namespace Szt2_projekt.Admin
         {
             InitializeComponent();
             beosztasok = new string[3];
-            beosztasok[0] = "Felhasználó";
-            beosztasok[1] = "Ügyintéző";
-            beosztasok[2] = "Admin";
+            beosztasok[0] = "FELHASZNALO";
+            beosztasok[1] = "UGYINTEZO";
+            beosztasok[2] = "ADMIN";
 
             cBoxBeosztas.ItemsSource = beosztasok;
-            
+
 
         }
         AdatbazisEntities ab = new AdatbazisEntities();
+        #region Felhasználós cuccok
         private void felvetelButton_Click(object sender, RoutedEventArgs e) //felvétel
         {
             FELHASZNALO ujfelhasznalo = new FELHASZNALO();
@@ -58,7 +59,9 @@ namespace Szt2_projekt.Admin
             FELHASZNALO aktfelhasznalo = new FELHASZNALO();
             this.DialogResult = true;
         }
+        #endregion
 
-        
+
+
     }
 }

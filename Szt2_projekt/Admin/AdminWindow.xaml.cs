@@ -46,7 +46,7 @@ namespace Szt2_projekt
         }
         private void button_Click(object sender, RoutedEventArgs e) // felhasználó hozzáadás
         {
-            admin.HozzaAd();
+            admin.FelhasznaloHozzaAdas();
             Frissit();
 
         }
@@ -71,17 +71,21 @@ namespace Szt2_projekt
         private void button_Copy1_Click(object sender, RoutedEventArgs e) // felhasználó módosítása
         {
             if (lBoxAdminFelhasznalok.SelectedIndex != -1)
-            {
-                
+            {               
                 var q = from akt in ab.FELHASZNALO
                           where akt.NEV == lBoxAdminFelhasznalok.SelectedItem.ToString()
                           select akt;
 
                 FELHASZNALO f = q.First();
-                admin.Modosit(f);
+                admin.FelhasznaloModositas(f);
                 Frissit();
             }
            
+        }
+
+        private void button_Copy2_Click(object sender, RoutedEventArgs e) //Termék hozzáadása
+        {
+
         }
     }
 }
