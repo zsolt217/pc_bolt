@@ -19,7 +19,7 @@ namespace Szt2_projekt.Ugyintezo
             ablak.ShowDialog();                 
         }
 
-        public void FelhasznaloModositas(FELHASZNALO modositando) //termék
+        public void FelhasznaloModositas(FELHASZNALO modositando)
         {
             AdminFelhasznaloFelvetelWindow ablak = new AdminFelhasznaloFelvetelWindow();
             ablak.felvetelButton.IsEnabled = false;
@@ -27,9 +27,10 @@ namespace Szt2_projekt.Ugyintezo
             ablak.ShowDialog();
         }
 
-        public void TermekFelhasznaloHozzaAdas()
-        { 
-        
+        public void TermekHozzaAdas()
+        {
+            TermekModositoWindow ablak = new TermekModositoWindow();
+            ablak.ShowDialog();
         }
     }
 }

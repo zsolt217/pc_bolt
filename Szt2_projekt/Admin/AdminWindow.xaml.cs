@@ -85,7 +85,7 @@ namespace Szt2_projekt
 
         private void button_Copy2_Click(object sender, RoutedEventArgs e) //Termék hozzáadása
         {
-
+            admin.TermekHozzaAdas();
         }
     }
 }

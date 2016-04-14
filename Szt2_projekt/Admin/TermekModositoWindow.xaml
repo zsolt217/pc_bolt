@@ -18,9 +18,9 @@
         <TextBox x:Name="tBoxMagokSzama" HorizontalAlignment="Left" Height="23" Margin="205,200,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.35,0.478"/>
         <TextBox x:Name="tBoxOrajel" HorizontalAlignment="Left" Height="23" Margin="205,240,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.35,0.478"/>
 
-        <Button Content="Felvétel" HorizontalAlignment="Left" Margin="25,391,0,0" VerticalAlignment="Top" Width="139"/>
-        <Button Content="Módosítás" HorizontalAlignment="Left" Margin="169,391,0,0" VerticalAlignment="Top" Width="139"/>
-        <Button Content="Mégsem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="139" Margin="313,391,0,0"/>
+        <Button x:Name="felvetelButton" Content="Felvétel" HorizontalAlignment="Left" Margin="26,391,0,0" VerticalAlignment="Top" Width="140" Click="felvetelButton_Click"/>
+        <Button x:Name="modositasButton" Content="Módosítás" HorizontalAlignment="Left" Margin="171,391,0,0" VerticalAlignment="Top" Width="140"/>
+        <Button x:Name="megsemButton" Content="Mégsem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="316,391,0,0" Click="megsemButton_Click"/>
 
     </Grid>
 </Window>
