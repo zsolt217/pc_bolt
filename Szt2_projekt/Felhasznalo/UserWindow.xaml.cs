@@ -21,12 +21,14 @@ namespace Szt2_projekt
     {
         FelhasznaloVM VM;
         FelhasznaloBSL BS;
+        decimal id;
 
         public UserWindow(decimal felhasznaloid)
         {
             InitializeComponent();
             VM = new FelhasznaloVM();
             BS = new FelhasznaloBSL (felhasznaloid,VM);
+            id = felhasznaloid;
             DataContext = VM;
             
         }
@@ -50,6 +52,12 @@ namespace Szt2_projekt
         {
             MainWindow uj = new MainWindow();
             uj.Show();
+        }
+
+        private void FelhAdatModosit_Click(object sender, RoutedEventArgs e)
+        {
+            RegisztracioWindow uj = new RegisztracioWindow(id);
+            uj.ShowDialog();
         }
     }
 }

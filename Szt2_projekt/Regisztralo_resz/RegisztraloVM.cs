@@ -11,6 +11,7 @@ using System.Diagnostics;
 
 namespace Szt2_projekt
 {
+    enum Irasmod { UjLetrehoz, Modosit }
     public class RegisztraloVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -30,6 +31,8 @@ namespace Szt2_projekt
         string telefonszam;
         string cim;
         string email;
+        decimal felhid;//módosítás esetére
+        Irasmod irasmod;
         AdatbazisEntities db;
 
         public bool Regisztralas()
@@ -49,29 +52,63 @@ namespace Szt2_projekt
                 MessageBox.Show("A két jelszó nem egyezik!");
                 return false;
             }
-            var van_e_felhasz = db.FELHASZNALO.Where(x => x.NEV.Equals(felhasznalonev));
-            if (van_e_felhasz.Count() != 0)
+            switch (irasmod)//kétféle használat mód szerint elágazás
             {
-                MessageBox.Show("Már létezik ilyen nevű felhasználó");
-                return false;
+                case Irasmod.UjLetrehoz:
+                    var van_e_felhasz = db.FELHASZNALO.Where(x => x.NEV.Equals(felhasznalonev)).ToList();
+                    if (van_e_felhasz.Count() != 0)
+                    {
+                        MessageBox.Show("Már létezik ilyen nevű felhasználó");
+                        return false;
+                    }
+                    try
+                    {
+                        var p = db.FELHASZNALO.OrderByDescending(x => x.FELHASZNALO_ID).FirstOrDefault();
+                        int newId = (null == p ? 0 : (int)p.FELHASZNALO_ID) + 1;
+                        FELHASZNALO ujfelh = new FELHASZNALO { FELHASZNALO_ID = newId, JELSZO = jelszo1, BEOSZTAS = "FELHASZNALO", NEV = felhasznalonev };
+                        db.FELHASZNALO.Add(ujfelh);
+                        SZEMELYES_ADATOK ujadat = new SZEMELYES_ADATOK { FELHASZNALO_ID = newId, VEZETEKNEV = vezeteknev, KERESZTNEV = keresztnev, CIM = cim, EMAILCIM = email, TELEFONSZAM = telefonszam };
+                        db.SZEMELYES_ADATOK.Add(ujadat);
+                        db.SaveChanges();
+                        return true;
+                    }
+                    catch (Exception e)
+                    {
+                        Megosztott.Logolas(e.InnerException.Message);
+                        MessageBox.Show("Hiba, nincs mentés!");
+                        return true;
+                    }
+                    break;
+                case Irasmod.Modosit:
+                    try
+                    {
+                        foreach (var item in db.FELHASZNALO)
+                        {
+                            Debug.WriteLine(item.NEV + ": " + item.SZEMELYES_ADATOK.CIM);
+                        }
+                        db.FELHASZNALO.Where(x => x.FELHASZNALO_ID == felhid).SingleOrDefault().NEV = felhasznalonev;
+                        db.FELHASZNALO.Where(x => x.FELHASZNALO_ID == felhid).SingleOrDefault().SZEMELYES_ADATOK.CIM = cim;
+                        db.FELHASZNALO.Where(x => x.FELHASZNALO_ID == felhid).SingleOrDefault().SZEMELYES_ADATOK.TELEFONSZAM = telefonszam;
+                        db.FELHASZNALO.Where(x => x.FELHASZNALO_ID == felhid).SingleOrDefault().SZEMELYES_ADATOK.EMAILCIM = email;
+                        db.FELHASZNALO.Where(x => x.FELHASZNALO_ID == felhid).SingleOrDefault().SZEMELYES_ADATOK.KERESZTNEV = keresztnev;
+                        db.FELHASZNALO.Where(x => x.FELHASZNALO_ID == felhid).SingleOrDefault().SZEMELYES_ADATOK.VEZETEKNEV = vezeteknev;
+                        db.SaveChanges();
+                        foreach (var item in db.FELHASZNALO)
+                        {
+                            Debug.WriteLine(item.NEV + ": " + item.SZEMELYES_ADATOK.CIM);
+                        }
+                        return true;
+                    }
+                    catch (Exception e)
+                    {
+                        Megosztott.Logolas(e.InnerException.Message);
+                        MessageBox.Show("Hiba, nincs mentés!");
+                        return true;
+                    }
+                    break;
+                default: return false; break;
             }
-            try
-            {
-                var p = db.FELHASZNALO.OrderByDescending(x => x.FELHASZNALO_ID).FirstOrDefault();
-                int newId = (null == p ? 0 : (int)p.FELHASZNALO_ID) + 1;
-                FELHASZNALO ujfelh = new FELHASZNALO { FELHASZNALO_ID = newId, JELSZO = jelszo1, BEOSZTAS = "FELHASZNALO", NEV = felhasznalonev };
-                db.FELHASZNALO.Add(ujfelh);
-                SZEMELYES_ADATOK ujadat = new SZEMELYES_ADATOK { FELHASZNALO_ID = newId, VEZETEKNEV = vezeteknev, KERESZTNEV = keresztnev, CIM = cim, EMAILCIM = email, TELEFONSZAM = telefonszam };
-                //db.SZEMELYES_ADATOK.Add(ujadat);   //<--- hol van olyan tábla h személyes adatok? ha ezt a sort bennehagyom,nem fut le a cucc
-                //db.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                Megosztott.Logolas(e.InnerException.Message);
-                MessageBox.Show("Hiba, nincs mentés!");
-                return true;
-            }
+
 
         }
         public RegisztraloVM()
@@ -85,9 +122,33 @@ namespace Szt2_projekt
             telefonszam = String.Empty;
             cim = String.Empty;
             email = String.Empty;
+            irasmod = Irasmod.UjLetrehoz;
+        } //alap regisztálás esetén
+
+        public RegisztraloVM(decimal felhasznaloid)// felh módsításra
+        {
+            db = new AdatbazisEntities();
+            try
+            {
+                var aktFelhasznalo = db.SZEMELYES_ADATOK.Where(x => (int)x.FELHASZNALO_ID == (int)felhasznaloid).Select(x => new { felhnev = x.FELHASZNALO.NEV, cim = x.CIM, email = x.EMAILCIM, keresztnev = x.KERESZTNEV, vezeteknev = x.VEZETEKNEV, telefonszam = x.TELEFONSZAM }).ToList();
+                if (aktFelhasznalo.Count() == 1)
+                {
+                    Cim = aktFelhasznalo.First().cim;
+                    Email = aktFelhasznalo.First().email;
+                    Keresztnev = aktFelhasznalo.First().keresztnev;
+                    Vezeteknev = aktFelhasznalo.First().vezeteknev;
+                    Felhasznalonev = aktFelhasznalo.First().felhnev;
+                    felhid = felhasznaloid;
+                }
+            }
+            catch (Exception e)//hiba esetén logolás
+            {
+                Megosztott.Logolas(e.InnerException.Message);
+            }
+            jelszo1 = String.Empty;
+            jelszo2 = String.Empty;
+            irasmod = Irasmod.Modosit;
         }
-
-
 
         public string Email
         {

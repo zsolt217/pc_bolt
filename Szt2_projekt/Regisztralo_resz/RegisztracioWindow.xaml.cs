@@ -27,6 +27,12 @@ namespace Szt2_projekt
             VM = new RegisztraloVM();
             DataContext = VM;
         }
+        public RegisztracioWindow(decimal felhid) //adatmódosítás esetére
+        {
+            InitializeComponent();
+            VM = new RegisztraloVM(felhid);
+            DataContext = VM;
+        }
 
         private void regButton_Click(object sender, RoutedEventArgs e)
         {

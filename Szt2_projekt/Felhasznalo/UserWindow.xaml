@@ -22,7 +22,7 @@
                     <Label Content="Keresztnév:" HorizontalAlignment="Left" Margin="87,123,0,0" VerticalAlignment="Top"/>
                     <Label  Content="{Binding Vezeteknev}" HorizontalAlignment="Left" Margin="261,83,0,0" VerticalAlignment="Top" Width="202"/>
                     <Label  Content="{Binding Keresztnev}" HorizontalAlignment="Left" Margin="261,123,0,0" VerticalAlignment="Top" Width="202"/>
-                    <Button x:Name="adatButton" Content="Adatok módosítása" Width="175" Height="40" Margin="239,295,243,103"></Button>
+                    <Button Click="FelhAdatModosit_Click" Content="Adatok módosítása" Width="175" Height="40" Margin="239,295,243,103"></Button>
                 </Grid>
             </TabItem>
 
