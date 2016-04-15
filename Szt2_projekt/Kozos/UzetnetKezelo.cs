@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Szt2_projekt.Kozos
+namespace Szt2_projekt
 {
     public enum Uzenetirany { Felhasznalonak, Ugyintezonek }
     public enum Rang { Felhasznalo, Ugyintezo }
@@ -47,6 +47,7 @@ namespace Szt2_projekt.Kozos
             }
 
         }
+        
         public List<UZENETEK> UzenetKereso(decimal felhid, Rang rang)
         {
             try
@@ -57,7 +58,7 @@ namespace Szt2_projekt.Kozos
                         return DB.UZENETEK.Where(x => x.FELHASZNALO_ID == felhid).ToList();
                         break;
                     case Rang.Ugyintezo:
-                        return DB.UZENETEK.Where(x => x.IRANY == true).ToList();
+                        return DB.UZENETEK.Where(x => x.IRANY == true).ToList();//ügyintézőnek az össze központba címzett megy
                         break;
                     default: return null; break;
                 }

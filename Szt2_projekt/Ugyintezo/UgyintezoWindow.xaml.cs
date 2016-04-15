@@ -19,11 +19,32 @@ namespace Szt2_projekt
     /// </summary>
     public partial class UgyintezoWindow : Window
     {
+        UgyintezoVM VM;
+        
+        
         public UgyintezoWindow()
         {
             InitializeComponent();
+            VM = new UgyintezoVM();
+            DataContext = VM;
+        }
+        private void ValaszKuldese_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
-       
+        private void Kijelentkezes_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MainWindow uj = new MainWindow();
+            uj.Show();
+        }
+
+
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Szt2_projekt"
         mc:Ignorable="d"
-        Title="UgyintezoWindow" Height="500" Width="500">
+        Title="UgyintezoWindow" Height="543" Width="659" Closing="Window_Closing">
     <Grid>
         <TabControl Background="White" >
             <TabItem Header="Termékek">
@@ -26,9 +26,26 @@
                     <Label x:Name="label3" Content="Kiválasztott megrendelés állapota:" HorizontalAlignment="Left" Margin="47,257,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="label4" Content="Állapot" HorizontalAlignment="Left" Margin="281,257,0,0" VerticalAlignment="Top"/>
                 </Grid>
-                
+            </TabItem>
+            <TabItem Header="Üzenetek">
+                <Grid>
+                    <ListBox Margin="-4,-1,408,1" ItemsSource="{Binding Bejovok}" SelectedItem="KimenoUzenet">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Height="40" Width="287">
+                                    <Label Content="{Binding FELHASZNALO.NEV}" HorizontalAlignment="Left" Height="33" Margin="0,1,0,0" VerticalAlignment="Top" Width="132"/>
+                                    <Label Content="{Binding DATUM}" HorizontalAlignment="Left" Height="39" Margin="137,0,0,0" VerticalAlignment="Top" Width="150"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Label Content="" Margin="238,5,10,297"/>
+                    <TextBox  Text="{Binding SelectedUzenet.SZOVEG}" HorizontalAlignment="Left" Height="165" Margin="238,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="388"/>
+                    <Button Content="Válasz küldése" HorizontalAlignment="Left" Height="26" Margin="419,395,0,0" VerticalAlignment="Top" Width="90" Click="ValaszKuldese_Click"/>
+                    <Label Content="Válasz:" HorizontalAlignment="Left" Height="27" Margin="406,193,0,0" VerticalAlignment="Top" Width="56"/>
+                </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="button" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="337,421,0,0" VerticalAlignment="Top" Width="125"/>
+        <Button x:Name="button" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="500,470,0,0" VerticalAlignment="Top" Width="125" Click="Kijelentkezes_Click"/>
     </Grid>
 </Window>
