@@ -40,6 +40,16 @@ namespace Szt2_projekt
             lBoxAdminFelhasznalok.ItemsSource = felhasznalok.ToList();
 
         }
+        private void Kijelentkezes_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MainWindow uj = new MainWindow();
+            uj.Show();
+        }
 
 
         #region Felhasználós cuccok
@@ -127,6 +137,10 @@ namespace Szt2_projekt
 
 
         #endregion
+
+      
+
+      
 
 
     }

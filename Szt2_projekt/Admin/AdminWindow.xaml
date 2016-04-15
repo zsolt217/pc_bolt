@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Szt2_projekt"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="500" Width="500">
+        Title="AdminWindow" Height="500" Width="500" Closing="Window_Closing">
     <Grid>
         <Label x:Name="label" Content="Felhasználók:" HorizontalAlignment="Left" Margin="39,28,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="lBoxAdminFelhasznalok" HorizontalAlignment="Left" Height="76" Margin="39,68,0,0" VerticalAlignment="Top" Width="252"/>
@@ -17,7 +17,7 @@
         <Button x:Name="button_Copy2" Content="Új termék" HorizontalAlignment="Left" Margin="331,238,0,0" VerticalAlignment="Top" Width="134" Click="button_Copy2_Click"/>
         <Button x:Name="button_Copy3" Content="Törlés" HorizontalAlignment="Left" Margin="331,316,0,0" VerticalAlignment="Top" Width="134"/>
         <Button x:Name="button_Copy4" Content="Módosítás" HorizontalAlignment="Left" Margin="331,289,0,0" VerticalAlignment="Top" Width="134" Click="button_Copy4_Click"/>
-        <Button x:Name="button1" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="331,405,0,0" VerticalAlignment="Top" Width="134" Height="35"/>
+        <Button x:Name="button1" Click="Kijelentkezes_Click" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="331,405,0,0" VerticalAlignment="Top" Width="134" Height="35"/>
         <Label x:Name="label1_Copy" Content="Termék típusa:" HorizontalAlignment="Left" Margin="39,234,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cBoxTermekTipus" HorizontalAlignment="Left" Margin="147,238,0,0" VerticalAlignment="Top" Width="144" SelectionChanged="cBoxTermekTipus_SelectionChanged"/>
 
