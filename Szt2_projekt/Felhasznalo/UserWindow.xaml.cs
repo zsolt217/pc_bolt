@@ -19,25 +19,37 @@ namespace Szt2_projekt
     /// </summary>
     public partial class UserWindow : Window
     {
-        private BejelentkezoVM fk;
+        FelhasznaloVM VM;
+        FelhasznaloBSL BS;
 
-        public UserWindow()
+        public UserWindow(decimal felhasznaloid)
         {
             InitializeComponent();
-            fk = new BejelentkezoVM();
+            VM = new FelhasznaloVM();
+            BS = new FelhasznaloBSL (felhasznaloid,VM);
+            DataContext = VM;
             
         }
 
         private void MegrendelésButton_Click(object sender, RoutedEventArgs e)
         {
-            MegrendelesWindow ujablak = new MegrendelesWindow();
-            ujablak.ShowDialog();
-            
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.DataContext = fk;
+
+        }
+
+        private void Kijelentkezo_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MainWindow uj = new MainWindow();
+            uj.Show();
         }
     }
 }

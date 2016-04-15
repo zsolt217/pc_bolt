@@ -25,6 +25,7 @@ namespace Szt2_projekt
         public string MEMORIATIPUS { get; set; }
         public decimal SEBESSEG { get; set; }
         public decimal KAPACITAS { get; set; }
+        public decimal AR { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }

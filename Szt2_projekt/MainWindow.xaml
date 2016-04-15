@@ -9,8 +9,8 @@
     <Grid>
         <Label x:Name="label" Content="Név:" HorizontalAlignment="Left" Margin="64,68,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Jelszó:" HorizontalAlignment="Left" Margin="64,108,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="felhasznalonevTextBox" HorizontalAlignment="Left" Height="23" Margin="161,71,0,0" TextWrapping="Wrap" Text="admin" VerticalAlignment="Top" Width="120" />
-        <PasswordBox x:Name="jelszoPasswordBox" HorizontalAlignment="Left" Height="23" Margin="161,111,0,0"  VerticalAlignment="Top" Width="120" Password="admin"/>
+        <TextBox x:Name="felhasznalonevTextBox" HorizontalAlignment="Left" Height="23" Margin="161,71,0,0" TextWrapping="Wrap" Text="GABI" VerticalAlignment="Top" Width="120" />
+        <PasswordBox x:Name="jelszoPasswordBox" HorizontalAlignment="Left" Height="23" Margin="161,111,0,0"  VerticalAlignment="Top" Width="120" Password="felhasznalo"/>
         <Button x:Name="bejelentkezesButton" Content="Bejelentkezés" HorizontalAlignment="Left" Margin="64,160,0,0" VerticalAlignment="Top" Width="100" Click="bejelentkezesButton_Click"/>
         <Button x:Name="regisztracioButton" Content="Regisztráció" HorizontalAlignment="Left" Margin="184,160,0,0" VerticalAlignment="Top" Width="100" Click="regisztracioButton_Click"/>
         <Label x:Name="label2" Content="Üdvözöljük!" HorizontalAlignment="Left" Height="32" Margin="122,22,0,0" VerticalAlignment="Top" Width="144"/>

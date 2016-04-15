@@ -5,21 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Szt2_projekt"
         mc:Ignorable="d"
-        Title="UserWindow" Height="550" Width="700" Loaded="Window_Loaded">
+        Title="UserWindow" Height="550" Width="700" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid>
-        <TabControl Background="White" Margin="0,8,0,32">
+        <TabControl Background="White" Margin="0,0,0,40">
             <TabItem Header="Adatok" >
                 <Grid>
-                    <Label x:Name="label" Content="Név:" HorizontalAlignment="Left" Margin="87,50,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="label1" Content="Telefonszám:" HorizontalAlignment="Left" Margin="87,90,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="label2" Content="Cím:" HorizontalAlignment="Left" Margin="87,130,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="label5_Copy" Content="Email:" HorizontalAlignment="Left" Margin="87,170,0,0" VerticalAlignment="Top"/>
-
-                    <Label x:Name="label3" Content="Label" HorizontalAlignment="Left"  Margin="261,50,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="label4" Content="Label" HorizontalAlignment="Left" Margin="261,90,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="label5" Content="Label" HorizontalAlignment="Left" Margin="261,130,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="label5_Copy1" Content="Label" HorizontalAlignment="Left" Margin="261,170,0,0" VerticalAlignment="Top"/>
-
+                    <Label Content="Felhasználónév:" HorizontalAlignment="Left" Margin="87,50,0,0" VerticalAlignment="Top"/>
+                    <Label  Content="Telefonszám:" HorizontalAlignment="Left" Margin="87,166,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Cím:" HorizontalAlignment="Left" Margin="87,206,0,0" VerticalAlignment="Top"/>
+                    <Label  Content="Email:" HorizontalAlignment="Left" Margin="87,246,0,0" VerticalAlignment="Top"/>
+                    <Label  Content="{Binding Felhasznalonev}" HorizontalAlignment="Left"  Margin="261,50,0,0" VerticalAlignment="Top" Width="202"/>
+                    <Label Content="{Binding Telefonszam}" HorizontalAlignment="Left" Margin="261,166,0,0" VerticalAlignment="Top" Width="226"/>
+                    <Label Content="{Binding Cim}" HorizontalAlignment="Left" Margin="261,206,0,0" VerticalAlignment="Top" Width="202"/>
+                    <Label  Content="{Binding Email}" HorizontalAlignment="Left" Margin="261,246,0,0" VerticalAlignment="Top" Width="202"/>
+                    <Label  Content="Vezetéknév:" HorizontalAlignment="Left" Margin="87,83,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Keresztnév:" HorizontalAlignment="Left" Margin="87,123,0,0" VerticalAlignment="Top"/>
+                    <Label  Content="{Binding Vezeteknev}" HorizontalAlignment="Left" Margin="261,83,0,0" VerticalAlignment="Top" Width="202"/>
+                    <Label  Content="{Binding Keresztnev}" HorizontalAlignment="Left" Margin="261,123,0,0" VerticalAlignment="Top" Width="202"/>
                     <Button x:Name="adatButton" Content="Adatok módosítása" Width="175" Height="40" Margin="239,295,243,103"></Button>
                 </Grid>
             </TabItem>
@@ -104,7 +106,7 @@
             </TabItem>
 
         </TabControl>
-        <Button x:Name="kijelentkezesButton" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="504,0,0,5" VerticalAlignment="Bottom" Width="124"/>
+        <Button Click="Kijelentkezo_Click" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="504,0,0,5" VerticalAlignment="Bottom" Width="124"/>
         <Label Content="Label1" HorizontalAlignment="Left" Margin="418,494,0,0" VerticalAlignment="Top" Width="81" Height="20" FontSize="9"/>
     </Grid>
 </Window>

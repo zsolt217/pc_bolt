@@ -4,13 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ALAPLAP">
           <Key>
             <PropertyRef Name="ALAPLAP_ID" />
           </Key>
           <Property Name="ALAPLAP_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="AR" Type="numeric" Precision="20" Scale="0" Nullable="false" />
           <Property Name="CPUFOGLALAT" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="MEMORIASLOTOK" Type="numeric" Precision="2" Scale="0" Nullable="false" />
           <Property Name="MEMORIATIPUS" Type="varchar" MaxLength="8" Nullable="false" />
@@ -22,10 +23,12 @@
             <PropertyRef Name="CPU_ID" />
           </Key>
           <Property Name="CPU_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="AR" Type="numeric" Precision="20" Scale="0" Nullable="false" />
           <Property Name="CPUFOGLALAT" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="FOGYASZTAS" Type="numeric" Precision="3" Scale="0" Nullable="false" />
           <Property Name="SEBESSEG" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="MAGOK" Type="numeric" Precision="2" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="FELHASZNALO">
           <Key>
@@ -41,7 +44,8 @@
             <PropertyRef Name="GPU_ID" />
           </Key>
           <Property Name="GPU_ID" Type="numeric" Precision="2" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="AR" Type="numeric" Precision="20" Scale="0" Nullable="false" />
           <Property Name="MEMORIA" Type="numeric" Precision="10" Scale="0" Nullable="false" />
           <Property Name="FOGYASZTAS" Type="numeric" Precision="3" Scale="0" Nullable="false" />
         </EntityType>
@@ -50,7 +54,8 @@
             <PropertyRef Name="HAZ_ID" />
           </Key>
           <Property Name="HAZ_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="AR" Type="numeric" Precision="20" Scale="0" Nullable="false" />
           <Property Name="MERETSZABVANY" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="HDD">
@@ -58,7 +63,8 @@
             <PropertyRef Name="HDD_ID" />
           </Key>
           <Property Name="HDD_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="AR" Type="numeric" Precision="20" Scale="0" Nullable="false" />
           <Property Name="KAPACITAS" Type="numeric" Precision="10" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="MEMORIA">
@@ -66,7 +72,8 @@
             <PropertyRef Name="MEMORIA_ID" />
           </Key>
           <Property Name="MEMORIA_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="AR" Type="numeric" Precision="20" Scale="0" Nullable="false" />
           <Property Name="MEMORIATIPUS" Type="varchar" MaxLength="8" Nullable="false" />
           <Property Name="SEBESSEG" Type="numeric" Precision="10" Scale="0" Nullable="false" />
           <Property Name="KAPACITAS" Type="numeric" Precision="10" Scale="0" Nullable="false" />
@@ -91,15 +98,28 @@
             <PropertyRef Name="SSD_ID" />
           </Key>
           <Property Name="SSD_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="AR" Type="numeric" Precision="20" Scale="0" Nullable="false" />
           <Property Name="KAPACITAS" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SZEMELYES_ADATOK">
+          <Key>
+            <PropertyRef Name="FELHASZNALO_ID" />
+          </Key>
+          <Property Name="FELHASZNALO_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="VEZETEKNEV" Type="varchar" MaxLength="30" />
+          <Property Name="KERESZTNEV" Type="varchar" MaxLength="30" />
+          <Property Name="EMAILCIM" Type="varchar" MaxLength="50" />
+          <Property Name="CIM" Type="varchar" MaxLength="100" />
+          <Property Name="TELEFONSZAM" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="TAP">
           <Key>
             <PropertyRef Name="TAP_ID" />
           </Key>
           <Property Name="TAP_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="AR" Type="numeric" Precision="20" Scale="0" Nullable="false" />
           <Property Name="TELJESITMENY" Type="numeric" Precision="4" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="UZENETEK">
@@ -209,6 +229,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="SZEMELYES_FOREIGN_KEY">
+          <End Role="FELHASZNALO" Type="Self.FELHASZNALO" Multiplicity="1" />
+          <End Role="SZEMELYES_ADATOK" Type="Self.SZEMELYES_ADATOK" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="FELHASZNALO">
+              <PropertyRef Name="FELHASZNALO_ID" />
+            </Principal>
+            <Dependent Role="SZEMELYES_ADATOK">
+              <PropertyRef Name="FELHASZNALO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="TAP_FOREIGN_KEY">
           <End Role="TAP" Type="Self.TAP" Multiplicity="1" />
           <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
@@ -243,6 +275,7 @@
           <EntitySet Name="MEMORIA" EntityType="Self.MEMORIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RENDELESEK" EntityType="Self.RENDELESEK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SSD" EntityType="Self.SSD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SZEMELYES_ADATOK" EntityType="Self.SZEMELYES_ADATOK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TAP" EntityType="Self.TAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UZENETEK" EntityType="Self.UZENETEK" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="ALAPLAP_FOREIGN_KEY" Association="Self.ALAPLAP_FOREIGN_KEY">
@@ -277,6 +310,10 @@
             <End Role="SSD" EntitySet="SSD" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
           </AssociationSet>
+          <AssociationSet Name="SZEMELYES_FOREIGN_KEY" Association="Self.SZEMELYES_FOREIGN_KEY">
+            <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
+            <End Role="SZEMELYES_ADATOK" EntitySet="SZEMELYES_ADATOK" />
+          </AssociationSet>
           <AssociationSet Name="TAP_FOREIGN_KEY" Association="Self.TAP_FOREIGN_KEY">
             <End Role="TAP" EntitySet="TAP" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
@@ -286,8 +323,7 @@
             <End Role="UZENETEK" EntitySet="UZENETEK" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -296,24 +332,27 @@
             <PropertyRef Name="ALAPLAP_ID" />
           </Key>
           <Property Name="ALAPLAP_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CPUFOGLALAT" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MEMORIASLOTOK" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
           <Property Name="MEMORIATIPUS" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CHIPSET" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MERETSZABVANY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.ALAPLAP_FOREIGN_KEY" FromRole="ALAPLAP" ToRole="RENDELESEK" />
+          <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
         </EntityType>
         <EntityType Name="CPU">
           <Key>
             <PropertyRef Name="CPU_ID" />
           </Key>
           <Property Name="CPU_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CPUFOGLALAT" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FOGYASZTAS" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
           <Property Name="SEBESSEG" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.CPU_FOREIGN_KEY" FromRole="CPU" ToRole="RENDELESEK" />
+          <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="MAGOK" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
         </EntityType>
         <EntityType Name="FELHASZNALO">
           <Key>
@@ -325,45 +364,50 @@
           <Property Name="JELSZO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.FELHASZNALO_FOREIGN_KEY" FromRole="FELHASZNALO" ToRole="RENDELESEK" />
           <NavigationProperty Name="UZENETEK" Relationship="Self.UZENETFELHASZNALO_FOREIGN_KEY" FromRole="FELHASZNALO" ToRole="UZENETEK" />
+          <NavigationProperty Name="SZEMELYES_ADATOK" Relationship="DatabaseModel.SZEMELYES_FOREIGN_KEY" FromRole="FELHASZNALO" ToRole="SZEMELYES_ADATOK" />
         </EntityType>
         <EntityType Name="GPU">
           <Key>
             <PropertyRef Name="GPU_ID" />
           </Key>
           <Property Name="GPU_ID" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MEMORIA" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <Property Name="FOGYASZTAS" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.GPU_FOREIGN_KEY" FromRole="GPU" ToRole="RENDELESEK" />
+          <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
         </EntityType>
         <EntityType Name="HAZ">
           <Key>
             <PropertyRef Name="HAZ_ID" />
           </Key>
           <Property Name="HAZ_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MERETSZABVANY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.HAZ_FOREIGN_KEY" FromRole="HAZ" ToRole="RENDELESEK" />
+          <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
         </EntityType>
         <EntityType Name="HDD">
           <Key>
             <PropertyRef Name="HDD_ID" />
           </Key>
           <Property Name="HDD_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="KAPACITAS" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.HDD_FOREIGN_KEY" FromRole="HDD" ToRole="RENDELESEK" />
+          <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
         </EntityType>
         <EntityType Name="MEMORIA">
           <Key>
             <PropertyRef Name="MEMORIA_ID" />
           </Key>
           <Property Name="MEMORIA_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MEMORIATIPUS" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SEBESSEG" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <Property Name="KAPACITAS" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.MEMORIA_FOREIGN_KEY" FromRole="MEMORIA" ToRole="RENDELESEK" />
+          <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
         </EntityType>
         <EntityType Name="RENDELESEK">
           <Key>
@@ -394,18 +438,20 @@
             <PropertyRef Name="SSD_ID" />
           </Key>
           <Property Name="SSD_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="KAPACITAS" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.SSD_FOREIGN_KEY" FromRole="SSD" ToRole="RENDELESEK" />
+          <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
         </EntityType>
         <EntityType Name="TAP">
           <Key>
             <PropertyRef Name="TAP_ID" />
           </Key>
           <Property Name="TAP_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="TIPUSSZAM" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPUSSZAM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TELJESITMENY" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.TAP_FOREIGN_KEY" FromRole="TAP" ToRole="RENDELESEK" />
+          <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
         </EntityType>
         <EntityType Name="UZENETEK">
           <Key>
@@ -591,7 +637,36 @@
             <End Role="TAP" EntitySet="TAP" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
           </AssociationSet>
+          <EntitySet Name="SZEMELYES_ADATOK" EntityType="DatabaseModel.SZEMELYES_ADATOK" />
+          <AssociationSet Name="SZEMELYES_FOREIGN_KEY" Association="DatabaseModel.SZEMELYES_FOREIGN_KEY">
+            <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
+            <End Role="SZEMELYES_ADATOK" EntitySet="SZEMELYES_ADATOK" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="SZEMELYES_ADATOK">
+          <Key>
+            <PropertyRef Name="FELHASZNALO_ID" />
+          </Key>
+          <Property Name="FELHASZNALO_ID" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="VEZETEKNEV" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="KERESZTNEV" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="EMAILCIM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CIM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONSZAM" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FELHASZNALO" Relationship="DatabaseModel.SZEMELYES_FOREIGN_KEY" FromRole="SZEMELYES_ADATOK" ToRole="FELHASZNALO" />
+        </EntityType>
+        <Association Name="SZEMELYES_FOREIGN_KEY">
+          <End Type="DatabaseModel.FELHASZNALO" Role="FELHASZNALO" Multiplicity="1" />
+          <End Type="DatabaseModel.SZEMELYES_ADATOK" Role="SZEMELYES_ADATOK" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="FELHASZNALO">
+              <PropertyRef Name="FELHASZNALO_ID" />
+            </Principal>
+            <Dependent Role="SZEMELYES_ADATOK">
+              <PropertyRef Name="FELHASZNALO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -601,6 +676,7 @@
           <EntitySetMapping Name="ALAPLAP">
             <EntityTypeMapping TypeName="DatabaseModel.ALAPLAP">
               <MappingFragment StoreEntitySet="ALAPLAP">
+                <ScalarProperty Name="AR" ColumnName="AR" />
                 <ScalarProperty Name="ALAPLAP_ID" ColumnName="ALAPLAP_ID" />
                 <ScalarProperty Name="TIPUSSZAM" ColumnName="TIPUSSZAM" />
                 <ScalarProperty Name="CPUFOGLALAT" ColumnName="CPUFOGLALAT" />
@@ -614,6 +690,8 @@
           <EntitySetMapping Name="CPU">
             <EntityTypeMapping TypeName="DatabaseModel.CPU">
               <MappingFragment StoreEntitySet="CPU">
+                <ScalarProperty Name="MAGOK" ColumnName="MAGOK" />
+                <ScalarProperty Name="AR" ColumnName="AR" />
                 <ScalarProperty Name="CPU_ID" ColumnName="CPU_ID" />
                 <ScalarProperty Name="TIPUSSZAM" ColumnName="TIPUSSZAM" />
                 <ScalarProperty Name="CPUFOGLALAT" ColumnName="CPUFOGLALAT" />
@@ -635,6 +713,7 @@
           <EntitySetMapping Name="GPU">
             <EntityTypeMapping TypeName="DatabaseModel.GPU">
               <MappingFragment StoreEntitySet="GPU">
+                <ScalarProperty Name="AR" ColumnName="AR" />
                 <ScalarProperty Name="GPU_ID" ColumnName="GPU_ID" />
                 <ScalarProperty Name="TIPUSSZAM" ColumnName="TIPUSSZAM" />
                 <ScalarProperty Name="MEMORIA" ColumnName="MEMORIA" />
@@ -645,6 +724,7 @@
           <EntitySetMapping Name="HAZ">
             <EntityTypeMapping TypeName="DatabaseModel.HAZ">
               <MappingFragment StoreEntitySet="HAZ">
+                <ScalarProperty Name="AR" ColumnName="AR" />
                 <ScalarProperty Name="HAZ_ID" ColumnName="HAZ_ID" />
                 <ScalarProperty Name="TIPUSSZAM" ColumnName="TIPUSSZAM" />
                 <ScalarProperty Name="MERETSZABVANY" ColumnName="MERETSZABVANY" />
@@ -654,6 +734,7 @@
           <EntitySetMapping Name="HDD">
             <EntityTypeMapping TypeName="DatabaseModel.HDD">
               <MappingFragment StoreEntitySet="HDD">
+                <ScalarProperty Name="AR" ColumnName="AR" />
                 <ScalarProperty Name="HDD_ID" ColumnName="HDD_ID" />
                 <ScalarProperty Name="TIPUSSZAM" ColumnName="TIPUSSZAM" />
                 <ScalarProperty Name="KAPACITAS" ColumnName="KAPACITAS" />
@@ -663,6 +744,7 @@
           <EntitySetMapping Name="MEMORIA">
             <EntityTypeMapping TypeName="DatabaseModel.MEMORIA">
               <MappingFragment StoreEntitySet="MEMORIA">
+                <ScalarProperty Name="AR" ColumnName="AR" />
                 <ScalarProperty Name="MEMORIA_ID" ColumnName="MEMORIA_ID" />
                 <ScalarProperty Name="TIPUSSZAM" ColumnName="TIPUSSZAM" />
                 <ScalarProperty Name="MEMORIATIPUS" ColumnName="MEMORIATIPUS" />
@@ -690,6 +772,7 @@
           <EntitySetMapping Name="SSD">
             <EntityTypeMapping TypeName="DatabaseModel.SSD">
               <MappingFragment StoreEntitySet="SSD">
+                <ScalarProperty Name="AR" ColumnName="AR" />
                 <ScalarProperty Name="SSD_ID" ColumnName="SSD_ID" />
                 <ScalarProperty Name="TIPUSSZAM" ColumnName="TIPUSSZAM" />
                 <ScalarProperty Name="KAPACITAS" ColumnName="KAPACITAS" />
@@ -699,6 +782,7 @@
           <EntitySetMapping Name="TAP">
             <EntityTypeMapping TypeName="DatabaseModel.TAP">
               <MappingFragment StoreEntitySet="TAP">
+                <ScalarProperty Name="AR" ColumnName="AR" />
                 <ScalarProperty Name="TAP_ID" ColumnName="TAP_ID" />
                 <ScalarProperty Name="TIPUSSZAM" ColumnName="TIPUSSZAM" />
                 <ScalarProperty Name="TELJESITMENY" ColumnName="TELJESITMENY" />
@@ -714,6 +798,18 @@
                 <ScalarProperty Name="DATUM" ColumnName="DATUM" />
                 <ScalarProperty Name="IRANY" ColumnName="IRANY" />
                 <ScalarProperty Name="LATTA_E" ColumnName="LATTA_E" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SZEMELYES_ADATOK">
+            <EntityTypeMapping TypeName="DatabaseModel.SZEMELYES_ADATOK">
+              <MappingFragment StoreEntitySet="SZEMELYES_ADATOK">
+                <ScalarProperty Name="TELEFONSZAM" ColumnName="TELEFONSZAM" />
+                <ScalarProperty Name="CIM" ColumnName="CIM" />
+                <ScalarProperty Name="EMAILCIM" ColumnName="EMAILCIM" />
+                <ScalarProperty Name="KERESZTNEV" ColumnName="KERESZTNEV" />
+                <ScalarProperty Name="VEZETEKNEV" ColumnName="VEZETEKNEV" />
+                <ScalarProperty Name="FELHASZNALO_ID" ColumnName="FELHASZNALO_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

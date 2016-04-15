@@ -32,7 +32,7 @@ namespace Szt2_projekt
         {
 
             db = new AdatbazisEntities();
-
+            
             aktualisFelhasznalo = new FELHASZNALO();
 
         }
@@ -57,7 +57,7 @@ namespace Szt2_projekt
                 }
                 else
                 {
-                    UserWindow uw = new UserWindow();
+                    UserWindow uw = new UserWindow(aktualisFelhasznalo.FELHASZNALO_ID);
                     uw.Show();
                 }
             }

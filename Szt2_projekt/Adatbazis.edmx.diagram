@@ -26,6 +26,8 @@
         <AssociationConnector Association="DatabaseModel.MEMORIA_FOREIGN_KEY" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.SSD_FOREIGN_KEY" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.TAP_FOREIGN_KEY" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DatabaseModel.SZEMELYES_ADATOK" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="DatabaseModel.SZEMELYES_FOREIGN_KEY" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

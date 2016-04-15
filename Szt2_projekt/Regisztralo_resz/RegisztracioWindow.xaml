@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="RegisztracioWindow" Height="497" Width="400">
     <Grid Margin="0,-3,0,3">
-        <Label x:Name="label" Content="Felhasználó név:" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="44,10,0,0" Width="108"/>
-        <Label x:Name="label1" Content="Telefonszám:" HorizontalAlignment="Left" Margin="44,258,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="Cím:" HorizontalAlignment="Left" Margin="44,298,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label5_Copy" Content="Email:" HorizontalAlignment="Left" Margin="44,338,0,0" VerticalAlignment="Top"/>
+        <Label  Content="Felhasználó név:" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="44,10,0,0" Width="108"/>
+        <Label  Content="Telefonszám:" HorizontalAlignment="Left" Margin="44,258,0,0" VerticalAlignment="Top"/>
+        <Label  Content="Cím:" HorizontalAlignment="Left" Margin="44,298,0,0" VerticalAlignment="Top"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="44,338,0,0" VerticalAlignment="Top"/>
 
         <TextBox Text="{Binding Felhasznalonev}" Width="150" HorizontalAlignment="Left"  Margin="205,14,0,0" VerticalAlignment="Top"/>
         <TextBox Text="{Binding Telefonszam}" Width="150" HorizontalAlignment="Left" Margin="205,258,0,0" VerticalAlignment="Top"/>
@@ -23,9 +23,9 @@
         <Label Content="Jelszó" HorizontalAlignment="Left" Height="26" Margin="44,50,0,0" VerticalAlignment="Top" Width="108"/>
         <PasswordBox Name="passwordBox2" HorizontalAlignment="Left" Height="26" Margin="205,96,0,0" VerticalAlignment="Top" Width="150"/>
         <Label Content="Jelszó ismét" HorizontalAlignment="Left" Height="26" Margin="44,96,0,0" VerticalAlignment="Top" Width="108"/>
-        <Label x:Name="label1_Copy" Content="Vezetéknév:" HorizontalAlignment="Left" Margin="44,169,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2_Copy" Content="Keresztnév:" HorizontalAlignment="Left" Margin="44,209,0,0" VerticalAlignment="Top"/>
-        <TextBox Text="{Binding Vezeteknev}" x:Name="tboxTelefonszam_Copy" Width="150" HorizontalAlignment="Left" Margin="205,169,0,0" VerticalAlignment="Top"/>
-        <TextBox Text="{Binding Keresztnev}" x:Name="tboxCim_Copy" Width="150" HorizontalAlignment="Left" Margin="205,209,0,0" VerticalAlignment="Top"/>
+        <Label  Content="Vezetéknév:" HorizontalAlignment="Left" Margin="44,169,0,0" VerticalAlignment="Top"/>
+        <Label  Content="Keresztnév:" HorizontalAlignment="Left" Margin="44,209,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Vezeteknev}"  Width="150" HorizontalAlignment="Left" Margin="205,169,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Keresztnev}" Width="150" HorizontalAlignment="Left" Margin="205,209,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

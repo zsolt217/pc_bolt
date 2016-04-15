@@ -23,6 +23,7 @@ namespace Szt2_projekt
         public decimal TAP_ID { get; set; }
         public string TIPUSSZAM { get; set; }
         public decimal TELJESITMENY { get; set; }
+        public decimal AR { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }

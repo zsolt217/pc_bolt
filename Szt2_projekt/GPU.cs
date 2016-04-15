@@ -24,6 +24,7 @@ namespace Szt2_projekt
         public string TIPUSSZAM { get; set; }
         public decimal MEMORIA { get; set; }
         public decimal FOGYASZTAS { get; set; }
+        public decimal AR { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }

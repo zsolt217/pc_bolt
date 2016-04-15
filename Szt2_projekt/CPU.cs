@@ -25,6 +25,8 @@ namespace Szt2_projekt
         public string CPUFOGLALAT { get; set; }
         public decimal FOGYASZTAS { get; set; }
         public decimal SEBESSEG { get; set; }
+        public decimal AR { get; set; }
+        public decimal MAGOK { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }
