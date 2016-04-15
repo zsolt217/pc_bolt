@@ -33,18 +33,36 @@ namespace Szt2_projekt.Admin
 
         }
         AdatbazisEntities ab = new AdatbazisEntities();
-  
+
         private void felvetelButton_Click(object sender, RoutedEventArgs e) //felvétel
         {
             FELHASZNALO ujfelhasznalo = new FELHASZNALO();
-            ujfelhasznalo.FELHASZNALO_ID = ab.FELHASZNALO.Count() + 5; // azért nem +1,mert így ütközik a Gabival,akivel konkrétan semmit sem tudok csinálni
-            ujfelhasznalo.NEV = tBoxVezetekNev.Text + " " + tBoxKeresztNev.Text;
+            SZEMELYES_ADATOK ujadatok = new SZEMELYES_ADATOK();
+            int ujID = (int)ab.FELHASZNALO.Max(x => x.FELHASZNALO_ID) + 1; //talán így is jó
+
+            ujfelhasznalo.FELHASZNALO_ID = ujID;
+            ujfelhasznalo.NEV = tBoxFelhasznaloNev.Text;
             ujfelhasznalo.BEOSZTAS = cBoxBeosztas.SelectedItem.ToString();
             ujfelhasznalo.JELSZO = passwordBox1.Password.ToString();
             //ujfelhasznalo.RENDELESEK = new List<RENDELESEK>();
             //ujfelhasznalo.UZENETEK = new List<UZENETEK>();
+            ujfelhasznalo.SZEMELYES_ADATOK = ujadatok;
+
+            //ujfelhasznalo.SZEMELYES_ADATOK.CIM = tBoxCim.Text;
+            //ujfelhasznalo.SZEMELYES_ADATOK.EMAILCIM = tBoxEmail.Text;
+            //ujfelhasznalo.SZEMELYES_ADATOK.TELEFONSZAM = tBoxTelefonSzam.Text;
+            //ujfelhasznalo.SZEMELYES_ADATOK.KERESZTNEV = tBoxKeresztNev.Text;
+            //ujfelhasznalo.SZEMELYES_ADATOK.VEZETEKNEV = tBoxVezetekNev.Text;
+            ujadatok.FELHASZNALO_ID = ujID;
+            ujadatok.CIM = tBoxCim.Text;
+            ujadatok.EMAILCIM = tBoxEmail.Text;
+            ujadatok.TELEFONSZAM = tBoxTelefonSzam.Text;
+            ujadatok.KERESZTNEV = tBoxKeresztNev.Text;
+            ujadatok.VEZETEKNEV = tBoxVezetekNev.Text;
+
             ab.FELHASZNALO.Add(ujfelhasznalo);
-            ab.SaveChanges();
+            ab.SZEMELYES_ADATOK.Add(ujadatok);     
+            ab.SaveChanges(); 
             this.DialogResult = true;
 
         }
@@ -59,7 +77,7 @@ namespace Szt2_projekt.Admin
             FELHASZNALO aktfelhasznalo = new FELHASZNALO();
             this.DialogResult = true;
         }
-       
+
 
 
 

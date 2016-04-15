@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Szt2_projekt.Admin;
 
-namespace Szt2_projekt.Ugyintezo
+namespace Szt2_projekt //szval érted,be sem tölti az ablakot
 {
     class AdminVM
     {
@@ -24,7 +24,8 @@ namespace Szt2_projekt.Ugyintezo
         {
             AdminFelhasznaloFelvetelWindow ablak = new AdminFelhasznaloFelvetelWindow();
             ablak.felvetelButton.IsEnabled = false;
-            ablak.DataContext = modositando;
+            ablak.FelhasznaloTabla.DataContext = modositando;
+            ablak.SzemelyesTabla.DataContext = modositando.SZEMELYES_ADATOK;
             ablak.ShowDialog();
         }
 
