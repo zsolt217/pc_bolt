@@ -82,8 +82,8 @@ namespace Szt2_projekt
 
                 try
                 {
-                    var t1 = torlo.First();
-                    ab.SZEMELYES_ADATOK.Remove(t1.SZEMELYES_ADATOK);
+                    var t1 = torlo.Single();
+                    ab.SZEMELYES_ADATOK.Remove((ab.SZEMELYES_ADATOK.Where(x=>x.FELHASZNALO_ID==t1.FELHASZNALO_ID)).SingleOrDefault());
                     ab.FELHASZNALO.Remove(t1);
                     ab.SaveChanges();
                     Frissit();
