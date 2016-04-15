@@ -69,7 +69,18 @@ namespace Szt2_projekt
                 return null;
             }
         }
-        public void UzenetLattamozasModosit()
-        { }
+        public void UzenetLattamozasModosit(decimal uzenetid)
+        {
+            try
+            {
+                DB.UZENETEK.Where(x => x.UZENET_ID == uzenetid).SingleOrDefault().LATTA_E = true;
+                DB.SaveChanges();
+            }
+            catch (Exception hiba)
+            {
+                Megosztott.Logolas(hiba.InnerException.Message);
+            }
+            
+        }
     }
 }

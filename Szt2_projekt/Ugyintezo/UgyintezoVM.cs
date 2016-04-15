@@ -36,8 +36,11 @@ namespace Szt2_projekt
         }
         public bool UzenetKuldes()
         {
-            if (kimenouzenet != String.Empty && selectedUzenet != null)
+            if (kimenouzenet != String.Empty && selectedUzenet != null)//láttamozza az üzenetet
             {
+                kezelo.UzenetLattamozasModosit(selectedUzenet.UZENET_ID);
+                UzenetBetoltes();
+                OnPropertyChanged("Bejovok");
                 return kezelo.Uzenetletrehozas(selectedUzenet.FELHASZNALO_ID, Uzenetirany.Felhasznalonak, kimenouzenet);
             }
             return false;
@@ -47,7 +50,7 @@ namespace Szt2_projekt
             get { return kimenouzenet; }
             set { kimenouzenet = value; }
         }
-
+       
         public UZENETEK SelectedUzenet
         {
             get { return selectedUzenet; }

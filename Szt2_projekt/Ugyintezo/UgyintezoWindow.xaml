@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:Szt2_projekt"
         mc:Ignorable="d"
         Title="UgyintezoWindow" Height="543" Width="659" Closing="Window_Closing">
+    <Window.Resources>
+        <local:BoolToColorConverter x:Key="Converter"/>
+    </Window.Resources>
     <Grid>
         <TabControl Background="White" >
             <TabItem Header="Termékek">
@@ -32,7 +35,7 @@
                     <ListBox Margin="-4,-1,408,1" ItemsSource="{Binding Bejovok}" SelectedItem="{Binding SelectedUzenet}" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Grid Height="40" Width="210">
+                                <Grid Height="40" Width="210" Background="{Binding LATTA_E, Converter={StaticResource Converter}}">
                                     <Label Content="{Binding FELHASZNALO.NEV}" HorizontalAlignment="Left" Height="33" Margin="0,1,0,0" VerticalAlignment="Top" Width="105"/>
                                     <Label Content="{Binding DATUM}" HorizontalAlignment="Left" Height="39" Margin="137,0,0,0" VerticalAlignment="Top" Width="105"/>
                                 </Grid>
