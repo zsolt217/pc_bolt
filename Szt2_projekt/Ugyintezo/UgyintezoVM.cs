@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Szt2_projekt
 {
-    class UgyintezoVM:INotifyPropertyChanged
+    class UgyintezoVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string name = "")
@@ -32,6 +32,15 @@ namespace Szt2_projekt
         public void UzenetBetoltes()
         {
             bejovok = kezelo.UzenetKereso(0, Rang.Ugyintezo);
+            kimenouzenet = String.Empty;
+        }
+        public bool UzenetKuldes()
+        {
+            if (kimenouzenet != String.Empty && selectedUzenet != null)
+            {
+                return kezelo.Uzenetletrehozas(selectedUzenet.FELHASZNALO_ID, Uzenetirany.Felhasznalonak, kimenouzenet);
+            }
+            return false;
         }
         public string Kimenouzenet
         {
@@ -42,16 +51,26 @@ namespace Szt2_projekt
         public UZENETEK SelectedUzenet
         {
             get { return selectedUzenet; }
-            set { selectedUzenet = value; }
+            set
+            {
+                selectedUzenet = value;
+                OnPropertyChanged("UzenetSzoveg");
+                kimenouzenet = String.Empty;
+                OnPropertyChanged("Kimenouzenet");
+            }
+        }
+        public string UzenetSzoveg
+        {
+            get { return (null == SelectedUzenet ? String.Empty : SelectedUzenet.SZOVEG); }
         }
         public List<UZENETEK> Bejovok
         {
             get { return bejovok; }
-            
+
         }
 
         #endregion
 
-        
+
     }
 }

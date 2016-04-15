@@ -30,7 +30,11 @@ namespace Szt2_projekt
         }
         private void ValaszKuldese_Click(object sender, RoutedEventArgs e)
         {
-
+            if (VM.UzenetKuldes())
+            {
+                MessageBox.Show("Sikeres küldés");
+            }
+            else MessageBox.Show("Sikertelen küldés");
         }
 
         private void Kijelentkezes_Click(object sender, RoutedEventArgs e)
