@@ -33,7 +33,7 @@ namespace Szt2_projekt.Admin
 
         }
         AdatbazisEntities ab = new AdatbazisEntities();
-        #region Felhasználós cuccok
+  
         private void felvetelButton_Click(object sender, RoutedEventArgs e) //felvétel
         {
             FELHASZNALO ujfelhasznalo = new FELHASZNALO();
@@ -59,7 +59,7 @@ namespace Szt2_projekt.Admin
             FELHASZNALO aktfelhasznalo = new FELHASZNALO();
             this.DialogResult = true;
         }
-        #endregion
+       
 
 
 

@@ -21,9 +21,15 @@ namespace Szt2_projekt
     public partial class AdminWindow : Window
     {
         AdatbazisEntities ab;
+        AdminVM admin; // tök őszintén: minek neki usingolnia a "Szt2_projekt.Ugyintezo;"-t,ahogy h elérje az AdminVM osztályt?
         public AdminWindow()
         {
             InitializeComponent();
+
+            string[] alkatreszek = new string[] { "Alaplap", "Processzor", "Videókártya", "Memória", "Winchester", "SSD", "Táp", "Ház" };
+            cBoxTermekTipus.ItemsSource = alkatreszek;
+
+
             admin = new AdminVM();
             ab = new AdatbazisEntities();
 
@@ -34,8 +40,9 @@ namespace Szt2_projekt
             lBoxAdminFelhasznalok.ItemsSource = felhasznalok.ToList();
 
         }
-        AdminVM admin; // tök őszintén: minek neki usingolnia a "Szt2_projekt.Ugyintezo;"-t,ahogy h elérje az AdminVM osztályt?
 
+
+        #region Felhasználós cuccok
         void Frissit() // egyelőre ezzel a megoldással "frissül" a listbox(mármint minden gombnyomás után lefut a lekérdezés)
         {
             var felhasznalok = from akt in ab.FELHASZNALO
@@ -44,6 +51,8 @@ namespace Szt2_projekt
 
             lBoxAdminFelhasznalok.ItemsSource = felhasznalok.ToList();
         }
+
+
         private void button_Click(object sender, RoutedEventArgs e) // felhasználó hozzáadás
         {
             admin.FelhasznaloHozzaAdas();
@@ -71,21 +80,54 @@ namespace Szt2_projekt
         private void button_Copy1_Click(object sender, RoutedEventArgs e) // felhasználó módosítása
         {
             if (lBoxAdminFelhasznalok.SelectedIndex != -1)
-            {               
+            {
                 var q = from akt in ab.FELHASZNALO
-                          where akt.NEV == lBoxAdminFelhasznalok.SelectedItem.ToString()
-                          select akt;
+                        where akt.NEV == lBoxAdminFelhasznalok.SelectedItem.ToString()
+                        select akt;
 
                 FELHASZNALO f = q.First();
                 admin.FelhasznaloModositas(f);
                 Frissit();
             }
-           
-        }
 
+        }
+        #endregion
+
+        #region Termékes cuccok
         private void button_Copy2_Click(object sender, RoutedEventArgs e) //Termék hozzáadása
         {
             admin.TermekHozzaAdas();
         }
+
+        private void cBoxTermekTipus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cBoxTermekTipus.SelectedIndex != -1)
+            {
+                if (cBoxTermekTipus.SelectedItem == "Processzor") // ez így működőképes,de a többi alkatrészre is meg kell írni az if-eket
+                {
+                    var qcpu = from akt in ab.CPU
+                               select akt.TIPUSSZAM;
+                    lBoxAdminTermekek.ItemsSource = qcpu.ToList();
+                }
+                else if (cBoxTermekTipus.SelectedItem == "Alaplap")
+                {
+                    var qalaplap = from akt in ab.ALAPLAP
+                                   select akt.TIPUSSZAM;
+                    lBoxAdminTermekek.ItemsSource = qalaplap.ToList();
+                }
+            }
+        }
+        private void button_Copy4_Click(object sender, RoutedEventArgs e) //termék módosítás
+        {
+            if (lBoxAdminTermekek.SelectedIndex != -1)
+            {
+                admin.TermekModositas(this);
+            }
+        }
+
+
+        #endregion
+
+
     }
 }
