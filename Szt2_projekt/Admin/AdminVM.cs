@@ -24,8 +24,8 @@ namespace Szt2_projekt //szval érted,be sem tölti az ablakot
         {
             AdminFelhasznaloFelvetelWindow ablak = new AdminFelhasznaloFelvetelWindow();
             ablak.felvetelButton.IsEnabled = false;
-            ablak.FelhasznaloTabla.DataContext = modositando;
-            ablak.SzemelyesTabla.DataContext = modositando.SZEMELYES_ADATOK;
+            ablak.FelhasznaloTablaGrid.DataContext = modositando;
+            ablak.SzemelyesTablaGrid.DataContext = modositando.SZEMELYES_ADATOK;
             ablak.ShowDialog();
         }
 

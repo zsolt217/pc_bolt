@@ -48,11 +48,6 @@ namespace Szt2_projekt.Admin
             //ujfelhasznalo.UZENETEK = new List<UZENETEK>();
             ujfelhasznalo.SZEMELYES_ADATOK = ujadatok;
 
-            //ujfelhasznalo.SZEMELYES_ADATOK.CIM = tBoxCim.Text;
-            //ujfelhasznalo.SZEMELYES_ADATOK.EMAILCIM = tBoxEmail.Text;
-            //ujfelhasznalo.SZEMELYES_ADATOK.TELEFONSZAM = tBoxTelefonSzam.Text;
-            //ujfelhasznalo.SZEMELYES_ADATOK.KERESZTNEV = tBoxKeresztNev.Text;
-            //ujfelhasznalo.SZEMELYES_ADATOK.VEZETEKNEV = tBoxVezetekNev.Text;
             ujadatok.FELHASZNALO_ID = ujID;
             ujadatok.CIM = tBoxCim.Text;
             ujadatok.EMAILCIM = tBoxEmail.Text;

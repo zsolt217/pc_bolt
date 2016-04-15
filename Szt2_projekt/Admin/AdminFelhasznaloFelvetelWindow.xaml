@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="AdminFelhasznaloFelvetelWindow" Height="550" Width="500">
     <Grid Margin="0,-3,0,3">
-        <Grid x:Name="FelhasznaloTabla">
+        <Grid x:Name="FelhasznaloTablaGrid">
             <Label x:Name="label" Content="Felhasználó név:" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="44,10,0,0" Width="108"/>
             <TextBox x:Name="tBoxFelhasznaloNev" Text="{Binding NEV}" Width="150" HorizontalAlignment="Left"  Margin="205,14,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label1" Content="Telefonszám:" HorizontalAlignment="Left" Margin="44,258,0,0" VerticalAlignment="Top"/>
@@ -17,7 +17,7 @@
             <ComboBox x:Name="cBoxBeosztas" SelectedItem="{Binding BEOSZTAS}" HorizontalAlignment="Left" Margin="205,380,0,0" VerticalAlignment="Top" Width="150"/>
         </Grid >
 
-        <Grid x:Name="SzemelyesTabla">
+        <Grid x:Name="SzemelyesTablaGrid">
             <TextBox x:Name="tBoxTelefonSzam" Text="{Binding TELEFONSZAM}" Width="150" HorizontalAlignment="Left" Margin="205,258,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="tBoxCim" Text="{Binding CIM}" Width="257" HorizontalAlignment="Left" Margin="98,298,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="tBoxEmail" Text="{Binding EMAILCIM}" Width="216"  HorizontalAlignment="Left" Margin="139,342,0,0" VerticalAlignment="Top"/>
