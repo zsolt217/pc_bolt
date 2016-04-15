@@ -27,6 +27,7 @@ namespace Szt2_projekt //szval érted,be sem tölti az ablakot
             ablak.FelhasznaloTablaGrid.DataContext = modositando;
             ablak.SzemelyesTablaGrid.DataContext = modositando.SZEMELYES_ADATOK;
             ablak.ShowDialog();
+            modositando.JELSZO = ablak.passwordBox1.Password; // a passwordboxot nem lehet bindingolni
         }
 
 
