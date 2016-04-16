@@ -8,10 +8,10 @@ namespace Szt2_projekt
 {
     public enum Uzenetirany { Felhasznalonak, Ugyintezonek }
     public enum Rang { Felhasznalo, Ugyintezo }
-    class UzetnetKezelo
+    class UzenetKezelo
     {
         AdatbazisEntities DB;
-        public UzetnetKezelo()
+        public UzenetKezelo()
         {
             DB = new AdatbazisEntities();
         }
@@ -55,7 +55,7 @@ namespace Szt2_projekt
                 switch (rang)
                 {
                     case Rang.Felhasznalo:
-                        return DB.UZENETEK.Where(x => x.FELHASZNALO_ID == felhid).ToList();
+                        return DB.UZENETEK.Where(x => x.FELHASZNALO_ID == felhid && x.IRANY == false).ToList();
                         break;
                     case Rang.Ugyintezo:
                         return DB.UZENETEK.Where(x => x.IRANY == true).ToList();//ügyintézőnek az össze központba címzett megy

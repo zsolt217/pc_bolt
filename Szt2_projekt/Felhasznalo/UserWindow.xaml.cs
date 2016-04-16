@@ -26,7 +26,7 @@ namespace Szt2_projekt
         public UserWindow(decimal felhasznaloid)
         {
             InitializeComponent();
-            VM = new FelhasznaloVM();
+            VM = new FelhasznaloVM(felhasznaloid);
             BS = new FelhasznaloBSL (felhasznaloid,VM);
             id = felhasznaloid;
             DataContext = VM;
@@ -58,6 +58,15 @@ namespace Szt2_projekt
         {
             RegisztracioWindow uj = new RegisztracioWindow(id);
             uj.ShowDialog();
+        }
+
+        private void kuldesButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (VM.UzenetKuldes())
+            {
+                MessageBox.Show("Sikeres küldés");
+            }
+            else MessageBox.Show("Sikertelen küldés");
         }
     }
 }

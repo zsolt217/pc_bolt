@@ -35,5 +35,7 @@ namespace Szt2_projekt
                 Megosztott.Logolas(e.InnerException.Message);
             }
         }
+
+
     }
 }

@@ -20,22 +20,32 @@ namespace Szt2_projekt
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-        public FelhasznaloVM()
+        public FelhasznaloVM(decimal felhid)
         {
+            id = felhid;
             felhasznalonev = String.Empty;
             vezeteknev = String.Empty;
             keresztnev = String.Empty;
             telefonszam = String.Empty;
             cim = String.Empty;
             email = String.Empty;
+            kezelo = new UzenetKezelo();
+            kimenouzenet = String.Empty;
+            UzenetBetoltes();
         }
         #region sajatadatok
+        decimal id;
         string felhasznalonev;
         string vezeteknev;
         string keresztnev;
         string telefonszam;
         string cim;
         string email;
+
+        public decimal Id
+        {
+            get { return id; }
+        }
         public string Email
         {
             get { return email; }
@@ -73,6 +83,55 @@ namespace Szt2_projekt
             get { return felhasznalonev; }
             set { felhasznalonev = value; OnPropertyChanged(); }
         }
+        #endregion
+
+        #region Uzenetek
+        UzenetKezelo kezelo;
+        List<UZENETEK> bejovok;
+        UZENETEK selectedUzenet;
+        string kimenouzenet;
+        public void UzenetBetoltes()
+        {
+            bejovok = kezelo.UzenetKereso(id, Rang.Felhasznalo);
+        }
+        public bool UzenetKuldes()
+        {
+            if (kimenouzenet != String.Empty && selectedUzenet != null)//láttamozza az üzenetet
+            {
+                kezelo.UzenetLattamozasModosit(selectedUzenet.UZENET_ID);
+                UzenetBetoltes();
+                OnPropertyChanged("Bejovok");
+                return kezelo.Uzenetletrehozas(selectedUzenet.FELHASZNALO_ID, Uzenetirany.Ugyintezonek, kimenouzenet);
+            }
+            return false;
+        }
+        public string Kimenouzenet
+        {
+            get { return kimenouzenet; }
+            set { kimenouzenet = value; OnPropertyChanged(); }
+        }
+
+        public UZENETEK SelectedUzenet
+        {
+            get { return selectedUzenet; }
+            set
+            {
+                selectedUzenet = value;
+                OnPropertyChanged("UzenetSzoveg");
+                kimenouzenet = String.Empty;
+                OnPropertyChanged("Kimenouzenet");
+            }
+        }
+        public string UzenetSzoveg
+        {
+            get { return (null == SelectedUzenet ? String.Empty : SelectedUzenet.SZOVEG); }
+        }
+        public List<UZENETEK> Bejovok
+        {
+            get { return bejovok; }
+
+        }
+
         #endregion
     }
 }

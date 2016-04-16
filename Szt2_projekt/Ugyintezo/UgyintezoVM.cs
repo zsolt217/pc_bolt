@@ -21,18 +21,19 @@ namespace Szt2_projekt
         }
         public UgyintezoVM()
         {
-            kezelo = new UzetnetKezelo();
+            kezelo = new UzenetKezelo();
+            kimenouzenet = String.Empty;
             UzenetBetoltes();
         }
         #region Uzenetek
-        UzetnetKezelo kezelo;
+        UzenetKezelo kezelo;
         List<UZENETEK> bejovok;
         UZENETEK selectedUzenet;
         string kimenouzenet;
         public void UzenetBetoltes()
         {
             bejovok = kezelo.UzenetKereso(0, Rang.Ugyintezo);
-            kimenouzenet = String.Empty;
+            
         }
         public bool UzenetKuldes()
         {

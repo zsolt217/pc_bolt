@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:Szt2_projekt"
         mc:Ignorable="d"
         Title="UserWindow" Height="550" Width="700" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.Resources>
+        <local:BoolToColorConverter x:Key="Converter"/>
+    </Window.Resources>
     <Grid>
         <TabControl Background="White" Margin="0,0,0,40">
             <TabItem Header="Adatok" >
@@ -93,20 +96,32 @@
 
             <TabItem Header="Kapcsolatfelvétel">
                 <Grid>
-                    <Grid.RowDefinitions>
+                    <!--<Grid.RowDefinitions>
                         <RowDefinition Height="50" ></RowDefinition>
                         <RowDefinition ></RowDefinition>
                         <RowDefinition Height="50"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Content="Ha bármi kérése,vagy panasza van,azt kérem itt írja meg!" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-                    <TextBox Grid.Row="1" x:Name="kapcsolattBox" Height="300" Margin="5" ></TextBox>
-                    <Button Grid.Row="2" x:Name="kuldesButton" Content="Küldés!" Width="70" Height="25" Margin="157,10,445,15"></Button>
-                    <Button Grid.Row="2" x:Name="megsemButton" Content="Mégsem!" Width="70" Height="25" Margin="452,10,150,15"  />
+                    </Grid.RowDefinitions>-->
+
+                    <ListBox Margin="10,10,408,71" ItemsSource="{Binding Bejovok}" SelectedItem="{Binding SelectedUzenet}" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Height="40" Width="210" Background="{Binding LATTA_E, Converter={StaticResource Converter}}">
+                                    <Label Content="Ügyintéző" HorizontalAlignment="Left" Height="33" Margin="0,1,0,0" VerticalAlignment="Top" Width="105"/>
+                                    <Label Content="{Binding DATUM}" HorizontalAlignment="Left" Height="39" Margin="137,0,0,0" VerticalAlignment="Top" Width="105"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Label Content="{Binding UzenetSzoveg }" Margin="302,10,10,297"/>
+
+                    <!--<Label Content="Ha bármi kérése,vagy panasza van,azt kérem itt írja meg!" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="394,0,0,324" Grid.RowSpan="2"></Label>-->
+                    <TextBox x:Name="kapcsolattBox" Text="{Binding Kimenouzenet}" Margin="302,180,10,71" />
+                    <Button x:Name="kuldesButton" Content="Küldés!" Width="85" Margin="457,385,144,30" Click="kuldesButton_Click"/>
                 </Grid>
             </TabItem>
 
         </TabControl>
         <Button Click="Kijelentkezo_Click" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="504,0,0,5" VerticalAlignment="Bottom" Width="124"/>
-        <Label Content="Label1" HorizontalAlignment="Left" Margin="418,494,0,0" VerticalAlignment="Top" Width="81" Height="20" FontSize="9"/>
+        <Label Content="{Binding Felhasznalonev}" HorizontalAlignment="Left" Margin="418,489,0,0" VerticalAlignment="Top" Width="81" Height="20" />
     </Grid>
 </Window>
