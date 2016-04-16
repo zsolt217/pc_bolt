@@ -21,7 +21,6 @@ namespace Szt2_projekt
     {
         UgyintezoVM VM;
         
-        
         public UgyintezoWindow()
         {
             InitializeComponent();
@@ -48,7 +47,6 @@ namespace Szt2_projekt
             MainWindow uj = new MainWindow();
             uj.Show();
         }
-
 
     }
 }

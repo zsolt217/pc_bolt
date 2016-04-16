@@ -143,6 +143,7 @@
     <Compile Include="Kozos\MegrendelesWindow.xaml.cs">
       <DependentUpon>MegrendelesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Kozos\TermekVezerlo.cs" />
     <Compile Include="Kozos\UzenetKezelo.cs" />
     <Compile Include="MEMORIA.cs">
       <DependentUpon>Adatbazis.tt</DependentUpon>

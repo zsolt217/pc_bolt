@@ -76,14 +76,12 @@ namespace Szt2_projekt
 
             var z = db.FELHASZNALO.Where(f => f.NEV == felhasznalonev.ToUpper());
 
-            if (z.Any())
+            if (z.Any()) // z.ToList().Count > 0
             {
-
                 var zz = z.Where(f => f.JELSZO == jelszo.ToUpper());
 
-                if (zz.Any())
+                if (zz.Any()) // zz.ToList().Count > 0
                     return z.First();
-
             }
 
             return null;

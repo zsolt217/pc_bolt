@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Szt2_projekt.Kozos;
 
 namespace Szt2_projekt
 {
@@ -18,13 +19,52 @@ namespace Szt2_projekt
             {
                 handler(this, new PropertyChangedEventArgs(name));
             }
+
+            
         }
         public UgyintezoVM()
         {
+            termekvez = new TermekVezerlo();
             kezelo = new UzenetKezelo();
             kimenouzenet = String.Empty;
+            kivalasztottCsoport = String.Empty;
             UzenetBetoltes();
         }
+
+        #region Termekek
+
+        TermekVezerlo termekvez;
+
+        public string[] Csoportok
+        {
+            get { return termekvez.Csoportok; }
+        }
+
+        public List<string> KivalasztottCsoportTermekei
+        {
+            get
+            {
+                return termekvez.TermekListazas(kivalasztottCsoport);
+            }
+        }
+
+        string kivalasztottCsoport;
+        public string KivalasztottCsoport
+        {
+            get
+            {
+                return kivalasztottCsoport;
+            }
+
+            set
+            {
+                kivalasztottCsoport = value; 
+                OnPropertyChanged("KivalasztottCsoportTermekei");
+            }
+        }
+
+        #endregion
+
         #region Uzenetek
         UzenetKezelo kezelo;
         List<UZENETEK> bejovok;
