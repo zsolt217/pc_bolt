@@ -106,6 +106,7 @@
     <Compile Include="Admin\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin\TermekModositoVM.cs" />
     <Compile Include="Admin\TermekModositoWindow.xaml.cs">
       <DependentUpon>TermekModositoWindow.xaml</DependentUpon>
     </Compile>

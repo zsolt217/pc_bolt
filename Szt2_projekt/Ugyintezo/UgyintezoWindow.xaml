@@ -13,13 +13,13 @@
         <TabControl Background="White" >
             <TabItem Header="Termékek">
                 <Grid >
-                    <Label x:Name="label" Content="Termékek" HorizontalAlignment="Left" Margin="47,37,0,0" VerticalAlignment="Top"/>
-                    <ListBox x:Name="lBoxAdminTermekek" ItemsSource="{Binding KivalasztottCsoportTermekei}" HorizontalAlignment="Left" Height="144" Margin="47,75,0,0" VerticalAlignment="Top" Width="249" />
-                    <Button x:Name="button1" Content="Törlés" HorizontalAlignment="Left" Margin="336,102,0,0" VerticalAlignment="Top" Width="124"/>
-                    <Button x:Name="button2" Content="Módosítás" HorizontalAlignment="Left" Margin="336,129,0,0" VerticalAlignment="Top" Width="124"/>
-                    <Button x:Name="button3" Content="Hozzáadás" HorizontalAlignment="Left" Margin="336,75,0,0" VerticalAlignment="Top" Width="124"/>
-                    <Label x:Name="label1_Copy" Content="Termék típusa:" HorizontalAlignment="Left" Margin="39,234,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="cBoxTermekTipus" ItemsSource="{Binding Csoportok}" HorizontalAlignment="Left" Margin="147,238,0,0" VerticalAlignment="Top" Width="144" SelectedItem="{Binding KivalasztottCsoport}" />
+                    <Label x:Name="label" Content="Termékek" HorizontalAlignment="Left" Margin="47,89,0,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="lBoxAdminTermekek" ItemsSource="{Binding KivalasztottCsoportTermekei}" HorizontalAlignment="Left" Height="144" Margin="47,116,0,0" VerticalAlignment="Top" Width="249" />
+                    <Button x:Name="button1" Content="Törlés" HorizontalAlignment="Left" Margin="336,141,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Button x:Name="button2" Content="Módosítás" HorizontalAlignment="Left" Margin="336,116,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Button x:Name="ujTermekButton" Content="Új termék" HorizontalAlignment="Left" Margin="336,51,0,0" VerticalAlignment="Top" Width="124" Click="ujTermekButton_Click"/>
+                    <Label x:Name="label1_Copy" Content="Termék típusa:" HorizontalAlignment="Left" Margin="47,45,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cBoxTermekTipus" ItemsSource="{Binding Csoportok}" HorizontalAlignment="Left" Margin="152,49,0,0" VerticalAlignment="Top" Width="144" SelectedItem="{Binding KivalasztottCsoport}" />
                 </Grid>
             </TabItem>
             <TabItem Header="Megrendelések">
@@ -33,7 +33,7 @@
             </TabItem>
             <TabItem Header="Üzenetek">
                 <Grid>
-                    <ListBox Margin="-4,-1,408,1" ItemsSource="{Binding Bejovok}" SelectedItem="{Binding SelectedUzenet}" >
+                    <ListBox Margin="10,37,412,10" ItemsSource="{Binding Bejovok}" SelectedItem="{Binding SelectedUzenet}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid Height="40" Width="210" Background="{Binding LATTA_E, Converter={StaticResource Converter}}">
@@ -43,10 +43,11 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <Label Content="{Binding UzenetSzoveg }" Margin="238,5,10,297"/>
+                    <Label Content="{Binding UzenetSzoveg }" Margin="238,37,10,297"/>
                     <TextBox Text="{Binding Kimenouzenet}" HorizontalAlignment="Left" Height="165" Margin="238,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="388"/>
-                    <Button Content="Válasz küldése" HorizontalAlignment="Left" Margin="419,395,0,0" VerticalAlignment="Top" Width="90" Click="ValaszKuldese_Click"/>
-                    <Label Content="Válasz:" HorizontalAlignment="Left" Margin="406,193,0,0" VerticalAlignment="Top" Width="56"/>
+                    <Button Content="Válasz küldése" HorizontalAlignment="Left" Margin="392,395,0,0" VerticalAlignment="Top" Width="90" Click="ValaszKuldese_Click"/>
+                    <Label Content="Válasz:" HorizontalAlignment="Left" Margin="238,192,0,0" VerticalAlignment="Top" Width="56"/>
+                    <Label Content="Bejövő üzenetek:" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
         </TabControl>

@@ -19,87 +19,57 @@ namespace Szt2_projekt.Admin
     /// </summary>
     public partial class TermekModositoWindow : Window
     {
+        TermekModositoVM VM;
+        
         public TermekModositoWindow()
         {
             InitializeComponent();
-            ab = new AdatbazisEntities();
-            alkatreszek = new string[] { "Alaplap", "Processzor", "Videókártya", "Memória", "Winchester", "SSD", "Táp", "Ház" };
-            cBoxTermekTipus.ItemsSource = alkatreszek;
+            VM = new TermekModositoVM();
+            this.DataContext = VM;
         }
-        AdatbazisEntities ab;
-        string[] alkatreszek;
+        
+       
         private void felvetelButton_Click(object sender, RoutedEventArgs e) //felvétel
         {
-            // itt az összeset ki kell szépen tölteni,csak tisztázni kéne az adatbázisokat
-            if (cBoxTermekTipus.SelectedIndex != -1)
-            {
-                if (cBoxTermekTipus.SelectedItem == "Alaplap")
-                {
-                    ALAPLAP ujalaplap = new ALAPLAP();
-
-                    ab.ALAPLAP.Add(ujalaplap);
-                    ab.SaveChanges();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Processzor")
-                {
-                    CPU ujcpu = new CPU();
-                    ujcpu.CPU_ID = ab.CPU.Max(x => x.CPU_ID) + 1; // mindig a legnagyobb id-hoz az egyet
-                    ujcpu.FOGYASZTAS = int.Parse(tBoxFogyasztas.Text);
-                    ujcpu.SEBESSEG = int.Parse(tBoxOrajel.Text);
-
-                    ab.CPU.Add(ujcpu);
-                    ab.SaveChanges();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Videókártya")
-                {
-                    GPU ujgpu = new GPU();
-
-                    ab.GPU.Add(ujgpu);
-                    ab.SaveChanges();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Memória")
-                {
-                    MEMORIA ujmemoria = new MEMORIA();
-
-                    ab.MEMORIA.Add(ujmemoria);
-                    ab.SaveChanges();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Winchester")
-                {
-                    HDD ujdd = new HDD();
-
-                    ab.HDD.Add(ujdd);
-                    ab.SaveChanges();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "SSD")
-                {
-                    SSD ujssd = new SSD();
-
-                    ab.SSD.Add(ujssd);
-                    ab.SaveChanges();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Táp")
-                {
-                    TAP ujtap = new TAP();
-
-                    ab.TAP.Add(ujtap);
-                    ab.SaveChanges();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Ház")
-                {
-                    HAZ ujhaz = new HAZ();
-
-                    ab.HAZ.Add(ujhaz);
-                    ab.SaveChanges();
-                }
-            }
-
-            this.DialogResult = true;
+            if (VM.TermekHozzaadas())
+                this.DialogResult = true;
+            else
+                MessageBox.Show("Sikertelen termék hozzáadás!");  
         }
 
         private void megsemButton_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
+        }
+
+        private void cBoxTermekTipus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // a kiválasztott termékcsoport jellemzői 
+            List<string> jellemzok = VM.KivalasztottCsoportJellemzoi;
+
+            // stackpanel összes dockpaneljét listázza: egy dockpanel = egy jellemző
+            stPanelJellemzok.Visibility = Visibility.Visible;
+            felvetelButton.IsEnabled = true;
+            UIElementCollection element = stPanelJellemzok.Children;
+            List<FrameworkElement> lstElement = element.Cast<FrameworkElement>().ToList();
+            var lstControl = lstElement.OfType<DockPanel>();
+
+            // a kiválaszott termékcsoporthoz NEM tartozó jellemzők DP elrejtése x:Name alapján 
+            foreach (DockPanel dp in lstControl)
+            {
+                if (jellemzok.Contains(dp.Name.ToUpper()))
+                    dp.Visibility = Visibility.Visible;
+                else
+                    dp.Visibility = Visibility.Collapsed;
+            }
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // betöltéskor ne jelenjen meg az összes jellemző, amikor nincs kiválasztva termékcsoport
+            stPanelJellemzok.Visibility = Visibility.Hidden;
+            felvetelButton.IsEnabled = false;
         }
     }
 }

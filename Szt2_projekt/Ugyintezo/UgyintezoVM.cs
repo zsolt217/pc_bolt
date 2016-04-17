@@ -42,20 +42,13 @@ namespace Szt2_projekt
 
         public List<string> KivalasztottCsoportTermekei
         {
-            get
-            {
-                return termekvez.TermekListazas(kivalasztottCsoport);
-            }
+            get { return termekvez.TermekListazas(kivalasztottCsoport); }
         }
 
         string kivalasztottCsoport;
         public string KivalasztottCsoport
         {
-            get
-            {
-                return kivalasztottCsoport;
-            }
-
+            get { return kivalasztottCsoport; }
             set
             {
                 kivalasztottCsoport = value; 
@@ -101,6 +94,7 @@ namespace Szt2_projekt
                 OnPropertyChanged("UzenetSzoveg");
                 kimenouzenet = String.Empty;
                 OnPropertyChanged("Kimenouzenet");
+  
             }
         }
         public string UzenetSzoveg

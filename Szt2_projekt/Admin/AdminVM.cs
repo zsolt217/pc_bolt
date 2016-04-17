@@ -41,10 +41,10 @@ namespace Szt2_projekt //szval érted,be sem tölti az ablakot
         public void TermekModositas(AdminWindow aktualis)
         {
             TermekModositoWindow ablak = new TermekModositoWindow();
-            if (aktualis.cBoxTermekTipus.SelectedItem == "Alaplap")
+            /*if (aktualis.cBoxTermekTipus.SelectedItem == "Alaplap")
             {
                 ablak.tBoxMagokSzama.IsEnabled = false;
-            }
+            }*/
             ablak.ShowDialog();
           
         }

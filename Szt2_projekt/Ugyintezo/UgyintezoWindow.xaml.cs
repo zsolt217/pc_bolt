@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Szt2_projekt.Admin;
 
 namespace Szt2_projekt
 {
@@ -46,6 +47,12 @@ namespace Szt2_projekt
         {
             MainWindow uj = new MainWindow();
             uj.Show();
+        }
+
+        private void ujTermekButton_Click(object sender, RoutedEventArgs e)
+        {
+            TermekModositoWindow ablak = new TermekModositoWindow();
+            ablak.ShowDialog();
         }
 
     }
