@@ -92,6 +92,7 @@
           <Property Name="HDD_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
           <Property Name="SSD_ID" Type="numeric" Precision="10" Scale="0" />
           <Property Name="HAZ_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ALLAPOT" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="SSD">
           <Key>
@@ -432,6 +433,7 @@
           <NavigationProperty Name="MEMORIA" Relationship="Self.MEMORIA_FOREIGN_KEY" FromRole="RENDELESEK" ToRole="MEMORIA" />
           <NavigationProperty Name="SSD" Relationship="Self.SSD_FOREIGN_KEY" FromRole="RENDELESEK" ToRole="SSD" />
           <NavigationProperty Name="TAP" Relationship="Self.TAP_FOREIGN_KEY" FromRole="RENDELESEK" ToRole="TAP" />
+          <Property Name="ALLAPOT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="SSD">
           <Key>
@@ -756,6 +758,7 @@
           <EntitySetMapping Name="RENDELESEK">
             <EntityTypeMapping TypeName="DatabaseModel.RENDELESEK">
               <MappingFragment StoreEntitySet="RENDELESEK">
+                <ScalarProperty Name="ALLAPOT" ColumnName="ALLAPOT" />
                 <ScalarProperty Name="RENDELES_ID" ColumnName="RENDELES_ID" />
                 <ScalarProperty Name="FELHASZNALO_ID" ColumnName="FELHASZNALO_ID" />
                 <ScalarProperty Name="ALAPLAP_ID" ColumnName="ALAPLAP_ID" />

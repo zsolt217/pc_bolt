@@ -24,6 +24,7 @@ namespace Szt2_projekt
         public decimal HDD_ID { get; set; }
         public Nullable<decimal> SSD_ID { get; set; }
         public decimal HAZ_ID { get; set; }
+        public string ALLAPOT { get; set; }
     
         public virtual ALAPLAP ALAPLAP { get; set; }
         public virtual CPU CPU { get; set; }

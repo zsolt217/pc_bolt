@@ -24,11 +24,21 @@
             </TabItem>
             <TabItem Header="Megrendelések">
                 <Grid>
-                    <Label x:Name="label2" Content="Megrendelések:" HorizontalAlignment="Left" Margin="47,37,0,0" VerticalAlignment="Top"/>
-                    <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="144" Margin="47,75,0,0" VerticalAlignment="Top" Width="249"/>
-                    <Button x:Name="button32" Content="Megtekintés" HorizontalAlignment="Left" Margin="336,75,0,0" VerticalAlignment="Top" Width="124"/>
-                    <Label x:Name="label3" Content="Kiválasztott megrendelés állapota:" HorizontalAlignment="Left" Margin="47,257,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="label4" Content="Állapot" HorizontalAlignment="Left" Margin="281,257,0,0" VerticalAlignment="Top"/>
+                    <Label  Content="Megrendelések:" HorizontalAlignment="Left" Margin="47,37,0,0" VerticalAlignment="Top"/>
+                    <ListBox ItemsSource="{Binding Rendelesek}" SelectedItem="{Binding Selectedrendeles}" HorizontalAlignment="Left" Height="144" Margin="47,75,0,0" VerticalAlignment="Top" Width="249">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Height="40" Width="210" Background="{Binding LATTA_E, Converter={StaticResource Converter}}">
+                                    <Label Content="{Binding FELHASZNALO.NEV}" HorizontalAlignment="Left" Height="33" Margin="0,1,0,0" VerticalAlignment="Top" Width="60"/>
+                                    <Label Content="{Binding ALLAPOT}" HorizontalAlignment="Left" Height="39" Margin="60,1,0,0" VerticalAlignment="Top" Width="150"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button Content="Megtekintés" HorizontalAlignment="Left" Margin="336,75,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Label Content="Kiválasztott megrendelés állapota:" HorizontalAlignment="Left" Margin="47,257,0,0" VerticalAlignment="Top"/>
+                    <ComboBox ItemsSource="{Binding RendelesAllapotok}"  SelectedItem="{Binding Selectedallapot}" HorizontalAlignment="Left" Height="26" Margin="260,257,0,0" VerticalAlignment="Top" Width="129"/>
+
                 </Grid>
             </TabItem>
             <TabItem Header="Üzenetek">

@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Szt2_projekt.Kozos;
+using System.Windows;
 
 namespace Szt2_projekt
 {
@@ -29,6 +30,8 @@ namespace Szt2_projekt
             kimenouzenet = String.Empty;
             kivalasztottCsoport = String.Empty;
             UzenetBetoltes();
+            rendvezerlo = new RendelesVezerlo(Rang.Ugyintezo);
+            rendelesek = rendvezerlo.RendelesBetoltes();
         }
 
         #region Termekek
@@ -122,6 +125,57 @@ namespace Szt2_projekt
 
         #endregion
 
+        #region Rendelesek
+        List<RENDELESEK> rendelesek;
+             
+                
+        RendelesVezerlo rendvezerlo;
+        public List<RENDELESEK> Rendelesek
+        {
+            get { return rendelesek; }
+            //set { rendelesek = value; }
+        }
+        RENDELESEK selectedrendeles;
 
+        public RENDELESEK Selectedrendeles
+        {
+            get { return selectedrendeles; }
+            set { selectedrendeles = value; }
+        }
+        RendelesAllapot selectedallapot;
+
+        public string Selectedallapot
+        {
+            set
+            {
+                if (value.Equals("Befogadva")) selectedallapot = RendelesAllapot.Befogadva;
+                else if (value.Equals("Osszeallitas_alatt")) selectedallapot = RendelesAllapot.Osszeallitas_alatt;
+                else if (value.Equals("Kiszallitas_alatt")) selectedallapot = RendelesAllapot.Kiszallitas_alatt;
+                else if (value.Equals("Lezart")) selectedallapot = RendelesAllapot.Lezart;
+                if (selectedrendeles != null)
+                {
+                    if (rendvezerlo.AllapotModosit(selectedrendeles.RENDELES_ID, selectedallapot)) MessageBox.Show("Sikeres változtatás!");
+                    else MessageBox.Show("Sikertelen változtatás!");
+                    rendelesek = rendvezerlo.RendelesBetoltes();
+                    OnPropertyChanged("Rendelesek");
+                }
+            }
+            get
+            {
+                if (selectedrendeles != null)
+                {
+                    if (selectedrendeles.ALLAPOT.Equals("BEFOGADVA")) return "Befogadva";
+                    else if (selectedrendeles.ALLAPOT.Equals("OSSZEALLITAS_ALATT")) return "Osszeallitas_alatt";
+                    else if (selectedrendeles.ALLAPOT.Equals("KISZALLITAS_ALATT")) return "Kiszallitas_alatt";
+                    else return "Lezart"; //(selectedrendeles.ALLAPOT.Equals("LEZART"))
+                }
+                else return String.Empty;
+            }
+        }
+        public List<string> RendelesAllapotok
+        {
+            get { return Enum.GetValues(typeof(RendelesAllapot)).Cast<RendelesAllapot>().Select(x => x.ToString()).ToList(); }
+        }
+        #endregion
     }
 }
