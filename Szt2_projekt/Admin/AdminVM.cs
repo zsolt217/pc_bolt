@@ -32,20 +32,20 @@ namespace Szt2_projekt //szval érted,be sem tölti az ablakot
 
 
 
-        public void TermekHozzaAdas()
+        public void TermekHozzaAdas(AdminWindow aktualis)
         {
             TermekModositoWindow ablak = new TermekModositoWindow();
+            ablak.modositasButton.IsEnabled = false;
             ablak.ShowDialog();
+            aktualis.FrissitTermek();
         }
-        //A termékmódosító windowra majd az összes alkatrész tulajdonságot ki fogom pakolni,aztán ami nem szükséges az majd disabled lesz (pl alaplapnál nincs magszám)
         public void TermekModositas(AdminWindow aktualis)
         {
             TermekModositoWindow ablak = new TermekModositoWindow();
-            /*if (aktualis.cBoxTermekTipus.SelectedItem == "Alaplap")
-            {
-                ablak.tBoxMagokSzama.IsEnabled = false;
-            }*/
+            ablak.felvetelButton.IsEnabled = false;
+            ablak.cBoxTermekTipus.SelectedItem= aktualis.lBoxAdminTermekek.SelectedItem;
             ablak.ShowDialog();
+         
           
         }
     }

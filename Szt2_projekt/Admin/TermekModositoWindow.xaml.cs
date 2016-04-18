@@ -49,7 +49,7 @@ namespace Szt2_projekt.Admin
 
             // stackpanel összes dockpaneljét listázza: egy dockpanel = egy jellemző
             stPanelJellemzok.Visibility = Visibility.Visible;
-            felvetelButton.IsEnabled = true;
+            //felvetelButton.IsEnabled = true; //<--- csak azért szedtem ki,mert ha minden választásnál enabled lesz a felvétel,az nem jó a módosítás miatt
             UIElementCollection element = stPanelJellemzok.Children;
             List<FrameworkElement> lstElement = element.Cast<FrameworkElement>().ToList();
             var lstControl = lstElement.OfType<DockPanel>();
@@ -69,7 +69,8 @@ namespace Szt2_projekt.Admin
         {
             // betöltéskor ne jelenjen meg az összes jellemző, amikor nincs kiválasztva termékcsoport
             stPanelJellemzok.Visibility = Visibility.Hidden;
-            felvetelButton.IsEnabled = false;
+            //felvetelButton.IsEnabled = false;
+            modositasButton.IsEnabled = false;
         }
     }
 }

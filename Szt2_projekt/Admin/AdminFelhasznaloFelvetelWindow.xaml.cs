@@ -69,7 +69,6 @@ namespace Szt2_projekt.Admin
 
         private void Button_Click(object sender, RoutedEventArgs e) //módosítás
         {
-            FELHASZNALO aktfelhasznalo = new FELHASZNALO();
             this.DialogResult = true;
         }
 

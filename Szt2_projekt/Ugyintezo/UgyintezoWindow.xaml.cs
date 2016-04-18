@@ -52,6 +52,7 @@ namespace Szt2_projekt
         private void ujTermekButton_Click(object sender, RoutedEventArgs e)
         {
             TermekModositoWindow ablak = new TermekModositoWindow();
+            ablak.modositasButton.IsEnabled = false;
             ablak.ShowDialog();
         }
 
