@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Szt2_projekt.Admin;
 
 
 namespace Szt2_projekt
@@ -27,11 +28,9 @@ namespace Szt2_projekt
         {
             InitializeComponent();
 
-            string[] alkatreszek = new string[] { "Alaplap", "Processzor", "Videókártya", "Memória", "Winchester", "SSD", "Táp", "Ház" };
-            cBoxTermekTipus.ItemsSource = alkatreszek;
-
-
             admin = new AdminVM();
+            this.DataContext = admin;
+
             ab = new AdatbazisEntities();
 
             var felhasznalok = from akt in ab.FELHASZNALO
@@ -118,68 +117,27 @@ namespace Szt2_projekt
         #region Termékes cuccok
         private void button_Copy2_Click(object sender, RoutedEventArgs e) //Termék hozzáadása
         {
-            admin.TermekHozzaAdas(this);
-        }
-
-        private void cBoxTermekTipus_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (cBoxTermekTipus.SelectedIndex != -1)
+            //admin.TermekHozzaAdas(this); VM-nek nem kell átadni a Window-t
+            TermekModositoWindow ablak = new TermekModositoWindow();
+            ablak.modositasButton.IsEnabled = false;
+            if (ablak.ShowDialog() == true)
             {
-                if (cBoxTermekTipus.SelectedItem == "Processzor")
-                {
-                    var qcpu = from akt in ab.CPU
-                               select akt.TIPUSSZAM;
-                    lBoxAdminTermekek.ItemsSource = qcpu.ToList();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Alaplap")
-                {
-                    var qalaplap = from akt in ab.ALAPLAP
-                                   select akt.TIPUSSZAM;
-                    lBoxAdminTermekek.ItemsSource = qalaplap.ToList();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Videókártya")
-                {
-                    var qgpu = from akt in ab.GPU
-                               select akt.TIPUSSZAM;
-                    lBoxAdminTermekek.ItemsSource = qgpu.ToList();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Memória")
-                {
-                    var qram = from akt in ab.MEMORIA
-                               select akt.TIPUSSZAM;
-                    lBoxAdminTermekek.ItemsSource = qram.ToList();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Winchester")
-                {
-                    var qhdd = from akt in ab.HDD
-                               select akt.TIPUSSZAM;
-                    lBoxAdminTermekek.ItemsSource = qhdd.ToList();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "SSD")
-                {
-                    var qssd = from akt in ab.SSD
-                               select akt.TIPUSSZAM;
-                    lBoxAdminTermekek.ItemsSource = qssd.ToList();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Táp")
-                {
-                    var qtap = from akt in ab.TAP
-                               select akt.TIPUSSZAM;
-                    lBoxAdminTermekek.ItemsSource = qtap.ToList();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Ház")
-                {
-                    var qhaz = from akt in ab.HAZ
-                               select akt.TIPUSSZAM;
-                    lBoxAdminTermekek.ItemsSource = qhaz.ToList();
-                }
+                admin.KivalasztottCsoport = admin.KivalasztottCsoport; // trükk, hogy frissítse a listbox tartalmát a binding (termék típusnév változáskor)
             }
         }
+
         private void button_Copy4_Click(object sender, RoutedEventArgs e) //termék módosítás
         {
             if (lBoxAdminTermekek.SelectedIndex != -1)
             {
-                admin.TermekModositas(this);
+                //admin.TermekModositas(this); VM-nek nem kell átadni a Window-t
+                TermekModositoWindow ablak = new TermekModositoWindow(admin.KivalasztottCsoport, admin.KivalasztottTipusszam);
+                ablak.felvetelButton.IsEnabled = false;
+                ablak.modositasButton.IsEnabled = true;
+                if (ablak.ShowDialog() == true)
+                {
+                    admin.KivalasztottCsoport = admin.KivalasztottCsoport; // trükk, hogy frissítse a listbox tartalmát a binding (termék típusnév változáskor)
+                }
             }
             
         }
@@ -325,13 +283,6 @@ namespace Szt2_projekt
             }
         }
         #endregion
-
-
-
-
-
-
-
 
     }
 }

@@ -66,12 +66,6 @@ namespace Szt2_projekt
             set { kivalasztottTipusszam = value; OnPropertyChanged(); }
         }
 
-        /*public void KivalasztottTermekAdatai()
-        {
-            termekvez.Termekcsop = kivalasztottCsoport;
-            termekvez.Tipusszam = kivalasztottTipusszam;
-        }*/
-
         #endregion
 
         #region Uzenetek

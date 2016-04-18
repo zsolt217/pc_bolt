@@ -51,9 +51,12 @@ namespace Szt2_projekt
 
         private void ujTermekButton_Click(object sender, RoutedEventArgs e)
         {
-            TermekModositoWindow ablak = new TermekModositoWindow("","");
+            TermekModositoWindow ablak = new TermekModositoWindow();
             ablak.modositasButton.IsEnabled = false;
-            ablak.ShowDialog();
+            if (ablak.ShowDialog() == true)
+            {
+                VM.KivalasztottCsoport = VM.KivalasztottCsoport; // trükk, hogy frissítse a listbox tartalmát a binding (termék típusnév változáskor)
+            }
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
@@ -63,7 +66,10 @@ namespace Szt2_projekt
                 TermekModositoWindow ablak = new TermekModositoWindow(VM.KivalasztottCsoport, VM.KivalasztottTipusszam);
                 ablak.felvetelButton.IsEnabled = false;
                 ablak.modositasButton.IsEnabled = true;
-                ablak.ShowDialog();
+                if (ablak.ShowDialog() == true)
+                {
+                    VM.KivalasztottCsoport = VM.KivalasztottCsoport; // trükk, hogy frissítse a listbox tartalmát a binding (termék típusnév változáskor)
+                }
             }
             
         }

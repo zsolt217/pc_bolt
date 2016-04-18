@@ -58,13 +58,13 @@ namespace Szt2_projekt.Admin
         
         public void KivalasztottTermekAdatai()
         {
-
             object o = termekvez.TermekAdatok(kivalasztottCsoport, tipusszam);
 
             switch (kivalasztottCsoport)
             {
                 case "Processzor":
                     CPU cpu = o as CPU;
+                    this.id = cpu.CPU_ID;
                     this.ar = (int)cpu.AR;
                     this.cpufoglalat = cpu.CPUFOGLALAT;
                     this.orajel = (int)cpu.SEBESSEG;
@@ -74,6 +74,7 @@ namespace Szt2_projekt.Admin
 
                 case "Alaplap":
                     ALAPLAP mob = o as ALAPLAP;
+                    this.id = mob.ALAPLAP_ID;
                     this.ar = (int)mob.AR;
                     this.cpufoglalat = mob.CPUFOGLALAT;
                     this.memoriaslotok = (int)mob.MEMORIASLOTOK;
@@ -83,12 +84,14 @@ namespace Szt2_projekt.Admin
                     break;
                 case "Videókártya":
                     GPU gpu = o as GPU;
+                    this.id = gpu.GPU_ID;
                     this.ar = (int)gpu.AR;
                     this.fogyasztas = (int)gpu.FOGYASZTAS;
                     this.memoria = (int)gpu.MEMORIA;
                     break;
                 case "Memória":
                     MEMORIA ram = o as MEMORIA;
+                    this.id = ram.MEMORIA_ID;
                     this.ar = (int)ram.AR;
                     this.orajel = (int)ram.SEBESSEG;
                     this.memoriatipus = ram.MEMORIATIPUS;
@@ -96,21 +99,25 @@ namespace Szt2_projekt.Admin
                     break;
                 case "Winchester":
                     HDD hdd = o as HDD;
+                    this.id = hdd.HDD_ID;
                     this.ar = (int)hdd.AR;
                     this.kapacitas = (int)hdd.KAPACITAS;
                     break;
                 case "SSD":
                     SSD ssd = o as SSD;
+                    this.id = ssd.SSD_ID;
                     this.ar = (int)ssd.AR;
                     this.kapacitas = (int)ssd.KAPACITAS;
                     break;
                 case "Táp":
                     TAP tap = o as TAP;
+                    this.id = tap.TAP_ID;
                     this.ar = (int)tap.AR;
                     this.teljesitmeny = (int)tap.TELJESITMENY;
                     break;
                 case "Ház":
                     HAZ haz = o as HAZ;
+                    this.id = haz.HAZ_ID;
                     this.ar = (int)haz.AR;
                     this.meretszabvany = haz.MERETSZABVANY;
                     break;
@@ -120,6 +127,7 @@ namespace Szt2_projekt.Admin
         }
 
         #region Termekjellemzok
+        decimal id;
         string tipusszam;
         string cpufoglalat;
         int ar;
@@ -133,6 +141,12 @@ namespace Szt2_projekt.Admin
         int kapacitas;
         int fogyasztas;
         int teljesitmeny;
+
+        public decimal Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         public string Tipusszam
         {
@@ -240,5 +254,9 @@ namespace Szt2_projekt.Admin
             return termekvez.TermekHozzaadas(kivalasztottCsoport, BevittSzamErtekek, BevittStringErtekek);
         }
 
+        public bool TermekModositas()
+        {
+            return termekvez.TermekModositas(kivalasztottCsoport, id, BevittSzamErtekek, BevittStringErtekek);
+        }
     }
 }

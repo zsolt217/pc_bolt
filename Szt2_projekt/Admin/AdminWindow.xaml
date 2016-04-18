@@ -13,13 +13,13 @@
         <Button x:Name="button_Copy" Content="Törlés" HorizontalAlignment="Left" Margin="331,122,0,0" VerticalAlignment="Top" Width="134" Click="button_Copy_Click"/>
         <Button x:Name="button_Copy1" Content="Módosítás" HorizontalAlignment="Left" Margin="331,95,0,0" VerticalAlignment="Top" Width="134" Click="button_Copy1_Click"/>
         <Label x:Name="label1" Content="Termékek:" HorizontalAlignment="Left" Margin="39,258,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="lBoxAdminTermekek" HorizontalAlignment="Left" Height="77" Margin="39,289,0,0" VerticalAlignment="Top" Width="252"/>
+        <ListBox x:Name="lBoxAdminTermekek" ItemsSource="{Binding KivalasztottCsoportTermekei}" SelectedItem="{Binding KivalasztottTipusszam}" HorizontalAlignment="Left" Height="77" Margin="39,289,0,0" VerticalAlignment="Top" Width="252"/>
         <Button x:Name="button_Copy2" Content="Új termék" HorizontalAlignment="Left" Margin="331,238,0,0" VerticalAlignment="Top" Width="134" Click="button_Copy2_Click"/>
         <Button x:Name="button_Copy3" Content="Törlés" HorizontalAlignment="Left" Margin="331,316,0,0" VerticalAlignment="Top" Width="134" Click="button_Copy3_Click"/>
         <Button x:Name="button_Copy4" Content="Módosítás" HorizontalAlignment="Left" Margin="331,289,0,0" VerticalAlignment="Top" Width="134" Click="button_Copy4_Click"/>
         <Button x:Name="button1" Click="Kijelentkezes_Click" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="331,405,0,0" VerticalAlignment="Top" Width="134" Height="35"/>
         <Label x:Name="label1_Copy" Content="Termék típusa:" HorizontalAlignment="Left" Margin="39,234,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cBoxTermekTipus" HorizontalAlignment="Left" Margin="147,238,0,0" VerticalAlignment="Top" Width="144" SelectionChanged="cBoxTermekTipus_SelectionChanged"/>
+        <ComboBox x:Name="cBoxTermekTipus" ItemsSource="{Binding Csoportok}" SelectedItem="{Binding KivalasztottCsoport}" HorizontalAlignment="Left" Margin="147,238,0,0" VerticalAlignment="Top" Width="144"/>
 
     </Grid>
 </Window>

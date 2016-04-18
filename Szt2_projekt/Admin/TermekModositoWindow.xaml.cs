@@ -20,29 +20,38 @@ namespace Szt2_projekt.Admin
     public partial class TermekModositoWindow : Window
     {
         TermekModositoVM VM;
-        
-        public TermekModositoWindow(string kivalasztottCsoport, string kivalasztottTipusszam)
+
+        public TermekModositoWindow()
         {
             InitializeComponent();
             VM = new TermekModositoVM();
-            if (kivalasztottCsoport != "" && kivalasztottTipusszam != "")
-            {
-                VM.KivalasztottCsoport = kivalasztottCsoport;
-                VM.Tipusszam = kivalasztottTipusszam;
-                VM.KivalasztottTermekAdatai();
-
-                // összes jellemző megjelenítése, combobox kikapcsolása (terméktípust nem változtathat felvitt terméknél!)
-                stPanelJellemzok.Visibility = Visibility.Visible;
-                cBoxTermekTipus.IsEnabled = false;
-            }
-            
             this.DataContext = VM;
+        }
+
+        public TermekModositoWindow(string kivalasztottCsoport, string kivalasztottTipusszam)
+            : this()
+        {
+            VM.KivalasztottCsoport = kivalasztottCsoport;
+            VM.Tipusszam = kivalasztottTipusszam;
+            VM.KivalasztottTermekAdatai();
+
+            // összes jellemző megjelenítése, combobox kikapcsolása (terméktípust nem változtathat felvitt terméknél!)
+            stPanelJellemzok.Visibility = Visibility.Visible;
+            cBoxTermekTipus.IsEnabled = false;
         }
         
        
         private void felvetelButton_Click(object sender, RoutedEventArgs e) //felvétel
         {
             if (VM.TermekHozzaadas())
+                this.DialogResult = true;
+            else
+                MessageBox.Show("Sikertelen termék hozzáadás!");
+        }
+
+        private void modositasButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (VM.TermekModositas())
                 this.DialogResult = true;
             else
                 MessageBox.Show("Sikertelen termék hozzáadás!");

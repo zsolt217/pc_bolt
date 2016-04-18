@@ -71,7 +71,7 @@
         </StackPanel>    
         
         <Button x:Name="felvetelButton" Content="Felvétel" HorizontalAlignment="Left" Margin="26,391,0,0" VerticalAlignment="Top" Width="140" Click="felvetelButton_Click"/>
-        <Button x:Name="modositasButton" Content="Módosítás" HorizontalAlignment="Left" Margin="171,391,0,0" VerticalAlignment="Top" Width="140"/>
+        <Button x:Name="modositasButton" Content="Módosítás" HorizontalAlignment="Left" Margin="171,391,0,0" VerticalAlignment="Top" Width="140" Click="modositasButton_Click"/>
         <Button x:Name="megsemButton" Content="Mégsem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="316,391,0,0" Click="megsemButton_Click"/>
 
 

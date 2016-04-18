@@ -1,17 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Szt2_projekt.Admin;
+using Szt2_projekt.Kozos;
 
 namespace Szt2_projekt //szval érted,be sem tölti az ablakot
 {
-    class AdminVM
+    class AdminVM : INotifyPropertyChanged
     {
-        AdatbazisEntities ab = new AdatbazisEntities();
-
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string name = "")
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+    
+        //AdatbazisEntities ab = new AdatbazisEntities();
+        public AdminVM()
+        {
+            termekvez = new TermekVezerlo();
+            kivalasztottCsoport = String.Empty;
+        }
 
         public void FelhasznaloHozzaAdas()
         {
@@ -31,22 +48,53 @@ namespace Szt2_projekt //szval érted,be sem tölti az ablakot
         }
 
 
+        #region Termekek
+        TermekVezerlo termekvez;
 
-        public void TermekHozzaAdas(AdminWindow aktualis)
+        public string[] Csoportok
         {
-            TermekModositoWindow ablak = new TermekModositoWindow("","");
-            ablak.modositasButton.IsEnabled = false;
-            ablak.ShowDialog();
-            aktualis.FrissitTermek();
+            get { return termekvez.Csoportok; }
         }
-        public void TermekModositas(AdminWindow aktualis)
+
+        public List<string> KivalasztottCsoportTermekei
         {
-            TermekModositoWindow ablak = new TermekModositoWindow("","");
-            ablak.felvetelButton.IsEnabled = false;
-            ablak.cBoxTermekTipus.SelectedItem= aktualis.lBoxAdminTermekek.SelectedItem;
-            ablak.ShowDialog();
-         
-          
+            get { return termekvez.TermekListazas(kivalasztottCsoport); }
         }
+
+        string kivalasztottCsoport;
+        public string KivalasztottCsoport
+        {
+            get { return kivalasztottCsoport; }
+            set
+            {
+                kivalasztottCsoport = value;
+                OnPropertyChanged("KivalasztottCsoportTermekei");
+            }
+        }
+
+        string kivalasztottTipusszam;
+        public string KivalasztottTipusszam
+        {
+            get { return kivalasztottTipusszam; }
+            set { kivalasztottTipusszam = value; OnPropertyChanged(); }
+        }
+
+        /* public void TermekHozzaAdas(AdminWindow aktualis)
+         {
+             TermekModositoWindow ablak = new TermekModositoWindow();
+             ablak.modositasButton.IsEnabled = false;
+             ablak.ShowDialog();
+             aktualis.FrissitTermek();
+         }
+         public void TermekModositas(AdminWindow aktualis)
+         {
+             TermekModositoWindow ablak = new TermekModositoWindow();
+             ablak.felvetelButton.IsEnabled = false;
+             ablak.cBoxTermekTipus.SelectedItem= aktualis.lBoxAdminTermekek.SelectedItem;
+             ablak.ShowDialog();
+
+
+         }*/
+        #endregion
     }
 }
