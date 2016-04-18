@@ -181,6 +181,7 @@ namespace Szt2_projekt
             {
                 admin.TermekModositas(this);
             }
+            
         }
 
         private void button_Copy3_Click(object sender, RoutedEventArgs e) // termék törlése

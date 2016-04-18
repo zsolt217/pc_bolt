@@ -50,9 +50,73 @@ namespace Szt2_projekt.Admin
             set
             {
                 kivalasztottCsoport = value;
-                OnPropertyChanged();
+                OnPropertyChanged("KivalasztottCsoport");
                 OnPropertyChanged("KivalasztottCsoportJellemzoi");
             }
+        }
+
+        
+        public void KivalasztottTermekAdatai()
+        {
+
+            object o = termekvez.TermekAdatok(kivalasztottCsoport, tipusszam);
+
+            switch (kivalasztottCsoport)
+            {
+                case "Processzor":
+                    CPU cpu = o as CPU;
+                    this.ar = (int)cpu.AR;
+                    this.cpufoglalat = cpu.CPUFOGLALAT;
+                    this.orajel = (int)cpu.SEBESSEG;
+                    this.magok = (int)cpu.MAGOK;
+                    this.fogyasztas = (int)cpu.FOGYASZTAS;
+                    break;
+
+                case "Alaplap":
+                    ALAPLAP mob = o as ALAPLAP;
+                    this.ar = (int)mob.AR;
+                    this.cpufoglalat = mob.CPUFOGLALAT;
+                    this.memoriaslotok = (int)mob.MEMORIASLOTOK;
+                    this.memoriatipus = mob.MEMORIATIPUS;
+                    this.meretszabvany = mob.MERETSZABVANY;
+                    this.chipset = mob.CHIPSET;
+                    break;
+                case "Videókártya":
+                    GPU gpu = o as GPU;
+                    this.ar = (int)gpu.AR;
+                    this.fogyasztas = (int)gpu.FOGYASZTAS;
+                    this.memoria = (int)gpu.MEMORIA;
+                    break;
+                case "Memória":
+                    MEMORIA ram = o as MEMORIA;
+                    this.ar = (int)ram.AR;
+                    this.orajel = (int)ram.SEBESSEG;
+                    this.memoriatipus = ram.MEMORIATIPUS;
+                    this.kapacitas = (int)ram.KAPACITAS;
+                    break;
+                case "Winchester":
+                    HDD hdd = o as HDD;
+                    this.ar = (int)hdd.AR;
+                    this.kapacitas = (int)hdd.KAPACITAS;
+                    break;
+                case "SSD":
+                    SSD ssd = o as SSD;
+                    this.ar = (int)ssd.AR;
+                    this.kapacitas = (int)ssd.KAPACITAS;
+                    break;
+                case "Táp":
+                    TAP tap = o as TAP;
+                    this.ar = (int)tap.AR;
+                    this.teljesitmeny = (int)tap.TELJESITMENY;
+                    break;
+                case "Ház":
+                    HAZ haz = o as HAZ;
+                    this.ar = (int)haz.AR;
+                    this.meretszabvany = haz.MERETSZABVANY;
+                    break;
+
+            }
+           
         }
 
         #region Termekjellemzok

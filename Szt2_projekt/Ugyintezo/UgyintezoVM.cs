@@ -56,6 +56,19 @@ namespace Szt2_projekt
             }
         }
 
+        string kivalasztottTipusszam;
+        public string KivalasztottTipusszam
+        {
+            get { return kivalasztottTipusszam; }
+            set { kivalasztottTipusszam = value; OnPropertyChanged(); }
+        }
+
+        /*public void KivalasztottTermekAdatai()
+        {
+            termekvez.Termekcsop = kivalasztottCsoport;
+            termekvez.Tipusszam = kivalasztottTipusszam;
+        }*/
+
         #endregion
 
         #region Uzenetek

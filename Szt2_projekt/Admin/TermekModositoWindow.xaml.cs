@@ -21,10 +21,21 @@ namespace Szt2_projekt.Admin
     {
         TermekModositoVM VM;
         
-        public TermekModositoWindow()
+        public TermekModositoWindow(string kivalasztottCsoport, string kivalasztottTipusszam)
         {
             InitializeComponent();
             VM = new TermekModositoVM();
+            if (kivalasztottCsoport != "" && kivalasztottTipusszam != "")
+            {
+                VM.KivalasztottCsoport = kivalasztottCsoport;
+                VM.Tipusszam = kivalasztottTipusszam;
+                VM.KivalasztottTermekAdatai();
+
+                // összes jellemző megjelenítése, combobox kikapcsolása (terméktípust nem változtathat felvitt terméknél!)
+                stPanelJellemzok.Visibility = Visibility.Visible;
+                cBoxTermekTipus.IsEnabled = false;
+            }
+            
             this.DataContext = VM;
         }
         
@@ -34,7 +45,7 @@ namespace Szt2_projekt.Admin
             if (VM.TermekHozzaadas())
                 this.DialogResult = true;
             else
-                MessageBox.Show("Sikertelen termék hozzáadás!");  
+                MessageBox.Show("Sikertelen termék hozzáadás!");
         }
 
         private void megsemButton_Click(object sender, RoutedEventArgs e)
@@ -47,9 +58,11 @@ namespace Szt2_projekt.Admin
             // a kiválasztott termékcsoport jellemzői 
             List<string> jellemzok = VM.KivalasztottCsoportJellemzoi;
 
-            // stackpanel összes dockpaneljét listázza: egy dockpanel = egy jellemző
+            // első termékcsoport változtatáskor megjeleníti az összes jellemzőt
             stPanelJellemzok.Visibility = Visibility.Visible;
-            //felvetelButton.IsEnabled = true; //<--- csak azért szedtem ki,mert ha minden választásnál enabled lesz a felvétel,az nem jó a módosítás miatt
+            
+
+            // stackpanel összes dockpaneljét listázza: egy dockpanel = egy jellemző
             UIElementCollection element = stPanelJellemzok.Children;
             List<FrameworkElement> lstElement = element.Cast<FrameworkElement>().ToList();
             var lstControl = lstElement.OfType<DockPanel>();
@@ -63,14 +76,6 @@ namespace Szt2_projekt.Admin
                     dp.Visibility = Visibility.Collapsed;
             }
 
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            // betöltéskor ne jelenjen meg az összes jellemző, amikor nincs kiválasztva termékcsoport
-            stPanelJellemzok.Visibility = Visibility.Hidden;
-            //felvetelButton.IsEnabled = false;
-            modositasButton.IsEnabled = false;
         }
     }
 }

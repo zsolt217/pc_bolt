@@ -34,14 +34,14 @@ namespace Szt2_projekt //szval érted,be sem tölti az ablakot
 
         public void TermekHozzaAdas(AdminWindow aktualis)
         {
-            TermekModositoWindow ablak = new TermekModositoWindow();
+            TermekModositoWindow ablak = new TermekModositoWindow("","");
             ablak.modositasButton.IsEnabled = false;
             ablak.ShowDialog();
             aktualis.FrissitTermek();
         }
         public void TermekModositas(AdminWindow aktualis)
         {
-            TermekModositoWindow ablak = new TermekModositoWindow();
+            TermekModositoWindow ablak = new TermekModositoWindow("","");
             ablak.felvetelButton.IsEnabled = false;
             ablak.cBoxTermekTipus.SelectedItem= aktualis.lBoxAdminTermekek.SelectedItem;
             ablak.ShowDialog();

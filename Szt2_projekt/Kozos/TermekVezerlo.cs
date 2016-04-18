@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Reflection;
@@ -98,6 +99,68 @@ namespace Szt2_projekt.Kozos
             else
                 return null;
 
+        }
+
+        public object TermekAdatok(string termekcsop, string tipusszam)
+        {
+            if (termekcsop == csoportok[0])
+            {
+                var t = from akt in DB.CPU
+                        where akt.TIPUSSZAM == tipusszam
+                        select akt;
+                return t.First();
+            }
+            else if (termekcsop == csoportok[1])
+            {
+                var t = from akt in DB.ALAPLAP
+                        where akt.TIPUSSZAM == tipusszam
+                        select akt;
+                return t.First();
+            }
+            else if (termekcsop == csoportok[2])
+            {
+                var t = from akt in DB.GPU
+                        where akt.TIPUSSZAM == tipusszam
+                        select akt;
+                return t.First();
+            }
+            else if (termekcsop == csoportok[3])
+            {
+                var t = from akt in DB.MEMORIA
+                        where akt.TIPUSSZAM == tipusszam
+                        select akt;
+                return t.First();
+            }
+            else if (termekcsop == csoportok[4])
+            {
+                var t = from akt in DB.HDD
+                        where akt.TIPUSSZAM == tipusszam
+                        select akt;
+                return t.First();
+            }
+            else if (termekcsop == csoportok[5])
+            {
+                var t = from akt in DB.SSD
+                        where akt.TIPUSSZAM == tipusszam
+                        select akt;
+                return t.First();
+            }
+            else if (termekcsop == csoportok[6])
+            {
+                var t = from akt in DB.TAP
+                        where akt.TIPUSSZAM == tipusszam
+                        select akt;
+                return t.First();
+            }
+            else if (termekcsop == csoportok[7])
+            {
+                var t = from akt in DB.HAZ
+                        where akt.TIPUSSZAM == tipusszam
+                        select akt;
+                return t.First();
+            }
+            else
+                return null;
         }
 
         public bool TermekHozzaadas(string termekcsop, Dictionary<string, int> szamErtekek, Dictionary<string, string> stringErtekek)

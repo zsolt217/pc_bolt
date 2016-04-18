@@ -14,9 +14,9 @@
             <TabItem Header="Termékek">
                 <Grid >
                     <Label x:Name="label" Content="Termékek" HorizontalAlignment="Left" Margin="47,89,0,0" VerticalAlignment="Top"/>
-                    <ListBox x:Name="lBoxAdminTermekek" ItemsSource="{Binding KivalasztottCsoportTermekei}" HorizontalAlignment="Left" Height="144" Margin="47,116,0,0" VerticalAlignment="Top" Width="249" />
+                    <ListBox x:Name="lBoxAdminTermekek" ItemsSource="{Binding KivalasztottCsoportTermekei}" SelectedItem="{Binding KivalasztottTipusszam}" HorizontalAlignment="Left" Height="144" Margin="47,116,0,0" VerticalAlignment="Top" Width="249" />
                     <Button x:Name="button1" Content="Törlés" HorizontalAlignment="Left" Margin="336,141,0,0" VerticalAlignment="Top" Width="124"/>
-                    <Button x:Name="button2" Content="Módosítás" HorizontalAlignment="Left" Margin="336,116,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Button x:Name="button2" Content="Módosítás" HorizontalAlignment="Left" Margin="336,116,0,0" VerticalAlignment="Top" Width="124" Click="button2_Click"/>
                     <Button x:Name="ujTermekButton" Content="Új termék" HorizontalAlignment="Left" Margin="336,51,0,0" VerticalAlignment="Top" Width="124" Click="ujTermekButton_Click"/>
                     <Label x:Name="label1_Copy" Content="Termék típusa:" HorizontalAlignment="Left" Margin="47,45,0,0" VerticalAlignment="Top"/>
                     <ComboBox x:Name="cBoxTermekTipus" ItemsSource="{Binding Csoportok}" HorizontalAlignment="Left" Margin="152,49,0,0" VerticalAlignment="Top" Width="144" SelectedItem="{Binding KivalasztottCsoport}" />

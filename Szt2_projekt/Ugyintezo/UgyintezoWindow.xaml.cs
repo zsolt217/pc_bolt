@@ -51,9 +51,21 @@ namespace Szt2_projekt
 
         private void ujTermekButton_Click(object sender, RoutedEventArgs e)
         {
-            TermekModositoWindow ablak = new TermekModositoWindow();
+            TermekModositoWindow ablak = new TermekModositoWindow("","");
             ablak.modositasButton.IsEnabled = false;
             ablak.ShowDialog();
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            if (lBoxAdminTermekek.SelectedIndex != -1)
+            {
+                TermekModositoWindow ablak = new TermekModositoWindow(VM.KivalasztottCsoport, VM.KivalasztottTipusszam);
+                ablak.felvetelButton.IsEnabled = false;
+                ablak.modositasButton.IsEnabled = true;
+                ablak.ShowDialog();
+            }
+            
         }
 
     }
