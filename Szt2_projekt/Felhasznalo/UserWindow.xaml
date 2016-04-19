@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Szt2_projekt"
         mc:Ignorable="d"
         Title="UserWindow" Height="550" Width="700" Loaded="Window_Loaded" Closing="Window_Closing">
-    <Window.Resources>
+    <!--<Window.Resources>
         <local:BoolToColorConverter x:Key="Converter"/>
-    </Window.Resources>
+    </Window.Resources>-->
     <Grid>
         <TabControl Background="White" Margin="0,0,0,40">
             <TabItem Header="Adatok" >
@@ -54,7 +54,7 @@
                     <RadioButton x:Name="rbHaz" Content="Ház:" HorizontalAlignment="Left" Margin="52,325,0,0" VerticalAlignment="Top" Height="16" Width="39"/>
 
                     <Button x:Name="MegrendelésButton" Content="Megrendelés!" Margin="24,383,171,25" Width="85" Height="30" Click="MegrendelésButton_Click" />
-                    <Button x:Name="MentésButton" Content="Mentés!" Margin="160,383,35,25" Width="85" Height="30"/>
+                    <Button x:Name="MentésButton" Content="Mentés!" Margin="160,383,35,25" Width="85" Height="30" Click="MentésButton_Click"/>
                     <Grid Grid.Column="1">
                         <!--Ebben a grid "táblázatban" lesznek az adott alkatrész adatai(most csak 1 processzor jellemzőit írtam be,hogy a doksiba képnek legyen valami konkrét,amúgy adatkötni kéne)-->
 

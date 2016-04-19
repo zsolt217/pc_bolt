@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Windows.Shell;
+
 namespace Szt2_projekt
 {
     using System;
@@ -27,5 +29,10 @@ namespace Szt2_projekt
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }
+
+        public override string ToString()
+        {
+            return TIPUSSZAM;
+        }
     }
 }
