@@ -225,6 +225,7 @@ namespace Szt2_projekt.Admin
                         {"AR", ar },
                         {"SEBESSEG", orajel},
                         {"MEMORIASLOTOK", memoriaslotok},
+                        {"MEMORIA", memoria},
                         {"MAGOK", magok},
                         {"KAPACITAS", kapacitas},
                         {"FOGYASZTAS", fogyasztas},
