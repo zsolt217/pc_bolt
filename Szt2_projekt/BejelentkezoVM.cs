@@ -11,30 +11,11 @@ namespace Szt2_projekt
     {
         private FELHASZNALO aktualisFelhasznalo;
 
-        public string AktualisFelhasznaloID
-        {
-            get
-            {
-                return aktualisFelhasznalo.FELHASZNALO_ID.ToString();
-            }
-        }
-
-        public string AktualisFelhasznaloNev
-        {
-            get
-            {
-                return aktualisFelhasznalo.NEV;
-            }
-        }
         private AdatbazisEntities db;
 
         public BejelentkezoVM()
         {
-
-            db = new AdatbazisEntities();
-            
             aktualisFelhasznalo = new FELHASZNALO();
-
         }
 
         public bool Bejelentkezes(string felhasznalonev, string jelszo)
@@ -67,13 +48,14 @@ namespace Szt2_projekt
 
         private bool TartalmazasVizsgalat(string felhasznalonev)
         {
+            db = new AdatbazisEntities();
             int tartalmaz = db.FELHASZNALO.Count(x => x.NEV.Equals(felhasznalonev.ToUpper()));
             return tartalmaz > 0;
         }
 
         private FELHASZNALO TartalmazasVizsgalat(string felhasznalonev, string jelszo)
         {
-
+            db = new AdatbazisEntities();
             var z = db.FELHASZNALO.Where(f => f.NEV == felhasznalonev.ToUpper());
 
             if (z.Any()) // z.ToList().Count > 0
