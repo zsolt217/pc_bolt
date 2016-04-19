@@ -20,6 +20,14 @@ namespace Szt2_projekt
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
+        public event KompatibilitasVizsgalatEventHandler TermekValtozott;
+        private void TermekValtozas([CallerMemberName]string valtozott="") //egyszerűség kedvéért h ne kelljen minden egyes set-hez odaírni, onproperty mintájára
+        {
+            if (TermekValtozott!=null)
+            {
+                TermekValtozott(this, new KompatibilitasEventArgs(valtozott));
+            }
+        }
         public FelhasznaloVM(decimal felhid)
         {
             id = felhid;
@@ -131,6 +139,122 @@ namespace Szt2_projekt
             get { return bejovok; }
 
         }
+
+        #endregion
+        
+        #region Termekek
+        List<ALAPLAP> alaplapok;
+        ALAPLAP selectedAlaplap;
+        List<CPU> cpuk;
+        CPU selectedCpu;
+        List<GPU> gpuk;
+        GPU selectedGpu;
+        List<HAZ> hazak;
+        HAZ selectedHaz;
+        List<HDD> hddk;
+        HDD selectedHdd;
+        List<MEMORIA> memoriak;
+        MEMORIA selectedMemoria;
+        List<SSD> ssdk;
+        SSD selectedSsd;
+        List<TAP> tapok;
+        TAP selectedTap;
+
+        public TAP SelectedTap
+        {
+            get { return selectedTap; }
+            set { selectedTap = value; }
+        }
+
+        public List<TAP> Tapok
+        {
+            get { return tapok; }
+            set { tapok = value; OnPropertyChanged(); }
+        }
+
+        public SSD SelectedSsd
+        {
+            get { return selectedSsd; }
+            set { selectedSsd = value; }
+        }
+
+        public List<SSD> Ssdk
+        {
+            get { return ssdk; }
+            set { ssdk = value; OnPropertyChanged(); }
+        }
+
+        public MEMORIA SelectedMemoria
+        {
+            get { return selectedMemoria; }
+            set { selectedMemoria = value; }
+        }
+        public List<MEMORIA> Memoriak
+        {
+            get { return memoriak; }
+            set { memoriak = value; OnPropertyChanged(); }
+        }
+
+        public HDD SelectedHdd
+        {
+            get { return selectedHdd; }
+            set { selectedHdd = value; }
+        }
+
+        public List<HDD> Hddk
+        {
+            get { return hddk; }
+            set { hddk = value; OnPropertyChanged(); }
+        }
+
+        public HAZ SelectedHaz
+        {
+            get { return selectedHaz; }
+            set { selectedHaz = value; }
+        }
+
+        public List<HAZ> Hazak
+        {
+            get { return hazak; }
+            set { hazak = value; OnPropertyChanged(); }
+        }
+
+        public GPU SelectedGpu
+        {
+            get { return selectedGpu; }
+            set { selectedGpu = value; }
+        }
+
+        public List<GPU> Gpuk
+        {
+            get { return gpuk; }
+            set { gpuk = value; OnPropertyChanged(); }
+        }
+
+        public CPU SelectedCpu
+        {
+            get { return selectedCpu; }
+            set { selectedCpu = value; }
+        }
+
+        public List<CPU> Cpuk
+        {
+            get { return cpuk; }
+            set { cpuk = value; OnPropertyChanged(); }
+        }
+
+        public ALAPLAP SelectedAlaplap
+        {
+            get { return selectedAlaplap; }
+            set { selectedAlaplap = value; }
+        }
+
+        public List<ALAPLAP> Alaplapok
+        {
+            get { return alaplapok; }
+            set { alaplapok = value; OnPropertyChanged(); }
+        }
+
 
         #endregion
     }

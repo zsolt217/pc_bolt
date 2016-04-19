@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Szt2_projekt"
         mc:Ignorable="d"
         Title="UserWindow" Height="550" Width="700" Loaded="Window_Loaded" Closing="Window_Closing">
-    <!--<Window.Resources>
+    <Window.Resources>
         <local:BoolToColorConverter x:Key="Converter"/>
-    </Window.Resources>-->
+    </Window.Resources>
     <Grid>
         <TabControl Background="White" Margin="0,0,0,40">
             <TabItem Header="Adatok" >
@@ -35,14 +35,14 @@
                         <ColumnDefinition Width="285*"></ColumnDefinition>
                         <ColumnDefinition Width="397*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <ComboBox x:Name="cBoxAlaplap" HorizontalAlignment="Left" Margin="52,30,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox x:Name="cBoxProcesszor" HorizontalAlignment="Left" Margin="52,75,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox x:Name="cBoxVideokartya" HorizontalAlignment="Left" Margin="52,120,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox x:Name="cBoxMemoria" HorizontalAlignment="Left" Margin="52,165,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox x:Name="cBoxWinchester" HorizontalAlignment="Left" Margin="52,210,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox x:Name="cBoxSSD" HorizontalAlignment="Left" Margin="52,255,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox x:Name="cBoxTapegyseg" HorizontalAlignment="Left" Margin="52,300,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox x:Name="cBoxHaz" HorizontalAlignment="Left" Margin="52,345,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
+                    <ComboBox ItemsSource="{Binding Alaplapok}" SelectedItem="{Binding SelectedAlaplap}" HorizontalAlignment="Left" Margin="52,30,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
+                    <ComboBox ItemsSource="{Binding Cpuk}" SelectedItem="{Binding SelectedCpu}" HorizontalAlignment="Left" Margin="52,75,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
+                    <ComboBox ItemsSource="{Binding Gpuk}" SelectedItem="{Binding SelectedGpu}" HorizontalAlignment="Left" Margin="52,120,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
+                    <ComboBox ItemsSource="{Binding Memoriak}" SelectedItem="{Binding SelectedMemoria}" HorizontalAlignment="Left" Margin="52,165,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
+                    <ComboBox  ItemsSource="{Binding Hddk}" SelectedItem="{Binding SelectedHdd}" HorizontalAlignment="Left" Margin="52,210,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
+                    <ComboBox  ItemsSource="{Binding Ssdk}" SelectedItem="{Binding SelectedSsd}" HorizontalAlignment="Left" Margin="52,255,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
+                    <ComboBox ItemsSource="{Binding Hazak}" SelectedItem="{Binding SelectedHaz}" HorizontalAlignment="Left" Margin="52,300,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
+                    <ComboBox ItemsSource="{Binding Tapok}" SelectedItem="{Binding SelectedTap}" HorizontalAlignment="Left" Margin="52,345,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
 
                     <RadioButton x:Name="rbAlaplap" Content="Alaplap:" Margin="52,10,171,366"/>
                     <RadioButton x:Name="rbProcesszor" Content="Processzor:" HorizontalAlignment="Left" Margin="52,55,0,0" VerticalAlignment="Top" Height="16" Width="75"/>
