@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Reflection;
@@ -427,6 +428,57 @@ namespace Szt2_projekt.Kozos
 
                 // Throw a new DbEntityValidationException with the improved exception message.
                 throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+            }
+
+            return true;
+        }
+
+        public bool TermekTorles(string termekcsop, string tipusszam)
+        {
+            object o = TermekAdatok(termekcsop, tipusszam);
+
+            if (termekcsop == csoportok[0])
+            {
+                DB.CPU.Remove(o as CPU);
+            }
+            else if (termekcsop == csoportok[1])
+            {
+                DB.ALAPLAP.Remove(o as ALAPLAP);
+            }
+            else if (termekcsop == csoportok[2])
+            {
+                DB.GPU.Remove(o as GPU);
+            }
+            else if (termekcsop == csoportok[3])
+            {
+                DB.MEMORIA.Remove(o as MEMORIA);
+            }
+            else if (termekcsop == csoportok[4])
+            {
+                DB.HDD.Remove(o as HDD);
+            }
+            else if (termekcsop == csoportok[5])
+            {
+                DB.SSD.Remove(o as SSD);
+            }
+            else if (termekcsop == csoportok[6])
+            {
+                DB.TAP.Remove(o as TAP);
+            }
+            else if (termekcsop == csoportok[7])
+            {
+                DB.HAZ.Remove(o as HAZ);
+            }
+            else 
+                return false;
+
+            try
+            {
+                DB.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                return false; // van megrendelés táblában hivatkozás a termékre, nem törölhető
             }
 
             return true;

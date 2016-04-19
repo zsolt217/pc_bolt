@@ -146,142 +146,18 @@ namespace Szt2_projekt
         {
             if (lBoxAdminTermekek.SelectedIndex != -1)
             {
+                if (admin.TermekTorles)
+                {
+                    admin.KivalasztottCsoport = admin.KivalasztottCsoport; // trükk, hogy frissítse a listbox tartalmát a binding (termék törléskor)
+                    MessageBox.Show("Sikeres törlés");
+                }
 
-                if (cBoxTermekTipus.SelectedItem == "Processzor")
-                {
-                    string torlendo = lBoxAdminTermekek.SelectedItem.ToString();
-                    var del = from akt in ab.CPU
-                              where akt.TIPUSSZAM == torlendo
-                              select akt;
-                    ab.CPU.Remove(del.Single());
-                    ab.SaveChanges();
-                    FrissitTermek();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Alaplap")
-                {
-                    string torlendo = lBoxAdminTermekek.SelectedItem.ToString();
-                    var del = from akt in ab.ALAPLAP
-                              where akt.TIPUSSZAM == torlendo
-                              select akt;
-                    ab.ALAPLAP.Remove(del.Single());
-                    ab.SaveChanges();
-                    FrissitTermek();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Videókártya")
-                {
-                    string torlendo = lBoxAdminTermekek.SelectedItem.ToString();
-                    var del = from akt in ab.GPU
-                              where akt.TIPUSSZAM == torlendo
-                              select akt;
-                    ab.GPU.Remove(del.Single());
-                    ab.SaveChanges();
-                    FrissitTermek();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Memória")
-                {
-                    string torlendo = lBoxAdminTermekek.SelectedItem.ToString();
-                    var del = from akt in ab.MEMORIA
-                              where akt.TIPUSSZAM == torlendo
-                              select akt;
-                    ab.MEMORIA.Remove(del.Single());
-                    ab.SaveChanges();
-                    FrissitTermek();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Winchester")
-                {
-                    string torlendo = lBoxAdminTermekek.SelectedItem.ToString();
-                    var del = from akt in ab.HDD
-                              where akt.TIPUSSZAM == torlendo
-                              select akt;
-                    ab.HDD.Remove(del.Single());
-                    ab.SaveChanges();
-                    FrissitTermek();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "SSD")
-                {
-                    string torlendo = lBoxAdminTermekek.SelectedItem.ToString();
-                    var del = from akt in ab.SSD
-                              where akt.TIPUSSZAM == torlendo
-                              select akt;
-                    ab.SSD.Remove(del.Single());
-                    ab.SaveChanges();
-                    FrissitTermek();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Táp")
-                {
-                    string torlendo = lBoxAdminTermekek.SelectedItem.ToString();
-                    var del = from akt in ab.TAP
-                              where akt.TIPUSSZAM == torlendo
-                              select akt;
-                    ab.TAP.Remove(del.Single());
-                    ab.SaveChanges();
-                    FrissitTermek();
-                }
-                else if (cBoxTermekTipus.SelectedItem == "Ház")
-                {
-                    string torlendo = lBoxAdminTermekek.SelectedItem.ToString();
-                    var del = from akt in ab.HAZ
-                              where akt.TIPUSSZAM == torlendo
-                              select akt;
-                    ab.HAZ.Remove(del.Single());
-                    ab.SaveChanges();
-                    FrissitTermek();
-                }
+                else
+                    MessageBox.Show("Sikertelen törlés!\nA termékre van aktív rendelés.");
             }
 
         }
 
-        public void FrissitTermek()
-        {
-            if (cBoxTermekTipus.SelectedItem == "Processzor")
-            {
-                var qcpu = from akt in ab.CPU
-                           select akt.TIPUSSZAM;
-                lBoxAdminTermekek.ItemsSource = qcpu.ToList();
-            }
-            else if (cBoxTermekTipus.SelectedItem == "Alaplap")
-            {
-                var qalaplap = from akt in ab.ALAPLAP
-                               select akt.TIPUSSZAM;
-                lBoxAdminTermekek.ItemsSource = qalaplap.ToList();
-            }
-            else if (cBoxTermekTipus.SelectedItem == "Videókártya")
-            {
-                var qgpu = from akt in ab.GPU
-                           select akt.TIPUSSZAM;
-                lBoxAdminTermekek.ItemsSource = qgpu.ToList();
-            }
-            else if (cBoxTermekTipus.SelectedItem == "Memória")
-            {
-                var qram = from akt in ab.MEMORIA
-                           select akt.TIPUSSZAM;
-                lBoxAdminTermekek.ItemsSource = qram.ToList();
-            }
-            else if (cBoxTermekTipus.SelectedItem == "Winchester")
-            {
-                var qhdd = from akt in ab.HDD
-                           select akt.TIPUSSZAM;
-                lBoxAdminTermekek.ItemsSource = qhdd.ToList();
-            }
-            else if (cBoxTermekTipus.SelectedItem == "SSD")
-            {
-                var qssd = from akt in ab.SSD
-                           select akt.TIPUSSZAM;
-                lBoxAdminTermekek.ItemsSource = qssd.ToList();
-            }
-            else if (cBoxTermekTipus.SelectedItem == "Táp")
-            {
-                var qtap = from akt in ab.TAP
-                           select akt.TIPUSSZAM;
-                lBoxAdminTermekek.ItemsSource = qtap.ToList();
-            }
-            else if (cBoxTermekTipus.SelectedItem == "Ház")
-            {
-                var qhaz = from akt in ab.HAZ
-                           select akt.TIPUSSZAM;
-                lBoxAdminTermekek.ItemsSource = qhaz.ToList();
-            }
-        }
         #endregion
 
     }

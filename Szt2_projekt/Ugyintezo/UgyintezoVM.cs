@@ -66,6 +66,11 @@ namespace Szt2_projekt
             set { kivalasztottTipusszam = value; OnPropertyChanged(); }
         }
 
+        public bool TermekTorles
+        {
+            get { return termekvez.TermekTorles(kivalasztottCsoport, kivalasztottTipusszam); }
+        }
+
         #endregion
 
         #region Uzenetek

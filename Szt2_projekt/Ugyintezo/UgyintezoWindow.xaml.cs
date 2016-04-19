@@ -74,5 +74,21 @@ namespace Szt2_projekt
             
         }
 
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            if (lBoxAdminTermekek.SelectedIndex != -1)
+            {
+                if (VM.TermekTorles)
+                {
+                    VM.KivalasztottCsoport = VM.KivalasztottCsoport; // trükk, hogy frissítse a listbox tartalmát a binding (termék törléskor)
+                    MessageBox.Show("Sikeres törlés");
+                }
+                    
+                else 
+                    MessageBox.Show("Sikertelen törlés!\nA termékre van aktív rendelés.");
+            }
+            
+        }
+
     }
 }

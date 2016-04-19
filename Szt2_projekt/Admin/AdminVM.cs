@@ -79,6 +79,11 @@ namespace Szt2_projekt //szval érted,be sem tölti az ablakot
             set { kivalasztottTipusszam = value; OnPropertyChanged(); }
         }
 
+        public bool TermekTorles
+        {
+            get { return termekvez.TermekTorles(kivalasztottCsoport, kivalasztottTipusszam); }
+        }
+
         /* public void TermekHozzaAdas(AdminWindow aktualis)
          {
              TermekModositoWindow ablak = new TermekModositoWindow();
