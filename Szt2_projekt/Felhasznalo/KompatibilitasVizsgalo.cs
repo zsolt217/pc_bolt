@@ -59,19 +59,48 @@ namespace Szt2_projekt
             }
             else if (e.Valtozott.Equals("SelectedCpu"))
             {
-
+                if (!VM.SelectedCpu.TIPUSSZAM.Contains("*"))
+                {
+                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => x.CPUFOGLALAT.Equals(VM.SelectedCpu.CPUFOGLALAT)).ToList();
+                    alaplapok.Add(new ALAPLAP { TIPUSSZAM = "*nincs elem kivalasztva" });
+                    VM.Alaplapok = alaplapok;
+                }
             }
             else if (e.Valtozott.Equals("SelectedGpu"))
             {
-
+                if (!VM.SelectedGpu.TIPUSSZAM.Contains("*"))
+                {
+                    if (VM.SelectedCpu!=null&&!VM.SelectedCpu.TIPUSSZAM.Contains("*"))
+                    {
+                        List<TAP> tapok = DB.TAP.Where(x => x.TELJESITMENY >= (VM.SelectedCpu.FOGYASZTAS + VM.SelectedGpu.FOGYASZTAS)).ToList();
+                        tapok.Add(new TAP { TIPUSSZAM = "*nincs elem kivalasztva" });
+                        VM.Tapok = tapok;
+                    }
+                    else if (!VM.SelectedCpu.TIPUSSZAM.Contains("*"))//nincs processzor kiválasztva
+                    {
+                        List<TAP> tapok = DB.TAP.Where(x => x.TELJESITMENY >= ( VM.SelectedGpu.FOGYASZTAS)).ToList();
+                        tapok.Add(new TAP { TIPUSSZAM = "*nincs elem kivalasztva" });
+                        VM.Tapok = tapok;
+                    }
+                }
             }
             else if (e.Valtozott.Equals("SelectedMemoria"))
             {
-
+                if (!VM.SelectedMemoria.TIPUSSZAM.Contains("*"))
+                {
+                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => x.MEMORIATIPUS.Equals(VM.SelectedMemoria.MEMORIATIPUS)).ToList();
+                    alaplapok.Add(new ALAPLAP { TIPUSSZAM = "*nincs elem kivalasztva" });
+                    VM.Alaplapok = alaplapok;
+                }
             }
             else if (e.Valtozott.Equals("SelectedHaz"))
             {
-
+                if (!VM.SelectedHaz.TIPUSSZAM.Contains("*"))
+                {
+                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => x.MERETSZABVANY.Equals(VM.SelectedHaz.MERETSZABVANY)).ToList();
+                    alaplapok.Add(new ALAPLAP { TIPUSSZAM = "*nincs elem kivalasztva" });
+                    VM.Alaplapok = alaplapok;
+                }
             }
             else if (e.Valtozott.Equals("SelectedTap"))
             {
