@@ -175,7 +175,7 @@ namespace Szt2_projekt
         public SSD SelectedSsd
         {
             get { return selectedSsd; }
-            set { selectedSsd = value; }
+            set { selectedSsd = value; TermekValtozas(); }
         }
 
         public List<SSD> Ssdk
@@ -187,7 +187,7 @@ namespace Szt2_projekt
         public MEMORIA SelectedMemoria
         {
             get { return selectedMemoria; }
-            set { selectedMemoria = value; }
+            set { selectedMemoria = value; TermekValtozas(); }
         }
         public List<MEMORIA> Memoriak
         {
@@ -198,7 +198,7 @@ namespace Szt2_projekt
         public HDD SelectedHdd
         {
             get { return selectedHdd; }
-            set { selectedHdd = value; }
+            set { selectedHdd = value; TermekValtozas(); }
         }
 
         public List<HDD> Hddk
@@ -210,7 +210,7 @@ namespace Szt2_projekt
         public HAZ SelectedHaz
         {
             get { return selectedHaz; }
-            set { selectedHaz = value; }
+            set { selectedHaz = value; TermekValtozas(); }
         }
 
         public List<HAZ> Hazak
@@ -222,7 +222,7 @@ namespace Szt2_projekt
         public GPU SelectedGpu
         {
             get { return selectedGpu; }
-            set { selectedGpu = value; }
+            set { selectedGpu = value; TermekValtozas(); }
         }
 
         public List<GPU> Gpuk
@@ -234,7 +234,7 @@ namespace Szt2_projekt
         public CPU SelectedCpu
         {
             get { return selectedCpu; }
-            set { selectedCpu = value; }
+            set { selectedCpu = value; TermekValtozas(); }
         }
 
         public List<CPU> Cpuk
@@ -246,7 +246,7 @@ namespace Szt2_projekt
         public ALAPLAP SelectedAlaplap
         {
             get { return selectedAlaplap; }
-            set { selectedAlaplap = value; }
+            set { selectedAlaplap = value; TermekValtozas(); }
         }
 
         public List<ALAPLAP> Alaplapok
