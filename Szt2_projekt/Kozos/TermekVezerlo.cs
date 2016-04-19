@@ -33,7 +33,6 @@ namespace Szt2_projekt.Kozos
         AdatbazisEntities DB;
         public TermekVezerlo()
         {
-            DB = new AdatbazisEntities();
             csoportok = new string[] { "Processzor", "Alaplap", "Videókártya", "Memória", "Winchester", "SSD", "Táp", "Ház" };
             jellemzok = new string[] { "CPUFOGLALAT","MEMORIASLOTOK","MEMORIATIPUS","CHIPSET","MERETSZABVANY","FOGYASZTAS","ORAJEL","MAGOK","MEMORIA","KAPACITAS","TELJESITMENY" };
             csoportJellemzok = new Dictionary<string, List<string>>();
@@ -49,6 +48,8 @@ namespace Szt2_projekt.Kozos
 
         public List<string> TermekListazas(string termekcsop)
         {
+            DB = new AdatbazisEntities();
+
             if (termekcsop == csoportok[0])
             {
                 var t = from akt in DB.CPU
@@ -104,6 +105,7 @@ namespace Szt2_projekt.Kozos
 
         public object TermekAdatok(string termekcsop, string tipusszam)
         {
+            DB = new AdatbazisEntities();
             if (termekcsop == csoportok[0])
             {
                 var t = from akt in DB.CPU
@@ -166,6 +168,7 @@ namespace Szt2_projekt.Kozos
 
         public object TermekAdatok(string termekcsop, decimal id)
         {
+            DB = new AdatbazisEntities();
             if (termekcsop == csoportok[0])
             {
                 var t = from akt in DB.CPU
@@ -228,7 +231,7 @@ namespace Szt2_projekt.Kozos
 
         public bool TermekHozzaadas(string termekcsop, Dictionary<string, int> szamErtekek, Dictionary<string, string> stringErtekek)
         {
-           
+            DB = new AdatbazisEntities();
             if (termekcsop == csoportok[0])
             {
                 CPU ujcpu = new CPU();

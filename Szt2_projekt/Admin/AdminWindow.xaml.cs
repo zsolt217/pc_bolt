@@ -74,11 +74,12 @@ namespace Szt2_projekt
         {
             if (lBoxAdminFelhasznalok.SelectedIndex != -1)
             {
+                ab = new AdatbazisEntities();
                 string torlendouser = lBoxAdminFelhasznalok.SelectedItem.ToString();
                 var torlo = from akt in ab.FELHASZNALO
                             where akt.NEV == torlendouser
                             select akt;
-
+                
                 try
                 {
                     var t1 = torlo.Single();
