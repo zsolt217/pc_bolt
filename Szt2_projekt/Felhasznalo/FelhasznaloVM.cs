@@ -21,9 +21,9 @@ namespace Szt2_projekt
             }
         }
         public event KompatibilitasVizsgalatEventHandler TermekValtozott;
-        private void TermekValtozas([CallerMemberName]string valtozott="") //egyszerűség kedvéért h ne kelljen minden egyes set-hez odaírni, onproperty mintájára
+        private void TermekValtozas([CallerMemberName]string valtozott = "") //egyszerűség kedvéért h ne kelljen minden egyes set-hez odaírni, onproperty mintájára
         {
-            if (TermekValtozott!=null)
+            if (TermekValtozott != null)
             {
                 TermekValtozott(this, new KompatibilitasEventArgs(valtozott));
             }
@@ -40,6 +40,7 @@ namespace Szt2_projekt
             kezelo = new UzenetKezelo();
             kimenouzenet = String.Empty;
             UzenetBetoltes();
+            felhasznalovaltoztatasengedelyezes = true;
         }
         #region sajatadatok
         decimal id;
@@ -141,7 +142,7 @@ namespace Szt2_projekt
         }
 
         #endregion
-        
+
         #region Termekek
         List<ALAPLAP> alaplapok;
         ALAPLAP selectedAlaplap;
@@ -159,11 +160,12 @@ namespace Szt2_projekt
         SSD selectedSsd;
         List<TAP> tapok;
         TAP selectedTap;
+        public bool felhasznalovaltoztatasengedelyezes;//annak a megoldására h ha kompatibilitasvizsgalo szűri vmely listát akk a selecteditemet módosítja és így új elemre is generál változásvizsgálatot=>végtelen ciklus hibával
 
         public TAP SelectedTap
         {
             get { return selectedTap; }
-            set { selectedTap = value; }
+            set { selectedTap = value; if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<TAP> Tapok
@@ -175,7 +177,7 @@ namespace Szt2_projekt
         public SSD SelectedSsd
         {
             get { return selectedSsd; }
-            set { selectedSsd = value; TermekValtozas(); }
+            set { selectedSsd = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<SSD> Ssdk
@@ -187,7 +189,7 @@ namespace Szt2_projekt
         public MEMORIA SelectedMemoria
         {
             get { return selectedMemoria; }
-            set { selectedMemoria = value; TermekValtozas(); }
+            set { selectedMemoria = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
         public List<MEMORIA> Memoriak
         {
@@ -198,7 +200,7 @@ namespace Szt2_projekt
         public HDD SelectedHdd
         {
             get { return selectedHdd; }
-            set { selectedHdd = value; TermekValtozas(); }
+            set { selectedHdd = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<HDD> Hddk
@@ -210,7 +212,7 @@ namespace Szt2_projekt
         public HAZ SelectedHaz
         {
             get { return selectedHaz; }
-            set { selectedHaz = value; TermekValtozas(); }
+            set { selectedHaz = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<HAZ> Hazak
@@ -222,7 +224,7 @@ namespace Szt2_projekt
         public GPU SelectedGpu
         {
             get { return selectedGpu; }
-            set { selectedGpu = value; TermekValtozas(); }
+            set { selectedGpu = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<GPU> Gpuk
@@ -234,7 +236,7 @@ namespace Szt2_projekt
         public CPU SelectedCpu
         {
             get { return selectedCpu; }
-            set { selectedCpu = value; TermekValtozas(); }
+            set { selectedCpu = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<CPU> Cpuk
@@ -246,7 +248,7 @@ namespace Szt2_projekt
         public ALAPLAP SelectedAlaplap
         {
             get { return selectedAlaplap; }
-            set { selectedAlaplap = value; TermekValtozas(); }
+            set { selectedAlaplap = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<ALAPLAP> Alaplapok

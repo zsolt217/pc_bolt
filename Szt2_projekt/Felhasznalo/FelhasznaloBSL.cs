@@ -44,27 +44,35 @@ namespace Szt2_projekt
             List<ALAPLAP> alaplapok = DB.ALAPLAP.ToList();
             alaplapok.Add(new ALAPLAP { TIPUSSZAM = "*nincs elem kivalasztva" });
             VM.Alaplapok = alaplapok;
+            VM.SelectedAlaplap = VM.Alaplapok.Last();
             List<CPU> cpuk = DB.CPU.ToList();
             cpuk.Add(new CPU { TIPUSSZAM = "*nincs elem kivalasztva" });
             VM.Cpuk = cpuk;
+            VM.SelectedCpu = VM.Cpuk.Last();
             List<GPU> gpuk = DB.GPU.ToList();
             gpuk.Add(new GPU { TIPUSSZAM = "*nincs elem kivalasztva" });
             VM.Gpuk = gpuk;
+            VM.SelectedGpu = VM.Gpuk.Last();
             List<HAZ> hazak = DB.HAZ.ToList();
             hazak.Add(new HAZ { TIPUSSZAM = "*nincs elem kivalasztva" });
             VM.Hazak = hazak;
+            VM.SelectedHaz = VM.Hazak.Last();
             List<HDD> hddk = DB.HDD.ToList();
             hddk.Add(new HDD { TIPUSSZAM = "*nincs elem kivalasztva" });
             VM.Hddk = hddk;
+            VM.SelectedHdd = VM.Hddk.Last();
             List<MEMORIA> memoriak = DB.MEMORIA.ToList();
             memoriak.Add(new MEMORIA { TIPUSSZAM = "*nincs elem kivalasztva" });
             VM.Memoriak = memoriak;
+            VM.SelectedMemoria = VM.Memoriak.Last();
             List<SSD> ssdk = DB.SSD.ToList();
             ssdk.Add(new SSD { TIPUSSZAM = "*nincs elem kivalasztva" });
             VM.Ssdk = ssdk;
+            VM.SelectedSsd = VM.Ssdk.Last();
             List<TAP> tapok = DB.TAP.ToList();
             tapok.Add(new TAP { TIPUSSZAM = "*nincs elem kivalasztva" });
-            VM.Tapok = tapok;           
+            VM.Tapok = tapok;
+            VM.SelectedTap = VM.Tapok.Last();
         }
 
     }
