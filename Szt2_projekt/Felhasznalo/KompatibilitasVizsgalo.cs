@@ -53,7 +53,7 @@ namespace Szt2_projekt
                     {
                         MEMORIA selected = VM.SelectedMemoria;
                         VM.Memoriak = memoriak;
-                        VM.SelectedMemoria = selected;
+                        VM.SelectedMemoria = VM.Memoriak.Where(x => x.MEMORIA_ID == selected.MEMORIA_ID).Single();
                     }
                     else
                     {
@@ -67,7 +67,7 @@ namespace Szt2_projekt
                     {
                         CPU selected = VM.SelectedCpu;
                         VM.Cpuk = cpuk;
-                        VM.SelectedCpu = selected;
+                        VM.SelectedCpu = VM.Cpuk.Where(x => x.CPU_ID == selected.CPU_ID).Single();
                     }
                     else
                     {
@@ -80,7 +80,7 @@ namespace Szt2_projekt
                     {
                         HAZ selected = VM.SelectedHaz;
                         VM.Hazak = hazak;
-                        VM.SelectedHaz = selected;
+                        VM.SelectedHaz = VM.Hazak.Where(x => x.HAZ_ID == selected.HAZ_ID).Single();
                     }
                     else
                     {
@@ -98,7 +98,8 @@ namespace Szt2_projekt
                     {
                         MEMORIA selected = VM.SelectedMemoria;
                         VM.Memoriak = memoriak;
-                        VM.SelectedMemoria = selected;
+                        VM.SelectedMemoria = VM.Memoriak.Where(x => x.MEMORIA_ID == selected.MEMORIA_ID).Single();
+
                     }
                     else
                     {
@@ -111,7 +112,7 @@ namespace Szt2_projekt
                     {
                         CPU selected = VM.SelectedCpu;
                         VM.Cpuk = cpuk;
-                        VM.SelectedCpu = selected;
+                        VM.SelectedCpu = VM.Cpuk.Where(x => x.CPU_ID == selected.CPU_ID).Single();
                     }
                     else
                     {
@@ -124,7 +125,7 @@ namespace Szt2_projekt
                     {
                         HAZ selected = VM.SelectedHaz;
                         VM.Hazak = hazak;
-                        VM.SelectedHaz = selected;
+                        VM.SelectedHaz = VM.Hazak.Where(x => x.HAZ_ID == selected.HAZ_ID).Single();
                     }
                     else
                     {
@@ -140,7 +141,8 @@ namespace Szt2_projekt
                 if (!VM.SelectedCpu.TIPUSSZAM.Contains("*"))
                 {
                     VM.felhasznalovaltoztatasengedelyezes = false;
-                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => x.CPUFOGLALAT.Equals(VM.SelectedCpu.CPUFOGLALAT)).ToList();
+                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => (VM.SelectedHaz.TIPUSSZAM.Contains("*") ? true : x.MERETSZABVANY.Contains(VM.SelectedHaz.MERETSZABVANY)) &&
+                       (VM.SelectedMemoria.TIPUSSZAM.Contains("*") ? true : x.MEMORIATIPUS.Contains(VM.SelectedMemoria.MEMORIATIPUS))).ToList(); //ha van memória vagy táp akk ennek megfelelően szűri az alaplapokat
                     alaplapok.Add(new ALAPLAP { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedAlaplap.TIPUSSZAM.Contains("*"))
                     {
@@ -213,7 +215,7 @@ namespace Szt2_projekt
                     {
                         TAP selected = VM.SelectedTap;
                         VM.Tapok = tapok;
-                        VM.SelectedTap = selected;
+                        VM.SelectedTap = tapok.Where(x => x.TAP_ID == selected.TAP_ID).Single();
                     }
                     else
                     {
@@ -229,7 +231,7 @@ namespace Szt2_projekt
                     {
                         TAP selected = VM.SelectedTap;
                         VM.Tapok = tapok;
-                        VM.SelectedTap = selected;
+                        VM.SelectedTap = tapok.Where(x => x.TAP_ID == selected.TAP_ID).Single();
                     }
                     else
                     {
@@ -245,13 +247,15 @@ namespace Szt2_projekt
                 VM.felhasznalovaltoztatasengedelyezes = false;
                 if (!VM.SelectedMemoria.TIPUSSZAM.Contains("*"))
                 {
-                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => x.MEMORIATIPUS.Equals(VM.SelectedMemoria.MEMORIATIPUS) && (VM.SelectedHaz.TIPUSSZAM.Contains("*") ? true : x.MERETSZABVANY.Contains(VM.SelectedHaz.MERETSZABVANY)) && (VM.SelectedCpu.TIPUSSZAM.Contains("*") ? true : x.CPUFOGLALAT.Contains(VM.SelectedCpu.CPUFOGLALAT))).ToList();
+                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => x.MEMORIATIPUS.Equals(VM.SelectedMemoria.MEMORIATIPUS) && 
+                        (VM.SelectedHaz.TIPUSSZAM.Contains("*") ? true : x.MERETSZABVANY.Contains(VM.SelectedHaz.MERETSZABVANY)) && 
+                        (VM.SelectedCpu.TIPUSSZAM.Contains("*") ? true : x.CPUFOGLALAT.Contains(VM.SelectedCpu.CPUFOGLALAT))).ToList();
                     alaplapok.Add(new ALAPLAP { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedAlaplap.TIPUSSZAM.Contains("*"))
                     {
                         ALAPLAP selected = VM.SelectedAlaplap;
                         VM.Alaplapok = alaplapok;
-                        VM.SelectedAlaplap = selected;
+                        VM.SelectedAlaplap = alaplapok.Where(x => x.ALAPLAP_ID == selected.ALAPLAP_ID).Single();
                     }
                     else
                     {
@@ -261,13 +265,14 @@ namespace Szt2_projekt
                 }
                 else
                 {
-                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => (VM.SelectedHaz.TIPUSSZAM.Contains("*") ? true : x.MERETSZABVANY.Contains(VM.SelectedHaz.MERETSZABVANY)) && (VM.SelectedCpu.TIPUSSZAM.Contains("*") ? true : x.CPUFOGLALAT.Contains(VM.SelectedCpu.CPUFOGLALAT))).ToList(); //ha van memória vagy táp akk ennek megfelelően szűri az alaplapokat
+                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => (VM.SelectedHaz.TIPUSSZAM.Contains("*") ? true : x.MERETSZABVANY.Contains(VM.SelectedHaz.MERETSZABVANY)) && 
+                        (VM.SelectedCpu.TIPUSSZAM.Contains("*") ? true : x.CPUFOGLALAT.Contains(VM.SelectedCpu.CPUFOGLALAT))).ToList(); //ha van memória vagy táp akk ennek megfelelően szűri az alaplapokat
                     alaplapok.Add(new ALAPLAP { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedAlaplap.TIPUSSZAM.Contains("*"))
                     {
                         ALAPLAP selected = VM.SelectedAlaplap;
                         VM.Alaplapok = alaplapok;
-                        VM.SelectedAlaplap = selected;
+                        VM.SelectedAlaplap = alaplapok.Where(x => x.ALAPLAP_ID == selected.ALAPLAP_ID).Single();
                     }
                     else
                     {
@@ -281,13 +286,15 @@ namespace Szt2_projekt
                 VM.felhasznalovaltoztatasengedelyezes = false;
                 if (!VM.SelectedHaz.TIPUSSZAM.Contains("*"))
                 {
-                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => x.MEMORIATIPUS.Equals(VM.SelectedMemoria.MEMORIATIPUS) && (x.MERETSZABVANY.Contains(VM.SelectedHaz.MERETSZABVANY)) && (VM.SelectedCpu.TIPUSSZAM.Contains("*") ? true : x.CPUFOGLALAT.Contains(VM.SelectedCpu.CPUFOGLALAT))).ToList();
+                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => (VM.SelectedMemoria.TIPUSSZAM.Contains("*")? true: x.MEMORIATIPUS.Equals(VM.SelectedMemoria.MEMORIATIPUS)) &&
+                        (x.MERETSZABVANY.Contains(VM.SelectedHaz.MERETSZABVANY)) && 
+                        (VM.SelectedCpu.TIPUSSZAM.Contains("*") ? true : x.CPUFOGLALAT.Contains(VM.SelectedCpu.CPUFOGLALAT))).ToList();
                     alaplapok.Add(new ALAPLAP { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedAlaplap.TIPUSSZAM.Contains("*"))
                     {
                         ALAPLAP selected = VM.SelectedAlaplap;
                         VM.Alaplapok = alaplapok;
-                        VM.SelectedAlaplap = selected;
+                        VM.SelectedAlaplap = alaplapok.Where(x => x.ALAPLAP_ID == selected.ALAPLAP_ID).Single();
                     }
                     else
                     {
@@ -297,13 +304,13 @@ namespace Szt2_projekt
                 }
                 else
                 {
-                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => (VM.SelectedHaz.TIPUSSZAM.Contains("*") ? true : x.MERETSZABVANY.Contains(VM.SelectedHaz.MERETSZABVANY)) && (VM.SelectedCpu.TIPUSSZAM.Contains("*") ? true : x.CPUFOGLALAT.Contains(VM.SelectedCpu.CPUFOGLALAT))).ToList(); //ha van memória vagy táp akk ennek megfelelően szűri az alaplapokat
+                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => (VM.SelectedMemoria.TIPUSSZAM.Contains("*") ? true : x.MEMORIATIPUS.Equals(VM.SelectedMemoria.MEMORIATIPUS)) && (VM.SelectedCpu.TIPUSSZAM.Contains("*") ? true : x.CPUFOGLALAT.Equals(VM.SelectedCpu.CPUFOGLALAT))).ToList(); //ha van memória vagy táp akk ennek megfelelően szűri az alaplapokat
                     alaplapok.Add(new ALAPLAP { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedAlaplap.TIPUSSZAM.Contains("*"))
                     {
                         ALAPLAP selected = VM.SelectedAlaplap;
                         VM.Alaplapok = alaplapok;
-                        VM.SelectedAlaplap = selected;
+                        VM.SelectedAlaplap = alaplapok.Where(x => x.ALAPLAP_ID == selected.ALAPLAP_ID).Single();
                     }
                     else
                     {
@@ -318,12 +325,62 @@ namespace Szt2_projekt
                 VM.felhasznalovaltoztatasengedelyezes = false;
                 if (!VM.SelectedTap.TIPUSSZAM.Contains("*"))
                 {
-                    List<CPU> cpuk = DB.CPU.Where(x => x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY).ToList();
+                    List<CPU> cpuk = VM.Cpuk.Where(x => x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY).ToList();
+                    //cpuk.Add(new CPU { TIPUSSZAM = "*nincs elem kivalasztva" });
+                    if (!VM.SelectedCpu.TIPUSSZAM.Contains("*"))
+                    {
+                        CPU selected = VM.SelectedCpu;
+                        VM.Cpuk = cpuk;
+                        VM.SelectedCpu = VM.Cpuk.Where(x => x.CPU_ID == selected.CPU_ID).Single();
+                    }
+                    else
+                    {
+                        VM.Cpuk = cpuk;
+                        VM.SelectedCpu = VM.Cpuk.Last();
+                    }
+                    List<GPU> gpuk = VM.Gpuk.Where(x => x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY).ToList();
+                  //  gpuk.Add(new GPU { TIPUSSZAM = "*nincs elem kivalasztva" });
+                    if (!VM.SelectedGpu.TIPUSSZAM.Contains("*"))
+                    {
+                        GPU selected = VM.SelectedGpu;
+                        VM.Gpuk = gpuk;
+                        VM.SelectedGpu = VM.Gpuk.Where(x => x.GPU_ID == selected.GPU_ID).Single();
+                    }
+                    else
+                    {
+                        VM.Gpuk = gpuk;
+                        VM.SelectedGpu = VM.Gpuk.Last();
+                    }
+                }
+                else
+                {
+                    List<CPU> cpuk = DB.CPU.Where(x => ((x.CPUFOGLALAT.Equals(VM.SelectedAlaplap.CPUFOGLALAT)) &&
+                       (VM.SelectedTap.TIPUSSZAM.Contains("*") ? true : x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY))).ToList(); //abban az esetben ha van táp kiválasztva akk csak kisebb fogyasztású tápot enged kiválasztani mint a táp teljesítménye
                     cpuk.Add(new CPU { TIPUSSZAM = "*nincs elem kivalasztva" });
-                    VM.Cpuk = cpuk;
-                    List<GPU> gpuk = DB.GPU.Where(x => x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY).ToList();
-                    gpuk.Add(new GPU { TIPUSSZAM = "*nincs elem kivalasztva" });
-                    VM.Gpuk = gpuk;
+                    if (!VM.SelectedCpu.TIPUSSZAM.Contains("*"))
+                    {
+                        CPU selected = VM.SelectedCpu;
+                        VM.Cpuk = cpuk;
+                        VM.SelectedCpu = VM.Cpuk.Where(x => x.CPU_ID == selected.CPU_ID).Single();
+                    }
+                    else
+                    {
+                        VM.Cpuk = cpuk;
+                        VM.SelectedCpu = VM.Cpuk.Last();
+                    }
+                    List<GPU> gpuk = VM.Gpuk.Where(x => x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY).ToList();
+                    //gpuk.Add(new GPU { TIPUSSZAM = "*nincs elem kivalasztva" });
+                    if (!VM.SelectedGpu.TIPUSSZAM.Contains("*"))
+                    {
+                        GPU selected = VM.SelectedGpu;
+                        VM.Gpuk = gpuk;
+                        VM.SelectedGpu = VM.Gpuk.Where(x => x.GPU_ID == selected.GPU_ID).Single();
+                    }
+                    else
+                    {
+                        VM.Gpuk = gpuk;
+                        VM.SelectedGpu = VM.Gpuk.Last();
+                    }
                 }
                 VM.felhasznalovaltoztatasengedelyezes = true;
             }
