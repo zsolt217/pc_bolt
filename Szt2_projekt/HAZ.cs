@@ -7,8 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Windows.Shell;
-
 namespace Szt2_projekt
 {
     using System;
@@ -20,6 +18,7 @@ namespace Szt2_projekt
         public HAZ()
         {
             this.RENDELESEK = new HashSet<RENDELESEK>();
+            this.KEDVENCEK = new HashSet<KEDVENCEK>();
         }
     
         public decimal HAZ_ID { get; set; }
@@ -29,10 +28,7 @@ namespace Szt2_projekt
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }
-
-        public override string ToString()
-        {
-            return TIPUSSZAM;
-        }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KEDVENCEK> KEDVENCEK { get; set; }
     }
 }

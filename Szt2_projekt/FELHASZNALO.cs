@@ -19,6 +19,7 @@ namespace Szt2_projekt
         {
             this.RENDELESEK = new HashSet<RENDELESEK>();
             this.UZENETEK = new HashSet<UZENETEK>();
+            this.KEDVENCEK = new HashSet<KEDVENCEK>();
         }
     
         public decimal FELHASZNALO_ID { get; set; }
@@ -31,5 +32,7 @@ namespace Szt2_projekt
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UZENETEK> UZENETEK { get; set; }
         public virtual SZEMELYES_ADATOK SZEMELYES_ADATOK { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KEDVENCEK> KEDVENCEK { get; set; }
     }
 }

@@ -18,6 +18,7 @@ namespace Szt2_projekt
         public CPU()
         {
             this.RENDELESEK = new HashSet<RENDELESEK>();
+            this.KEDVENCEK = new HashSet<KEDVENCEK>();
         }
     
         public decimal CPU_ID { get; set; }
@@ -30,10 +31,7 @@ namespace Szt2_projekt
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }
-
-        public override string ToString()
-        {
-            return TIPUSSZAM + " (" + MAGOK + " mag , " + SEBESSEG + "GHz)";
-        }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KEDVENCEK> KEDVENCEK { get; set; }
     }
 }

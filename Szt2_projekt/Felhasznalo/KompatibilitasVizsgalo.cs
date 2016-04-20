@@ -60,7 +60,8 @@ namespace Szt2_projekt
                         VM.Memoriak = memoriak;
                         VM.SelectedMemoria = VM.Memoriak.Last();
                     }
-                    List<CPU> cpuk = DB.CPU.Where(x => ((x.CPUFOGLALAT.Equals(VM.SelectedAlaplap.CPUFOGLALAT)) && (VM.SelectedTap.TIPUSSZAM.Contains("*") ? true : x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY))).ToList(); //abban az esetben ha van táp kiválasztva akk csak kisebb fogyasztású tápot enged kiválasztani mint a táp teljesítménye
+                    List<CPU> cpuk = DB.CPU.Where(x => ((x.CPUFOGLALAT.Equals(VM.SelectedAlaplap.CPUFOGLALAT)) && 
+                        (VM.SelectedTap.TIPUSSZAM.Contains("*") ? true : x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY))).ToList(); //abban az esetben ha van táp kiválasztva akk csak kisebb fogyasztású tápot enged kiválasztani mint a táp teljesítménye
                     cpuk.Add(new CPU { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedCpu.TIPUSSZAM.Contains("*"))
                     {
@@ -145,14 +146,16 @@ namespace Szt2_projekt
                     {
                         ALAPLAP selected = VM.SelectedAlaplap;
                         VM.Alaplapok = alaplapok;
-                        VM.SelectedAlaplap = selected;
+                        VM.SelectedAlaplap = alaplapok.Where(x=>x.ALAPLAP_ID==selected.ALAPLAP_ID).Single();
                     }
                     else
                     {
                         VM.Alaplapok = alaplapok;
                         VM.SelectedAlaplap = VM.Alaplapok.Last();
                     }
-                    List<TAP> tapok = DB.TAP.Where(x => (x.TELJESITMENY > (VM.SelectedCpu.FOGYASZTAS)) && (VM.SelectedGpu.TIPUSSZAM.Contains("*") ? true : ((VM.SelectedCpu.FOGYASZTAS + VM.SelectedGpu.FOGYASZTAS) <= x.TELJESITMENY))).ToList();//ha van gpu kiválasztva akk a cpuval együtt a fogyasztásnak kisebb egyenlőnek kelllennie a táp teljestíményével
+                    List<TAP> tapok = DB.TAP.Where(x => (x.TELJESITMENY > (VM.SelectedCpu.FOGYASZTAS)) &&
+                        (VM.SelectedGpu.TIPUSSZAM.Contains("*") ? true : ((VM.SelectedCpu.FOGYASZTAS + VM.SelectedGpu.FOGYASZTAS) <= x.TELJESITMENY))).ToList();//ha van gpu kiválasztva akk a cpuval együtt a fogyasztásnak kisebb egyenlőnek kelllennie a táp teljestíményével
+                    tapok.Add(new TAP { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedTap.TIPUSSZAM.Contains("*"))
                     {
                         TAP selected = VM.SelectedTap;
@@ -169,7 +172,8 @@ namespace Szt2_projekt
                 else//nincs kiválasztvává módosítva
                 {
                     VM.felhasznalovaltoztatasengedelyezes = false;
-                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => (VM.SelectedHaz.TIPUSSZAM.Contains("*") ? true : x.MERETSZABVANY.Contains(VM.SelectedHaz.MERETSZABVANY)) && (VM.SelectedMemoria.TIPUSSZAM.Contains("*") ? true : x.MEMORIATIPUS.Contains(VM.SelectedMemoria.MEMORIATIPUS))).ToList(); //ha van memória vagy táp akk ennek megfelelően szűri az alaplapokat
+                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => (VM.SelectedHaz.TIPUSSZAM.Contains("*") ? true : x.MERETSZABVANY.Contains(VM.SelectedHaz.MERETSZABVANY)) &&
+                        (VM.SelectedMemoria.TIPUSSZAM.Contains("*") ? true : x.MEMORIATIPUS.Contains(VM.SelectedMemoria.MEMORIATIPUS))).ToList(); //ha van memória vagy táp akk ennek megfelelően szűri az alaplapokat
                     alaplapok.Add(new ALAPLAP { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedAlaplap.TIPUSSZAM.Contains("*"))
                     {

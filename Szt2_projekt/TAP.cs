@@ -18,6 +18,7 @@ namespace Szt2_projekt
         public TAP()
         {
             this.RENDELESEK = new HashSet<RENDELESEK>();
+            this.KEDVENCEK = new HashSet<KEDVENCEK>();
         }
     
         public decimal TAP_ID { get; set; }
@@ -27,10 +28,7 @@ namespace Szt2_projekt
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }
-
-        public override string ToString()
-        {
-            return TIPUSSZAM + " (" + TELJESITMENY + "W)";
-        }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KEDVENCEK> KEDVENCEK { get; set; }
     }
 }

@@ -37,5 +37,6 @@ namespace Szt2_projekt
         public virtual DbSet<TAP> TAP { get; set; }
         public virtual DbSet<UZENETEK> UZENETEK { get; set; }
         public virtual DbSet<SZEMELYES_ADATOK> SZEMELYES_ADATOK { get; set; }
+        public virtual DbSet<KEDVENCEK> KEDVENCEK { get; set; }
     }
 }

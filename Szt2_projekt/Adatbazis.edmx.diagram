@@ -28,6 +28,16 @@
         <AssociationConnector Association="DatabaseModel.TAP_FOREIGN_KEY" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DatabaseModel.SZEMELYES_ADATOK" Width="1.5" PointX="3" PointY="0.75" />
         <AssociationConnector Association="DatabaseModel.SZEMELYES_FOREIGN_KEY" />
+        <EntityTypeShape EntityType="DatabaseModel.KEDVENCEK" Width="1.5" PointX="3" PointY="14.625" />
+        <AssociationConnector Association="DatabaseModel.ALAPLAP_FOREIGN_KEY2" />
+        <AssociationConnector Association="DatabaseModel.CPU_FOREIGN_KEY2" />
+        <AssociationConnector Association="DatabaseModel.FELHASZNALO_FOREIGN_KEY2" />
+        <AssociationConnector Association="DatabaseModel.GPU_FOREIGN_KEY2" />
+        <AssociationConnector Association="DatabaseModel.HAZ_FOREIGN_KEY2" />
+        <AssociationConnector Association="DatabaseModel.HDD_FOREIGN_KEY2" />
+        <AssociationConnector Association="DatabaseModel.MEMORIA_FOREIGN_KEY2" />
+        <AssociationConnector Association="DatabaseModel.SSD_FOREIGN_KEY2" />
+        <AssociationConnector Association="DatabaseModel.TAP_FOREIGN_KEY2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

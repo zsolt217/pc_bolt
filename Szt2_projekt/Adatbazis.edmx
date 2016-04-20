@@ -67,6 +67,22 @@
           <Property Name="AR" Type="numeric" Precision="20" Scale="0" Nullable="false" />
           <Property Name="KAPACITAS" Type="numeric" Precision="10" Scale="0" Nullable="false" />
         </EntityType>
+        <EntityType Name="KEDVENCEK">
+          <Key>
+            <PropertyRef Name="KEDVENCEK_ID" />
+          </Key>
+          <Property Name="KEDVENCEK_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="FELHASZNALO_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ALAPLAP_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="CPU_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="MEMORIA_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="GPU_ID" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="TAP_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="HDD_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="SSD_ID" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="HAZ_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="ALLAPOT" Type="varchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="MEMORIA">
           <Key>
             <PropertyRef Name="MEMORIA_ID" />
@@ -146,6 +162,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="ALAPLAP_FOREIGN_KEY2">
+          <End Role="ALAPLAP" Type="Self.ALAPLAP" Multiplicity="1" />
+          <End Role="KEDVENCEK" Type="Self.KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALAPLAP">
+              <PropertyRef Name="ALAPLAP_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="ALAPLAP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="CPU_FOREIGN_KEY">
           <End Role="CPU" Type="Self.CPU" Multiplicity="1" />
           <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
@@ -154,6 +182,18 @@
               <PropertyRef Name="CPU_ID" />
             </Principal>
             <Dependent Role="RENDELESEK">
+              <PropertyRef Name="CPU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CPU_FOREIGN_KEY2">
+          <End Role="CPU" Type="Self.CPU" Multiplicity="1" />
+          <End Role="KEDVENCEK" Type="Self.KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPU">
+              <PropertyRef Name="CPU_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
               <PropertyRef Name="CPU_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -170,6 +210,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FELHASZNALO_FOREIGN_KEY2">
+          <End Role="FELHASZNALO" Type="Self.FELHASZNALO" Multiplicity="1" />
+          <End Role="KEDVENCEK" Type="Self.KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FELHASZNALO">
+              <PropertyRef Name="FELHASZNALO_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="FELHASZNALO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="GPU_FOREIGN_KEY">
           <End Role="GPU" Type="Self.GPU" Multiplicity="1" />
           <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
@@ -178,6 +230,18 @@
               <PropertyRef Name="GPU_ID" />
             </Principal>
             <Dependent Role="RENDELESEK">
+              <PropertyRef Name="GPU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GPU_FOREIGN_KEY2">
+          <End Role="GPU" Type="Self.GPU" Multiplicity="1" />
+          <End Role="KEDVENCEK" Type="Self.KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GPU">
+              <PropertyRef Name="GPU_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
               <PropertyRef Name="GPU_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -194,6 +258,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="HAZ_FOREIGN_KEY2">
+          <End Role="HAZ" Type="Self.HAZ" Multiplicity="1" />
+          <End Role="KEDVENCEK" Type="Self.KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HAZ">
+              <PropertyRef Name="HAZ_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="HAZ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="HDD_FOREIGN_KEY">
           <End Role="HDD" Type="Self.HDD" Multiplicity="1" />
           <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
@@ -202,6 +278,18 @@
               <PropertyRef Name="HDD_ID" />
             </Principal>
             <Dependent Role="RENDELESEK">
+              <PropertyRef Name="HDD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HDD_FOREIGN_KEY2">
+          <End Role="HDD" Type="Self.HDD" Multiplicity="1" />
+          <End Role="KEDVENCEK" Type="Self.KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HDD">
+              <PropertyRef Name="HDD_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
               <PropertyRef Name="HDD_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -218,6 +306,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="MEMORIA_FOREIGN_KEY2">
+          <End Role="MEMORIA" Type="Self.MEMORIA" Multiplicity="1" />
+          <End Role="KEDVENCEK" Type="Self.KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEMORIA">
+              <PropertyRef Name="MEMORIA_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="MEMORIA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="SSD_FOREIGN_KEY">
           <End Role="SSD" Type="Self.SSD" Multiplicity="0..1" />
           <End Role="RENDELESEK" Type="Self.RENDELESEK" Multiplicity="*" />
@@ -226,6 +326,18 @@
               <PropertyRef Name="SSD_ID" />
             </Principal>
             <Dependent Role="RENDELESEK">
+              <PropertyRef Name="SSD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SSD_FOREIGN_KEY2">
+          <End Role="SSD" Type="Self.SSD" Multiplicity="0..1" />
+          <End Role="KEDVENCEK" Type="Self.KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SSD">
+              <PropertyRef Name="SSD_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
               <PropertyRef Name="SSD_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -254,6 +366,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="TAP_FOREIGN_KEY2">
+          <End Role="TAP" Type="Self.TAP" Multiplicity="1" />
+          <End Role="KEDVENCEK" Type="Self.KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAP">
+              <PropertyRef Name="TAP_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="TAP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="UZENETFELHASZNALO_FOREIGN_KEY">
           <End Role="FELHASZNALO" Type="Self.FELHASZNALO" Multiplicity="1" />
           <End Role="UZENETEK" Type="Self.UZENETEK" Multiplicity="*" />
@@ -273,6 +397,7 @@
           <EntitySet Name="GPU" EntityType="Self.GPU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HAZ" EntityType="Self.HAZ" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HDD" EntityType="Self.HDD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KEDVENCEK" EntityType="Self.KEDVENCEK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MEMORIA" EntityType="Self.MEMORIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RENDELESEK" EntityType="Self.RENDELESEK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SSD" EntityType="Self.SSD" Schema="dbo" store:Type="Tables" />
@@ -283,33 +408,65 @@
             <End Role="ALAPLAP" EntitySet="ALAPLAP" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
           </AssociationSet>
+          <AssociationSet Name="ALAPLAP_FOREIGN_KEY2" Association="Self.ALAPLAP_FOREIGN_KEY2">
+            <End Role="ALAPLAP" EntitySet="ALAPLAP" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
           <AssociationSet Name="CPU_FOREIGN_KEY" Association="Self.CPU_FOREIGN_KEY">
             <End Role="CPU" EntitySet="CPU" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+          </AssociationSet>
+          <AssociationSet Name="CPU_FOREIGN_KEY2" Association="Self.CPU_FOREIGN_KEY2">
+            <End Role="CPU" EntitySet="CPU" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
           </AssociationSet>
           <AssociationSet Name="FELHASZNALO_FOREIGN_KEY" Association="Self.FELHASZNALO_FOREIGN_KEY">
             <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
           </AssociationSet>
+          <AssociationSet Name="FELHASZNALO_FOREIGN_KEY2" Association="Self.FELHASZNALO_FOREIGN_KEY2">
+            <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
           <AssociationSet Name="GPU_FOREIGN_KEY" Association="Self.GPU_FOREIGN_KEY">
             <End Role="GPU" EntitySet="GPU" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+          </AssociationSet>
+          <AssociationSet Name="GPU_FOREIGN_KEY2" Association="Self.GPU_FOREIGN_KEY2">
+            <End Role="GPU" EntitySet="GPU" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
           </AssociationSet>
           <AssociationSet Name="HAZ_FOREIGN_KEY" Association="Self.HAZ_FOREIGN_KEY">
             <End Role="HAZ" EntitySet="HAZ" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
           </AssociationSet>
+          <AssociationSet Name="HAZ_FOREIGN_KEY2" Association="Self.HAZ_FOREIGN_KEY2">
+            <End Role="HAZ" EntitySet="HAZ" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
           <AssociationSet Name="HDD_FOREIGN_KEY" Association="Self.HDD_FOREIGN_KEY">
             <End Role="HDD" EntitySet="HDD" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+          </AssociationSet>
+          <AssociationSet Name="HDD_FOREIGN_KEY2" Association="Self.HDD_FOREIGN_KEY2">
+            <End Role="HDD" EntitySet="HDD" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
           </AssociationSet>
           <AssociationSet Name="MEMORIA_FOREIGN_KEY" Association="Self.MEMORIA_FOREIGN_KEY">
             <End Role="MEMORIA" EntitySet="MEMORIA" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
           </AssociationSet>
+          <AssociationSet Name="MEMORIA_FOREIGN_KEY2" Association="Self.MEMORIA_FOREIGN_KEY2">
+            <End Role="MEMORIA" EntitySet="MEMORIA" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
           <AssociationSet Name="SSD_FOREIGN_KEY" Association="Self.SSD_FOREIGN_KEY">
             <End Role="SSD" EntitySet="SSD" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+          </AssociationSet>
+          <AssociationSet Name="SSD_FOREIGN_KEY2" Association="Self.SSD_FOREIGN_KEY2">
+            <End Role="SSD" EntitySet="SSD" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
           </AssociationSet>
           <AssociationSet Name="SZEMELYES_FOREIGN_KEY" Association="Self.SZEMELYES_FOREIGN_KEY">
             <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
@@ -318,6 +475,10 @@
           <AssociationSet Name="TAP_FOREIGN_KEY" Association="Self.TAP_FOREIGN_KEY">
             <End Role="TAP" EntitySet="TAP" />
             <End Role="RENDELESEK" EntitySet="RENDELESEK" />
+          </AssociationSet>
+          <AssociationSet Name="TAP_FOREIGN_KEY2" Association="Self.TAP_FOREIGN_KEY2">
+            <End Role="TAP" EntitySet="TAP" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
           </AssociationSet>
           <AssociationSet Name="UZENETFELHASZNALO_FOREIGN_KEY" Association="Self.UZENETFELHASZNALO_FOREIGN_KEY">
             <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
@@ -341,6 +502,7 @@
           <Property Name="MERETSZABVANY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.ALAPLAP_FOREIGN_KEY" FromRole="ALAPLAP" ToRole="RENDELESEK" />
           <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <NavigationProperty Name="KEDVENCEK" Relationship="DatabaseModel.ALAPLAP_FOREIGN_KEY2" FromRole="ALAPLAP" ToRole="KEDVENCEK" />
         </EntityType>
         <EntityType Name="CPU">
           <Key>
@@ -354,6 +516,7 @@
           <NavigationProperty Name="RENDELESEK" Relationship="Self.CPU_FOREIGN_KEY" FromRole="CPU" ToRole="RENDELESEK" />
           <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
           <Property Name="MAGOK" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <NavigationProperty Name="KEDVENCEK" Relationship="DatabaseModel.CPU_FOREIGN_KEY2" FromRole="CPU" ToRole="KEDVENCEK" />
         </EntityType>
         <EntityType Name="FELHASZNALO">
           <Key>
@@ -366,6 +529,7 @@
           <NavigationProperty Name="RENDELESEK" Relationship="Self.FELHASZNALO_FOREIGN_KEY" FromRole="FELHASZNALO" ToRole="RENDELESEK" />
           <NavigationProperty Name="UZENETEK" Relationship="Self.UZENETFELHASZNALO_FOREIGN_KEY" FromRole="FELHASZNALO" ToRole="UZENETEK" />
           <NavigationProperty Name="SZEMELYES_ADATOK" Relationship="DatabaseModel.SZEMELYES_FOREIGN_KEY" FromRole="FELHASZNALO" ToRole="SZEMELYES_ADATOK" />
+          <NavigationProperty Name="KEDVENCEK" Relationship="DatabaseModel.FELHASZNALO_FOREIGN_KEY2" FromRole="FELHASZNALO" ToRole="KEDVENCEK" />
         </EntityType>
         <EntityType Name="GPU">
           <Key>
@@ -377,6 +541,7 @@
           <Property Name="FOGYASZTAS" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.GPU_FOREIGN_KEY" FromRole="GPU" ToRole="RENDELESEK" />
           <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <NavigationProperty Name="KEDVENCEK" Relationship="DatabaseModel.GPU_FOREIGN_KEY2" FromRole="GPU" ToRole="KEDVENCEK" />
         </EntityType>
         <EntityType Name="HAZ">
           <Key>
@@ -387,6 +552,7 @@
           <Property Name="MERETSZABVANY" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.HAZ_FOREIGN_KEY" FromRole="HAZ" ToRole="RENDELESEK" />
           <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <NavigationProperty Name="KEDVENCEK" Relationship="DatabaseModel.HAZ_FOREIGN_KEY2" FromRole="HAZ" ToRole="KEDVENCEK" />
         </EntityType>
         <EntityType Name="HDD">
           <Key>
@@ -397,6 +563,7 @@
           <Property Name="KAPACITAS" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.HDD_FOREIGN_KEY" FromRole="HDD" ToRole="RENDELESEK" />
           <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <NavigationProperty Name="KEDVENCEK" Relationship="DatabaseModel.HDD_FOREIGN_KEY2" FromRole="HDD" ToRole="KEDVENCEK" />
         </EntityType>
         <EntityType Name="MEMORIA">
           <Key>
@@ -409,6 +576,7 @@
           <Property Name="KAPACITAS" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.MEMORIA_FOREIGN_KEY" FromRole="MEMORIA" ToRole="RENDELESEK" />
           <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <NavigationProperty Name="KEDVENCEK" Relationship="DatabaseModel.MEMORIA_FOREIGN_KEY2" FromRole="MEMORIA" ToRole="KEDVENCEK" />
         </EntityType>
         <EntityType Name="RENDELESEK">
           <Key>
@@ -444,6 +612,7 @@
           <Property Name="KAPACITAS" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.SSD_FOREIGN_KEY" FromRole="SSD" ToRole="RENDELESEK" />
           <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <NavigationProperty Name="KEDVENCEK" Relationship="DatabaseModel.SSD_FOREIGN_KEY2" FromRole="SSD" ToRole="KEDVENCEK" />
         </EntityType>
         <EntityType Name="TAP">
           <Key>
@@ -454,6 +623,7 @@
           <Property Name="TELJESITMENY" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
           <NavigationProperty Name="RENDELESEK" Relationship="Self.TAP_FOREIGN_KEY" FromRole="TAP" ToRole="RENDELESEK" />
           <Property Name="AR" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <NavigationProperty Name="KEDVENCEK" Relationship="DatabaseModel.TAP_FOREIGN_KEY2" FromRole="TAP" ToRole="KEDVENCEK" />
         </EntityType>
         <EntityType Name="UZENETEK">
           <Key>
@@ -644,6 +814,43 @@
             <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
             <End Role="SZEMELYES_ADATOK" EntitySet="SZEMELYES_ADATOK" />
           </AssociationSet>
+          <EntitySet Name="KEDVENCEK" EntityType="DatabaseModel.KEDVENCEK" />
+          <AssociationSet Name="ALAPLAP_FOREIGN_KEY2" Association="DatabaseModel.ALAPLAP_FOREIGN_KEY2">
+            <End Role="ALAPLAP" EntitySet="ALAPLAP" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
+          <AssociationSet Name="CPU_FOREIGN_KEY2" Association="DatabaseModel.CPU_FOREIGN_KEY2">
+            <End Role="CPU" EntitySet="CPU" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
+          <AssociationSet Name="FELHASZNALO_FOREIGN_KEY2" Association="DatabaseModel.FELHASZNALO_FOREIGN_KEY2">
+            <End Role="FELHASZNALO" EntitySet="FELHASZNALO" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
+          <AssociationSet Name="GPU_FOREIGN_KEY2" Association="DatabaseModel.GPU_FOREIGN_KEY2">
+            <End Role="GPU" EntitySet="GPU" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
+          <AssociationSet Name="HAZ_FOREIGN_KEY2" Association="DatabaseModel.HAZ_FOREIGN_KEY2">
+            <End Role="HAZ" EntitySet="HAZ" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
+          <AssociationSet Name="HDD_FOREIGN_KEY2" Association="DatabaseModel.HDD_FOREIGN_KEY2">
+            <End Role="HDD" EntitySet="HDD" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
+          <AssociationSet Name="MEMORIA_FOREIGN_KEY2" Association="DatabaseModel.MEMORIA_FOREIGN_KEY2">
+            <End Role="MEMORIA" EntitySet="MEMORIA" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
+          <AssociationSet Name="SSD_FOREIGN_KEY2" Association="DatabaseModel.SSD_FOREIGN_KEY2">
+            <End Role="SSD" EntitySet="SSD" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
+          <AssociationSet Name="TAP_FOREIGN_KEY2" Association="DatabaseModel.TAP_FOREIGN_KEY2">
+            <End Role="TAP" EntitySet="TAP" />
+            <End Role="KEDVENCEK" EntitySet="KEDVENCEK" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="SZEMELYES_ADATOK">
           <Key>
@@ -666,6 +873,139 @@
             </Principal>
             <Dependent Role="SZEMELYES_ADATOK">
               <PropertyRef Name="FELHASZNALO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="KEDVENCEK">
+          <Key>
+            <PropertyRef Name="KEDVENCEK_ID" />
+          </Key>
+          <Property Name="KEDVENCEK_ID" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="FELHASZNALO_ID" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="ALAPLAP_ID" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="CPU_ID" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="MEMORIA_ID" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="GPU_ID" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <Property Name="TAP_ID" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="HDD_ID" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="SSD_ID" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="HAZ_ID" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="ALLAPOT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ALAPLAP" Relationship="DatabaseModel.ALAPLAP_FOREIGN_KEY2" FromRole="KEDVENCEK" ToRole="ALAPLAP" />
+          <NavigationProperty Name="CPU" Relationship="DatabaseModel.CPU_FOREIGN_KEY2" FromRole="KEDVENCEK" ToRole="CPU" />
+          <NavigationProperty Name="FELHASZNALO" Relationship="DatabaseModel.FELHASZNALO_FOREIGN_KEY2" FromRole="KEDVENCEK" ToRole="FELHASZNALO" />
+          <NavigationProperty Name="GPU" Relationship="DatabaseModel.GPU_FOREIGN_KEY2" FromRole="KEDVENCEK" ToRole="GPU" />
+          <NavigationProperty Name="HAZ" Relationship="DatabaseModel.HAZ_FOREIGN_KEY2" FromRole="KEDVENCEK" ToRole="HAZ" />
+          <NavigationProperty Name="HDD" Relationship="DatabaseModel.HDD_FOREIGN_KEY2" FromRole="KEDVENCEK" ToRole="HDD" />
+          <NavigationProperty Name="MEMORIA" Relationship="DatabaseModel.MEMORIA_FOREIGN_KEY2" FromRole="KEDVENCEK" ToRole="MEMORIA" />
+          <NavigationProperty Name="SSD" Relationship="DatabaseModel.SSD_FOREIGN_KEY2" FromRole="KEDVENCEK" ToRole="SSD" />
+          <NavigationProperty Name="TAP" Relationship="DatabaseModel.TAP_FOREIGN_KEY2" FromRole="KEDVENCEK" ToRole="TAP" />
+        </EntityType>
+        <Association Name="ALAPLAP_FOREIGN_KEY2">
+          <End Type="DatabaseModel.ALAPLAP" Role="ALAPLAP" Multiplicity="1" />
+          <End Type="DatabaseModel.KEDVENCEK" Role="KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALAPLAP">
+              <PropertyRef Name="ALAPLAP_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="ALAPLAP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CPU_FOREIGN_KEY2">
+          <End Type="DatabaseModel.CPU" Role="CPU" Multiplicity="1" />
+          <End Type="DatabaseModel.KEDVENCEK" Role="KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CPU">
+              <PropertyRef Name="CPU_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="CPU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FELHASZNALO_FOREIGN_KEY2">
+          <End Type="DatabaseModel.FELHASZNALO" Role="FELHASZNALO" Multiplicity="1" />
+          <End Type="DatabaseModel.KEDVENCEK" Role="KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FELHASZNALO">
+              <PropertyRef Name="FELHASZNALO_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="FELHASZNALO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GPU_FOREIGN_KEY2">
+          <End Type="DatabaseModel.GPU" Role="GPU" Multiplicity="1" />
+          <End Type="DatabaseModel.KEDVENCEK" Role="KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GPU">
+              <PropertyRef Name="GPU_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="GPU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HAZ_FOREIGN_KEY2">
+          <End Type="DatabaseModel.HAZ" Role="HAZ" Multiplicity="1" />
+          <End Type="DatabaseModel.KEDVENCEK" Role="KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HAZ">
+              <PropertyRef Name="HAZ_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="HAZ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HDD_FOREIGN_KEY2">
+          <End Type="DatabaseModel.HDD" Role="HDD" Multiplicity="1" />
+          <End Type="DatabaseModel.KEDVENCEK" Role="KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HDD">
+              <PropertyRef Name="HDD_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="HDD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MEMORIA_FOREIGN_KEY2">
+          <End Type="DatabaseModel.MEMORIA" Role="MEMORIA" Multiplicity="1" />
+          <End Type="DatabaseModel.KEDVENCEK" Role="KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEMORIA">
+              <PropertyRef Name="MEMORIA_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="MEMORIA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SSD_FOREIGN_KEY2">
+          <End Type="DatabaseModel.SSD" Role="SSD" Multiplicity="0..1" />
+          <End Type="DatabaseModel.KEDVENCEK" Role="KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SSD">
+              <PropertyRef Name="SSD_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="SSD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TAP_FOREIGN_KEY2">
+          <End Type="DatabaseModel.TAP" Role="TAP" Multiplicity="1" />
+          <End Type="DatabaseModel.KEDVENCEK" Role="KEDVENCEK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAP">
+              <PropertyRef Name="TAP_ID" />
+            </Principal>
+            <Dependent Role="KEDVENCEK">
+              <PropertyRef Name="TAP_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -813,6 +1153,23 @@
                 <ScalarProperty Name="KERESZTNEV" ColumnName="KERESZTNEV" />
                 <ScalarProperty Name="VEZETEKNEV" ColumnName="VEZETEKNEV" />
                 <ScalarProperty Name="FELHASZNALO_ID" ColumnName="FELHASZNALO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KEDVENCEK">
+            <EntityTypeMapping TypeName="DatabaseModel.KEDVENCEK">
+              <MappingFragment StoreEntitySet="KEDVENCEK">
+                <ScalarProperty Name="ALLAPOT" ColumnName="ALLAPOT" />
+                <ScalarProperty Name="HAZ_ID" ColumnName="HAZ_ID" />
+                <ScalarProperty Name="SSD_ID" ColumnName="SSD_ID" />
+                <ScalarProperty Name="HDD_ID" ColumnName="HDD_ID" />
+                <ScalarProperty Name="TAP_ID" ColumnName="TAP_ID" />
+                <ScalarProperty Name="GPU_ID" ColumnName="GPU_ID" />
+                <ScalarProperty Name="MEMORIA_ID" ColumnName="MEMORIA_ID" />
+                <ScalarProperty Name="CPU_ID" ColumnName="CPU_ID" />
+                <ScalarProperty Name="ALAPLAP_ID" ColumnName="ALAPLAP_ID" />
+                <ScalarProperty Name="FELHASZNALO_ID" ColumnName="FELHASZNALO_ID" />
+                <ScalarProperty Name="KEDVENCEK_ID" ColumnName="KEDVENCEK_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

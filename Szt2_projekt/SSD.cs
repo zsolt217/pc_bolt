@@ -18,6 +18,7 @@ namespace Szt2_projekt
         public SSD()
         {
             this.RENDELESEK = new HashSet<RENDELESEK>();
+            this.KEDVENCEK = new HashSet<KEDVENCEK>();
         }
     
         public decimal SSD_ID { get; set; }
@@ -27,9 +28,7 @@ namespace Szt2_projekt
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }
-        public override string ToString()
-        {
-            return TIPUSSZAM + " (" + KAPACITAS + "GB)";
-        }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KEDVENCEK> KEDVENCEK { get; set; }
     }
 }

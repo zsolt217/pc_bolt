@@ -140,6 +140,9 @@
       <DependentUpon>Adatbazis.tt</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="KEDVENCEK.cs">
+      <DependentUpon>Adatbazis.tt</DependentUpon>
+    </Compile>
     <Compile Include="Kozos\BoolToColorConverter.cs" />
     <Compile Include="Kozos\MegrendelesWindow.xaml.cs">
       <DependentUpon>MegrendelesWindow.xaml</DependentUpon>

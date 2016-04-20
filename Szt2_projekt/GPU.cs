@@ -18,6 +18,7 @@ namespace Szt2_projekt
         public GPU()
         {
             this.RENDELESEK = new HashSet<RENDELESEK>();
+            this.KEDVENCEK = new HashSet<KEDVENCEK>();
         }
     
         public decimal GPU_ID { get; set; }
@@ -28,10 +29,7 @@ namespace Szt2_projekt
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }
-
-        public override string ToString()
-        {
-            return TIPUSSZAM + " (" + MEMORIA + "GB)";
-        }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KEDVENCEK> KEDVENCEK { get; set; }
     }
 }
