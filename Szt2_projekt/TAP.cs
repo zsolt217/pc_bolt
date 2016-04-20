@@ -30,5 +30,9 @@ namespace Szt2_projekt
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KEDVENCEK> KEDVENCEK { get; set; }
+        public override string ToString()
+        {
+            return TIPUSSZAM + " (" + TELJESITMENY + "W)";
+        }
     }
 }

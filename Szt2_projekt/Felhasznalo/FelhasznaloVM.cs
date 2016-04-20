@@ -165,7 +165,7 @@ namespace Szt2_projekt
         public TAP SelectedTap
         {
             get { return selectedTap; }
-            set { selectedTap = value; if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
+            set { selectedTap = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<TAP> Tapok

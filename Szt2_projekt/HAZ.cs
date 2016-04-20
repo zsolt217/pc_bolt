@@ -11,7 +11,7 @@ namespace Szt2_projekt
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class HAZ
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,15 +20,20 @@ namespace Szt2_projekt
             this.RENDELESEK = new HashSet<RENDELESEK>();
             this.KEDVENCEK = new HashSet<KEDVENCEK>();
         }
-    
+
         public decimal HAZ_ID { get; set; }
         public string TIPUSSZAM { get; set; }
         public string MERETSZABVANY { get; set; }
         public decimal AR { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RENDELESEK> RENDELESEK { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KEDVENCEK> KEDVENCEK { get; set; }
+        public override string ToString()
+        {
+            return TIPUSSZAM;
+        }
+
     }
 }
