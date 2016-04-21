@@ -1,6 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
 using Szt2_projekt.Felhasznalo;
 
 namespace Szt2_projekt
@@ -24,7 +27,7 @@ namespace Szt2_projekt
             //kompatibilitas = new KompatibilitasVizsgalo();
             id = felhasznaloid;
             DataContext = VM;
-            
+
         }
 
         private void MegrendelésButton_Click(object sender, RoutedEventArgs e)
@@ -68,7 +71,32 @@ namespace Szt2_projekt
             //cBoxTapegyseg.ItemsSource = DB.TAP.ToList();
             //cBoxVideokartya.ItemsSource = DB.GPU.ToList();
             //cBoxWinchester.ItemsSource = DB.HDD.ToList();
+            labelek = new List<Label>();
+            labelek.Add(lbl1);
+            labelek.Add(lbl2);
+            labelek.Add(lbl3);
+            labelek.Add(lbl4);
+            labelek.Add(lbl5);
+            labelek.Add(lbl6);
+            labelek.Add(lbl7);
+            alaplaplabelnevek = new string[] { "Ár:", "Név:", "Processzor foglalat:", "Memóriaslotok száma:", "Memóriatípus:", "Chipset:", "Méretszabvány:" };
+            tarololabelnevek = new string[] { "Ár:", "Név:", "Kapacitás:" };
+            proclabelnevek = new string[] { "Ár:", "Név:", "Foglalat:", "Fogyasztás:", "Órajel:", "Magok száma:" };
+            gpulabelnevek = new string[] { "Ár:", "Név:", "Fogyasztás:", "Memória:" };
+            ramlabelnevek = new string[] { "Ár:", "Név:", "Típus:", "Órajel:", "Kapacitás:" };
+            taplabelnevek = new string[] { "Ár:", "Név:", "Teljesítmény:" };
+            hazlabelnevek = new string[] { "Ár:", "Név:", "Méretszabvány:" };
+
         }
+        string[] alaplaplabelnevek;
+        string[] tarololabelnevek;
+        string[] proclabelnevek;
+        string[] gpulabelnevek;
+        string[] ramlabelnevek;
+        string[] taplabelnevek;
+        string[] hazlabelnevek;
+        List<Label> labelek;
+
 
         private void Kijelentkezo_Click(object sender, RoutedEventArgs e)
         {
@@ -125,6 +153,142 @@ namespace Szt2_projekt
             //        //TODO MENTÉS A KEDVENCEKBE!
             //    }
             //}
+        }
+
+
+        #region unchecked rbutton események,nem kell megnyitni
+
+        void LabelContentTorles()
+        {
+            foreach (Label akt in labelek)
+            {
+                akt.Content = string.Empty;
+            }
+        }
+        private void rbAlaplap_Unchecked(object sender, RoutedEventArgs e)
+        {
+            LabelContentTorles();
+        }
+
+        private void rbProcesszor_Unchecked(object sender, RoutedEventArgs e)
+        {
+            LabelContentTorles();
+        }
+
+        private void rbVideokartya_Unchecked(object sender, RoutedEventArgs e)
+        {
+            LabelContentTorles();
+        }
+
+        private void rbMemoria_Unchecked(object sender, RoutedEventArgs e)
+        {
+            LabelContentTorles();
+        }
+
+        private void rbWinchester_Unchecked(object sender, RoutedEventArgs e)
+        {
+            LabelContentTorles();
+        }
+
+        private void rbSSD_Unchecked(object sender, RoutedEventArgs e)
+        {
+            LabelContentTorles();
+        }
+
+        private void rbTap_Unchecked(object sender, RoutedEventArgs e)
+        {
+            LabelContentTorles();
+        }
+
+        private void rbHaz_Unchecked(object sender, RoutedEventArgs e)
+        {
+            LabelContentTorles();
+        }
+        #endregion
+
+
+        AdatbazisEntities ab;
+        private void rbAlaplap_Checked(object sender, RoutedEventArgs e)
+        {
+
+            for (int i = 0; i < alaplaplabelnevek.Length; i++)
+            {
+                labelek[i].Content = alaplaplabelnevek[i];
+            }
+
+            if (cBoxAlaplap.SelectedIndex != cBoxAlaplap.Items.Count) //ha nem az utolsó van kiválasztva
+            {
+                ab = new AdatbazisEntities();
+                ALAPLAP alap = new ALAPLAP();
+
+                string keres = cBoxAlaplap.SelectedItem.ToString();
+                var q = from akt in ab.ALAPLAP
+                        where akt.TIPUSSZAM == keres
+                        select akt;
+
+
+                alap = q.FirstOrDefault();
+                //AlkatreszAdatokGrid.DataContext = alap;
+
+            }
+        }
+
+        private void rbWinchester_Checked(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < tarololabelnevek.Length; i++)
+            {
+                labelek[i].Content = tarololabelnevek[i];
+            }
+        }
+
+
+        private void rbProcesszor_Checked(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < proclabelnevek.Length; i++)
+            {
+                labelek[i].Content = proclabelnevek[i];
+            }
+        }
+
+        private void rbVideokartya_Checked(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < gpulabelnevek.Length; i++)
+            {
+                labelek[i].Content = gpulabelnevek[i];
+            }
+        }
+
+
+        private void rbMemoria_Checked(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < ramlabelnevek.Length; i++)
+            {
+                labelek[i].Content = ramlabelnevek[i];
+            }
+        }
+
+        private void rbSSD_Checked(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < tarololabelnevek.Length; i++)
+            {
+                labelek[i].Content = tarololabelnevek[i];
+            }
+        }
+
+        private void rbTap_Checked(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < taplabelnevek.Length; i++)
+            {
+                labelek[i].Content = taplabelnevek[i];
+            }
+        }
+
+        private void rbHaz_Checked(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < hazlabelnevek.Length; i++)
+            {
+                labelek[i].Content = hazlabelnevek[i];
+            }
         }
     }
 }
