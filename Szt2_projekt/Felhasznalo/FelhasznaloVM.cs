@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Szt2_projekt.Felhasznalo;
 
 namespace Szt2_projekt
 {
@@ -38,8 +39,10 @@ namespace Szt2_projekt
             cim = String.Empty;
             email = String.Empty;
             kezelo = new UzenetKezelo();
+            vezerlo = new KedvencVezerlo();
             kimenouzenet = String.Empty;
             UzenetBetoltes();
+            KedvencBetolt();
             felhasznalovaltoztatasengedelyezes = true;
         }
         #region sajatadatok
@@ -257,6 +260,41 @@ namespace Szt2_projekt
             set { alaplapok = value; OnPropertyChanged(); }
         }
 
+        #endregion
+
+        #region Kedvencek
+
+        private KEDVENCEK leendoKedvenc;
+        private KedvencVezerlo vezerlo;
+        private List<KEDVENCEK> kedvencek; 
+        public List<KEDVENCEK> Kedvencek
+        {
+            get { return kedvencek; }
+            set { kedvencek = value; }
+            //OnPropertyChanged();}
+        }
+
+        public void KedvencBetolt()
+        {
+            kedvencek = vezerlo.KedvencekBetoltese(id);
+        }
+
+        public void KedvencMentes()
+        {
+            leendoKedvenc = new KEDVENCEK
+            {
+                ALAPLAP_ID = SelectedAlaplap.ALAPLAP_ID,
+                CPU_ID = SelectedCpu.CPU_ID,
+                GPU_ID = SelectedGpu.GPU_ID,
+                MEMORIA_ID = SelectedMemoria.MEMORIA_ID,
+                HDD_ID = SelectedHdd.HDD_ID,
+                SSD_ID = SelectedSsd.SSD_ID,
+                HAZ_ID = SelectedHaz.HAZ_ID,
+                TAP_ID = SelectedTap.TAP_ID
+            };
+            vezerlo.MentesKedvencekbe(id, leendoKedvenc);
+            OnPropertyChanged("Kedvencek");
+        }
 
         #endregion
 
