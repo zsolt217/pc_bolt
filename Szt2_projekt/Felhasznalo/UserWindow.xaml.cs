@@ -431,7 +431,7 @@ namespace Szt2_projekt
                 lbl17.Content = aktalaplap.MERETSZABVANY;
 
             }
-            else
+            else if (rbAlaplap.IsChecked == true)
             {
                 LabelNullaz();
             }
@@ -453,7 +453,7 @@ namespace Szt2_projekt
                 lbl16.Content = akt.MAGOK;
 
             }
-            else
+            else if (rbProcesszor.IsChecked == true)
             {
                 LabelNullaz();
             }
@@ -479,7 +479,7 @@ namespace Szt2_projekt
                 lbl13.Content = aktHDD.KAPACITAS;
 
             }
-            else
+            else if (rbWinchester.IsChecked == true)
             {
                 LabelNullaz();
             }
@@ -499,7 +499,7 @@ namespace Szt2_projekt
                 lbl14.Content = akt.MEMORIA;
 
             }
-            else
+            else if (rbVideokartya.IsChecked == true)
             {
                 LabelNullaz();
             }
@@ -520,7 +520,7 @@ namespace Szt2_projekt
                 lbl15.Content = akt.KAPACITAS;
                
             }
-            else
+            else if (rbMemoria.IsChecked == true)
             {
                 LabelNullaz();
             }
@@ -539,7 +539,7 @@ namespace Szt2_projekt
                 lbl13.Content = akt.KAPACITAS;
 
             }
-            else
+            else if (rbSSD.IsChecked == true)
             {
                 LabelNullaz();
             }
@@ -558,7 +558,7 @@ namespace Szt2_projekt
                 lbl13.Content = akt.TELJESITMENY;
 
             }
-            else
+            else if (rbTap.IsChecked==true)
             {
                 LabelNullaz();
             }
@@ -566,6 +566,7 @@ namespace Szt2_projekt
 
         private void cBoxHazak_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+          
             if ((rbHaz.IsChecked == true) && cBoxHazak.SelectedIndex != cBoxHazak.Items.Count - 1)
             {
                 HAZ akt = new HAZ();
@@ -577,7 +578,7 @@ namespace Szt2_projekt
                 lbl13.Content = akt.MERETSZABVANY;
 
             }
-            else
+            else if (rbHaz.IsChecked == true)
             {
                 LabelNullaz();
             }
