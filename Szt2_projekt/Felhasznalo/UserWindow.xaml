@@ -35,28 +35,27 @@
                         <ColumnDefinition Width="285*"></ColumnDefinition>
                         <ColumnDefinition Width="397*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <ComboBox ItemsSource="{Binding Alaplapok}" SelectedItem="{Binding SelectedAlaplap}" HorizontalAlignment="Left" Margin="52,30,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox ItemsSource="{Binding Cpuk}" SelectedItem="{Binding SelectedCpu}" HorizontalAlignment="Left" Margin="52,75,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox ItemsSource="{Binding Gpuk}" SelectedItem="{Binding SelectedGpu}" HorizontalAlignment="Left" Margin="52,120,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox ItemsSource="{Binding Memoriak}" SelectedItem="{Binding SelectedMemoria}" HorizontalAlignment="Left" Margin="52,165,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox  ItemsSource="{Binding Hddk}" SelectedItem="{Binding SelectedHdd}" HorizontalAlignment="Left" Margin="52,210,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox  ItemsSource="{Binding Ssdk}" SelectedItem="{Binding SelectedSsd}" HorizontalAlignment="Left" Margin="52,255,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox ItemsSource="{Binding Tapok}" SelectedItem="{Binding SelectedTap}" HorizontalAlignment="Left" Margin="52,300,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
-                    <ComboBox ItemsSource="{Binding Hazak}" SelectedItem="{Binding SelectedHaz}" HorizontalAlignment="Left" Margin="52,345,0,0" VerticalAlignment="Top" Width="170" Height="22"/>
+                    <ComboBox x:Name="cBoxAlaplap" ItemsSource="{Binding Alaplapok}" SelectedItem="{Binding SelectedAlaplap}" HorizontalAlignment="Left" Margin="52,30,0,0" VerticalAlignment="Top" Width="170" Height="22" SelectionChanged="cBoxAlaplap_SelectionChanged"/>
+                    <ComboBox x:Name="cBoxCPU" ItemsSource="{Binding Cpuk}" SelectedItem="{Binding SelectedCpu}" HorizontalAlignment="Left" Margin="52,75,0,0" VerticalAlignment="Top" Width="170" Height="22" SelectionChanged="cBoxCPU_SelectionChanged"/>
+                    <ComboBox x:Name="cBoxGPU" ItemsSource="{Binding Gpuk}" SelectedItem="{Binding SelectedGpu}" HorizontalAlignment="Left" Margin="52,120,0,0" VerticalAlignment="Top" Width="170" Height="22" SelectionChanged="cBoxGPU_SelectionChanged"/>
+                    <ComboBox x:Name="cBoxRAM" ItemsSource="{Binding Memoriak}" SelectedItem="{Binding SelectedMemoria}" HorizontalAlignment="Left" Margin="52,165,0,0" VerticalAlignment="Top" Width="170" Height="22" SelectionChanged="cBoxRAM_SelectionChanged"/>
+                    <ComboBox x:Name="cBoxHDD" ItemsSource="{Binding Hddk}" SelectedItem="{Binding SelectedHdd}" HorizontalAlignment="Left" Margin="52,210,0,0" VerticalAlignment="Top" Width="170" Height="22" SelectionChanged="cBoxHDD_SelectionChanged"/>
+                    <ComboBox x:Name="cBoxSSD" ItemsSource="{Binding Ssdk}" SelectedItem="{Binding SelectedSsd}" HorizontalAlignment="Left" Margin="52,255,0,0" VerticalAlignment="Top" Width="170" Height="22" SelectionChanged="cBoxSSD_SelectionChanged"/>
+                    <ComboBox x:Name="cBoxTapok" ItemsSource="{Binding Tapok}" SelectedItem="{Binding SelectedTap}" HorizontalAlignment="Left" Margin="52,300,0,0" VerticalAlignment="Top" Width="170" Height="22" SelectionChanged="cBoxTapok_SelectionChanged"/>
+                    <ComboBox x:Name="cBoxHazak" ItemsSource="{Binding Hazak}" SelectedItem="{Binding SelectedHaz}" HorizontalAlignment="Left" Margin="52,345,0,0" VerticalAlignment="Top" Width="170" Height="22" SelectionChanged="cBoxHazak_SelectionChanged"/>
 
-                    <RadioButton x:Name="rbAlaplap" Content="Alaplap:" Margin="52,10,171,366"/>
-                    <RadioButton x:Name="rbProcesszor" Content="Processzor:" HorizontalAlignment="Left" Margin="52,55,0,0" VerticalAlignment="Top" Height="16" Width="75"/>
-                    <RadioButton x:Name="rbVideokartya" Content="Videókártya:" HorizontalAlignment="Left" Margin="52,100,0,0" VerticalAlignment="Top" Height="16" Width="82"/>
-                    <RadioButton x:Name="rbMemoria" Content="Memória:" HorizontalAlignment="Left" Margin="52,145,0,0" VerticalAlignment="Top" Height="16" Width="66"/>
-                    <RadioButton x:Name="rbWinchester" Content="Winchester:" HorizontalAlignment="Left" Margin="52,190,0,0" VerticalAlignment="Top" Height="16" Width="78"/>
-                    <RadioButton x:Name="rbSSD" Content="SSD meghajtó:" HorizontalAlignment="Left" Margin="52,235,0,0" VerticalAlignment="Top" Height="16" Width="94"/>
-                    <RadioButton x:Name="rbTap" Content="Tápegység:" HorizontalAlignment="Left" Margin="52,280,0,0" VerticalAlignment="Top" Height="16" Width="76"/>
-                    <RadioButton x:Name="rbHaz" Content="Ház:" HorizontalAlignment="Left" Margin="52,325,0,0" VerticalAlignment="Top" Height="16" Width="39"/>
+                    <RadioButton x:Name="rbAlaplap" Content="Alaplap:" Margin="52,10,171,366" Checked="rbAlaplap_Checked" Unchecked="rbAlaplap_Unchecked"/>
+                    <RadioButton x:Name="rbProcesszor" Content="Processzor:" HorizontalAlignment="Left" Margin="52,55,0,0" VerticalAlignment="Top" Height="16" Width="75" Unchecked="rbProcesszor_Unchecked" Checked="rbProcesszor_Checked"/>
+                    <RadioButton x:Name="rbVideokartya" Content="Videókártya:" HorizontalAlignment="Left" Margin="52,100,0,0" VerticalAlignment="Top" Height="16" Width="82" Unchecked="rbVideokartya_Unchecked" Checked="rbVideokartya_Checked"/>
+                    <RadioButton x:Name="rbMemoria" Content="Memória:" HorizontalAlignment="Left" Margin="52,145,0,0" VerticalAlignment="Top" Height="16" Width="66" Unchecked="rbMemoria_Unchecked" Checked="rbMemoria_Checked"/>
+                    <RadioButton x:Name="rbWinchester" Content="Winchester:" HorizontalAlignment="Left" Margin="52,190,0,0" VerticalAlignment="Top" Height="16" Width="78" Checked="rbWinchester_Checked" Unchecked="rbWinchester_Unchecked"/>
+                    <RadioButton x:Name="rbSSD" Content="SSD meghajtó:" HorizontalAlignment="Left" Margin="52,235,0,0" VerticalAlignment="Top" Height="16" Width="94" Unchecked="rbSSD_Unchecked" Checked="rbSSD_Checked"/>
+                    <RadioButton x:Name="rbTap" Content="Tápegység:" HorizontalAlignment="Left" Margin="52,280,0,0" VerticalAlignment="Top" Height="16" Width="76" Unchecked="rbTap_Unchecked" Checked="rbTap_Checked"/>
+                    <RadioButton x:Name="rbHaz" Content="Ház:" HorizontalAlignment="Left" Margin="52,325,0,0" VerticalAlignment="Top" Height="16" Width="39" Unchecked="rbHaz_Unchecked" Checked="rbHaz_Checked"/>
 
                     <Button x:Name="MegrendelésButton" Content="Megrendelés!" Margin="24,383,171,25" Width="85" Height="30" Click="MegrendelésButton_Click" />
                     <Button x:Name="MentésButton" Content="Mentés!" Margin="160,383,35,25" Width="85" Height="30" Click="MentésButton_Click"/>
-                    <Grid Grid.Column="1">
-                        <!--Ebben a grid "táblázatban" lesznek az adott alkatrész adatai(most csak 1 processzor jellemzőit írtam be,hogy a doksiba képnek legyen valami konkrét,amúgy adatkötni kéne)-->
+                    <Grid x:Name="AlkatreszAdatokGrid" Grid.Column="1">                       
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
@@ -72,12 +71,25 @@
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Label Content="Ár:" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
-                        <Label Content="Gyártó:" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
-                        <Label Content="Magok száma:" Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
-                        <Label Content="Foglalat:" Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
-                        <Label Content="Órajel:" Grid.Column="0" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
-                        <Label Content="Fogyasztás:" Grid.Column="0" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
+
+                       
+                        <Label x:Name="lbl1" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
+                        <Label x:Name="lbl2" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
+                        <Label x:Name="lbl3"  Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
+                        <Label x:Name="lbl4"  Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
+                        <Label x:Name="lbl5"  Grid.Column="0" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
+                        <Label x:Name="lbl6" Grid.Column="0" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
+                        <Label x:Name="lbl7"  Grid.Column="0" Grid.Row="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
+                     
+
+
+                        <Label x:Name="lbl11" Content="" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10"></Label>
+                        <Label x:Name="lbl12"  Content="" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10"></Label>
+                        <Label x:Name="lbl13"  Content="" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10"></Label>
+                        <Label x:Name="lbl14"  Content="" Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10"></Label>
+                        <Label x:Name="lbl15"  Content="" Grid.Column="1" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10"></Label>
+                        <Label x:Name="lbl16"  Content="" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10"></Label>
+                        <Label x:Name="lbl17"  Content="" Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10"></Label>
 
                     </Grid>
                 </Grid>
@@ -91,7 +103,7 @@
                     <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="230" Margin="118,98,0,0" VerticalAlignment="Top" Width="457"/>
                 </Grid>
             </TabItem>
-            
+
             <TabItem Header="Kapcsolatfelvétel">
                 <Grid>
                     <ListBox Margin="10,10,408,71" ItemsSource="{Binding Bejovok}" SelectedItem="{Binding SelectedUzenet}" >
@@ -104,7 +116,7 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <Label Content="{Binding UzenetSzoveg }" Margin="302,10,10,297"/>                 
+                    <Label Content="{Binding UzenetSzoveg }" Margin="302,10,10,297"/>
                     <TextBox x:Name="kapcsolattBox" Text="{Binding Kimenouzenet}" Margin="302,180,10,71" />
                     <Button x:Name="kuldesButton" Content="Küldés!" Width="85" Margin="457,385,144,30" Click="kuldesButton_Click"/>
                 </Grid>
