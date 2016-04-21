@@ -98,6 +98,8 @@ namespace Szt2_projekt
 
         private void MentésButton_Click(object sender, RoutedEventArgs e)
         {
+            VM.KedvencMentes();
+            
             //ALAPLAP alaplap = (ALAPLAP)cBoxAlaplap.SelectedItem;
             //CPU cpu = (CPU)cBoxProcesszor.SelectedItem;
             //HAZ haz = (HAZ)cBoxHaz.SelectedItem;

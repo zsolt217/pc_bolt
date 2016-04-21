@@ -35,5 +35,10 @@ namespace Szt2_projekt
         public virtual MEMORIA MEMORIA { get; set; }
         public virtual SSD SSD { get; set; }
         public virtual TAP TAP { get; set; }
+
+        public override string ToString()
+        {
+            return KEDVENCEK_ID + ". kedvenced " + FELHASZNALO.NEV;
+        }
     }
 }

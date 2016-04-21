@@ -87,7 +87,7 @@
                 <Grid>
                     <Button x:Name="kedvencMegrendelesButton" Content="Megrendelés!" HorizontalAlignment="Left" Margin="118,383,0,0" VerticalAlignment="Top" Width="100"/>
                     <Button x:Name="kedvencModositasButton" Content="Módosítás!" HorizontalAlignment="Left" Margin="475,383,0,0" VerticalAlignment="Top" Width="100"/>
-                    <ComboBox x:Name="cBoxKedvenc" HorizontalAlignment="Left" Margin="118,52,0,0" VerticalAlignment="Top" Width="457"/>
+                    <ComboBox x:Name="cBoxKedvenc" ItemsSource="{Binding Kedvencek}"  SelectedItem="{Binding SelectedKedvenc}" HorizontalAlignment="Left" Margin="118,52,0,0" VerticalAlignment="Top" Width="457"/>
                     <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="230" Margin="118,98,0,0" VerticalAlignment="Top" Width="457"/>
                 </Grid>
             </TabItem>
