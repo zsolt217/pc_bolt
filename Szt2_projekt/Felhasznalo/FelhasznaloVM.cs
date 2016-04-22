@@ -281,18 +281,18 @@ namespace Szt2_projekt
 
         public void KedvencMentes()
         {
-            leendoKedvenc = new KEDVENCEK
-            {
-                ALAPLAP_ID = SelectedAlaplap.ALAPLAP_ID,
-                CPU_ID = SelectedCpu.CPU_ID,
-                GPU_ID = SelectedGpu.GPU_ID,
-                MEMORIA_ID = SelectedMemoria.MEMORIA_ID,
-                HDD_ID = SelectedHdd.HDD_ID,
-                SSD_ID = SelectedSsd.SSD_ID,
-                HAZ_ID = SelectedHaz.HAZ_ID,
-                TAP_ID = SelectedTap.TAP_ID
-            };
-            vezerlo.MentesKedvencekbe(id, leendoKedvenc);
+            //leendoKedvenc = new KEDVENCEK
+            //{
+            //    ALAPLAP_ID = SelectedAlaplap.ALAPLAP_ID,
+            //    CPU_ID = SelectedCpu.CPU_ID,
+            //    GPU_ID = SelectedGpu.GPU_ID,
+            //    MEMORIA_ID = SelectedMemoria.MEMORIA_ID,
+            //    HDD_ID = SelectedHdd.HDD_ID,
+            //    SSD_ID = SelectedSsd.SSD_ID,
+            //    HAZ_ID = SelectedHaz.HAZ_ID,
+            //    TAP_ID = SelectedTap.TAP_ID
+            //};
+            //vezerlo.MentesKedvencekbe(id, leendoKedvenc);
             OnPropertyChanged("Kedvencek");
         }
 

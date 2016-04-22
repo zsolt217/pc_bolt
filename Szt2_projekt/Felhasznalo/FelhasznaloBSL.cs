@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Szt2_projekt
 {
@@ -11,10 +12,12 @@ namespace Szt2_projekt
         AdatbazisEntities DB;
         FelhasznaloVM VM;
         KompatibilitasVizsgalo vizsgalo;
+        decimal felhasznaloid;
         public FelhasznaloBSL(decimal felhasznaloid, FelhasznaloVM Felhasznalovm)
         {
             VM = Felhasznalovm;
             DB = new AdatbazisEntities();
+            this.felhasznaloid = felhasznaloid;
             FelhasznaloAdatbetoltesVMbe(felhasznaloid);
             TermekekBetoltese();
             vizsgalo = new KompatibilitasVizsgalo(VM); //feliratkozik az ablak termékváltozás eseményére
@@ -74,33 +77,106 @@ namespace Szt2_projekt
             VM.Tapok = tapok;
             VM.SelectedTap = VM.Tapok.Last();
         }
-        //public void RendelesMentes()
-        //{
-        //    if (VM.SelectedAlaplap.TIPUSSZAM.Contains("*")||VM.SelectedCpu.TIPUSSZAM.Contains("*")||
-        //        VM.SelectedHaz.TIPUSSZAM.Contains("*")||VM.SelectedTap.TIPUSSZAM.Contains("*")||VM.SelectedHdd.TIPUSSZAM.Contains("*")||
-        //        VM.SelectedMemoria.TIPUSSZAM.Contains("*"))
+        public void RendelesMentes()
+        {
+            if (VM.SelectedAlaplap.TIPUSSZAM.Contains("*") || VM.SelectedCpu.TIPUSSZAM.Contains("*") ||
+                VM.SelectedHaz.TIPUSSZAM.Contains("*") || VM.SelectedTap.TIPUSSZAM.Contains("*") || VM.SelectedHdd.TIPUSSZAM.Contains("*") ||
+                VM.SelectedMemoria.TIPUSSZAM.Contains("*"))
+            {
+                MessageBox.Show("Nem sikerült a megrendelést rögzíteni, mert a konfiguráció hiányos! Kérjük válassz ki minden minden alkatrészből egyet!");
+            }
+            else
+            {
+                decimal osszFogyasztas = VM.SelectedCpu.FOGYASZTAS + VM.SelectedGpu.FOGYASZTAS;
+                if (VM.SelectedAlaplap.CPUFOGLALAT.Equals(VM.SelectedCpu.CPUFOGLALAT) &&
+        VM.SelectedAlaplap.MEMORIATIPUS.Equals(VM.SelectedMemoria.MEMORIATIPUS) && VM.SelectedHaz.MERETSZABVANY.Equals(VM.SelectedAlaplap.MERETSZABVANY) &&
+        VM.SelectedTap.TELJESITMENY >= osszFogyasztas)
+                {
+                    var p = DB.RENDELESEK.OrderByDescending(x => x.RENDELES_ID).FirstOrDefault();
+                    int newId = (null == p ? 0 : (int)p.RENDELES_ID) + 1;
+                    RENDELESEK uj = new RENDELESEK
+                    {
+                        ALAPLAP_ID = VM.SelectedAlaplap.ALAPLAP_ID,
+                        CPU_ID = VM.SelectedCpu.CPU_ID,
+                        FELHASZNALO_ID = felhasznaloid,
+                        GPU_ID = VM.SelectedGpu.GPU_ID,
+                        HAZ_ID = VM.SelectedHaz.HAZ_ID,
+                        HDD_ID = VM.SelectedHdd.HDD_ID,
+                        MEMORIA_ID = VM.SelectedMemoria.MEMORIA_ID,
+                        SSD_ID = (VM.SelectedSsd.TIPUSSZAM.Contains("*") ? (decimal?)null : VM.SelectedSsd.SSD_ID),
+                        RENDELES_ID = newId,
+                        TAP_ID = VM.SelectedTap.TAP_ID
+                    };
+                    try
+                    {
+                        DB.RENDELESEK.Add(uj);
+                        DB.SaveChanges();
+                        MessageBox.Show("Rendelés leadva!");
+                    }
+                    catch (Exception hiba)
+                    {
+                        Megosztott.Logolas(hiba.InnerException.Message);
+                        MessageBox.Show("Adatbázishiba, nem sikerült rögzíteni.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Elbaszott vmit a Zsolti a kompatibilitasvizsgalatnal.");
+                }
+            }
+        }
 
-        //    {
-        //        MessageBox.Show("Nem sikerült a megrendelést rögzíteni, mert a konfiguráció hiányos! Kérjük válassz ki minden minden alkatrészből egyet!");
-        //    }
-        //    el
-        //    decimal osszFogyasztas = vm.FOGYASZTAS + gpu.FOGYASZTAS;
+        public void KedvencekMentes()
+        {
+            if (VM.SelectedAlaplap.TIPUSSZAM.Contains("*") || VM.SelectedCpu.TIPUSSZAM.Contains("*") ||
+                           VM.SelectedHaz.TIPUSSZAM.Contains("*") || VM.SelectedTap.TIPUSSZAM.Contains("*") || VM.SelectedHdd.TIPUSSZAM.Contains("*") ||
+                           VM.SelectedMemoria.TIPUSSZAM.Contains("*"))
+            {
+                MessageBox.Show("Nem sikerült a megrendelést rögzíteni, mert a konfiguráció hiányos! Kérjük válassz ki minden minden alkatrészből egyet!");
+            }
+            else
+            {
+                decimal osszFogyasztas = VM.SelectedCpu.FOGYASZTAS + VM.SelectedGpu.FOGYASZTAS;
+                if (VM.SelectedAlaplap.CPUFOGLALAT.Equals(VM.SelectedCpu.CPUFOGLALAT) &&
+        VM.SelectedAlaplap.MEMORIATIPUS.Equals(VM.SelectedMemoria.MEMORIATIPUS) && VM.SelectedHaz.MERETSZABVANY.Equals(VM.SelectedAlaplap.MERETSZABVANY) &&
+        VM.SelectedTap.TELJESITMENY >= osszFogyasztas)
+                {
+                    var p = DB.KEDVENCEK.OrderByDescending(x => x.KEDVENCEK_ID).FirstOrDefault();
+                    int newId = (null == p ? 0 : (int)p.KEDVENCEK_ID) + 1;
+                    KEDVENCEK uj = new KEDVENCEK
+                    {
+                        ALAPLAP_ID = VM.SelectedAlaplap.ALAPLAP_ID,
+                        CPU_ID = VM.SelectedCpu.CPU_ID,
+                        FELHASZNALO_ID = felhasznaloid,
+                        GPU_ID = VM.SelectedGpu.GPU_ID,
+                        HAZ_ID = VM.SelectedHaz.HAZ_ID,
+                        HDD_ID = VM.SelectedHdd.HDD_ID,
+                        MEMORIA_ID = VM.SelectedMemoria.MEMORIA_ID,
+                        SSD_ID = (VM.SelectedSsd.TIPUSSZAM.Contains("*") ? (decimal?)null : VM.SelectedSsd.SSD_ID),
+                        KEDVENCEK_ID = newId,
+                        TAP_ID = VM.SelectedTap.TAP_ID
+                    };
+                    try
+                    {
+                        DB.KEDVENCEK.Add(uj);
+                        DB.SaveChanges();
+                        MessageBox.Show("Kedvencek közé mentve");
 
-        //    if (alaplap.CPUFOGLALAT == cpu.CPUFOGLALAT &&
-        //        alaplap.MEMORIATIPUS != memoria.MEMORIATIPUS &&
-        //        tap.TELJESITMENY >= osszFogyasztas)
-        //    {
-        //        kompatibilis = true;
-        //    }
-        //    //else
-        //    //{
-        //    //    if (kompatibilitas.Kompatibilis(alaplap, memoria, hdd, ssd, tap, haz, cpu, gpu))
-        //    //    {
-        //    //        MessageBox.Show("Sikeresen hozzáadva a rendelésekhez!");
-        //    //        //TODO RENDELÉSEKHEZ HOZZÁADNI!
-        //    //    }
-        //    //}
-        //}
+                    }
+                    catch (Exception hiba)
+                    {
+                        Megosztott.Logolas(hiba.InnerException.Message);
+                        MessageBox.Show("Adatbázishiba, nem sikerült rögzíteni.");
+
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Elbaszott vmit a Zsolti a kompatibilitasvizsgalatnal.");
+                }
+            }
+        }
 
     }
 }

@@ -152,7 +152,7 @@ namespace Szt2_projekt
                                selectedrendeles.GPU.TIPUSSZAM,
                                selectedrendeles.MEMORIA.TIPUSSZAM,
                                selectedrendeles.HDD.TIPUSSZAM,
-                               selectedrendeles.SSD.TIPUSSZAM,
+                               (selectedrendeles.SSD==null ? "Nincs SSD kiválasztva": selectedrendeles.SSD.TIPUSSZAM),
                                selectedrendeles.TAP.TIPUSSZAM,
                                selectedrendeles.HAZ.TIPUSSZAM
                                );

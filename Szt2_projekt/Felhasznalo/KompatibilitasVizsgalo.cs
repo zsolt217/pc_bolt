@@ -334,8 +334,8 @@ namespace Szt2_projekt
                 VM.felhasznalovaltoztatasengedelyezes = false;
                 if (!VM.SelectedTap.TIPUSSZAM.Contains("*"))
                 {
-                    List<CPU> cpuk = VM.Cpuk.Where(x => x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY).ToList();
-                    //cpuk.Add(new CPU { TIPUSSZAM = "*nincs elem kivalasztva" });
+                    List<CPU> cpuk = DB.CPU.Where(x => x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY && (VM.SelectedAlaplap.TIPUSSZAM.Contains("*") ? true : (x.CPUFOGLALAT.Equals(VM.SelectedAlaplap.CPUFOGLALAT)))).ToList();
+                    cpuk.Add(new CPU { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedCpu.TIPUSSZAM.Contains("*"))
                     {
                         CPU selected = VM.SelectedCpu;
@@ -347,8 +347,8 @@ namespace Szt2_projekt
                         VM.Cpuk = cpuk;
                         VM.SelectedCpu = VM.Cpuk.Last();
                     }
-                    List<GPU> gpuk = VM.Gpuk.Where(x => x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY).ToList();
-                    //  gpuk.Add(new GPU { TIPUSSZAM = "*nincs elem kivalasztva" });
+                    List<GPU> gpuk = DB.GPU.Where(x => x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY).ToList();
+                     gpuk.Add(new GPU { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedGpu.TIPUSSZAM.Contains("*"))
                     {
                         GPU selected = VM.SelectedGpu;
@@ -363,8 +363,7 @@ namespace Szt2_projekt
                 }
                 else
                 {
-                    List<CPU> cpuk = DB.CPU.Where(x => ((x.CPUFOGLALAT.Equals(VM.SelectedAlaplap.CPUFOGLALAT)) &&
-                       (VM.SelectedTap.TIPUSSZAM.Contains("*") ? true : x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY))).ToList(); //abban az esetben ha van táp kiválasztva akk csak kisebb fogyasztású tápot enged kiválasztani mint a táp teljesítménye
+                    List<CPU> cpuk = DB.CPU.Where(x => x.CPUFOGLALAT.Equals(VM.SelectedAlaplap.CPUFOGLALAT)).ToList(); //abban az esetben ha van táp kiválasztva akk csak kisebb fogyasztású tápot enged kiválasztani mint a táp teljesítménye
                     cpuk.Add(new CPU { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedCpu.TIPUSSZAM.Contains("*"))
                     {
@@ -377,8 +376,8 @@ namespace Szt2_projekt
                         VM.Cpuk = cpuk;
                         VM.SelectedCpu = VM.Cpuk.Last();
                     }
-                    List<GPU> gpuk = VM.Gpuk.Where(x => x.FOGYASZTAS < VM.SelectedTap.TELJESITMENY).ToList();
-                    //gpuk.Add(new GPU { TIPUSSZAM = "*nincs elem kivalasztva" });
+                    List<GPU> gpuk = DB.GPU.ToList();
+                    gpuk.Add(new GPU { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedGpu.TIPUSSZAM.Contains("*"))
                     {
                         GPU selected = VM.SelectedGpu;
