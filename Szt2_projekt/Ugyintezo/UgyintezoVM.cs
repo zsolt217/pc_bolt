@@ -141,6 +141,31 @@ namespace Szt2_projekt
             get { return selectedrendeles; }
             set { selectedrendeles = value; }
         }
+
+        internal string SelectedrendelesToString
+        {
+            get
+            {
+                return string.Format("Alaplap: {0}\nProcesszor: {1}\nVideókártya: {2}\nMemória: {3}\nWinchester: {4}\nSSD: {5}\nTáp: {6}\nHáz: {7}",
+                               selectedrendeles.ALAPLAP.TIPUSSZAM,
+                               selectedrendeles.CPU.TIPUSSZAM,
+                               selectedrendeles.GPU.TIPUSSZAM,
+                               selectedrendeles.MEMORIA.TIPUSSZAM,
+                               selectedrendeles.HDD.TIPUSSZAM,
+                               (selectedrendeles.SSD==null ? "Nincs SSD kiválasztva": selectedrendeles.SSD.TIPUSSZAM),
+                               selectedrendeles.TAP.TIPUSSZAM,
+                               selectedrendeles.HAZ.TIPUSSZAM
+                               );
+            }
+        }
+
+        internal decimal SelectedrendelesID {
+            get
+            {
+                return selectedrendeles.RENDELES_ID;
+            }
+
+        }
         RendelesAllapot selectedallapot;
 
         public string Selectedallapot

@@ -32,6 +32,7 @@ namespace Szt2_projekt
 
         private void MegrendelésButton_Click(object sender, RoutedEventArgs e)
         {
+            BS.RendelesMentes();
             //ALAPLAP alaplap = (ALAPLAP)cBoxAlaplap.SelectedItem;
             //CPU cpu = (CPU)cBoxProcesszor.SelectedItem;
             //HAZ haz = (HAZ)cBoxHaz.SelectedItem;
@@ -126,6 +127,7 @@ namespace Szt2_projekt
 
         private void MentésButton_Click(object sender, RoutedEventArgs e)
         {
+            BS.KedvencekMentes();
             VM.KedvencMentes();
             
             //ALAPLAP alaplap = (ALAPLAP)cBoxAlaplap.SelectedItem;

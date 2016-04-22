@@ -90,5 +90,14 @@ namespace Szt2_projekt
             
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (listboxRendelesek.SelectedIndex != -1)
+            {
+                MessageBox.Show(VM.SelectedrendelesToString, VM.SelectedrendelesID + ". számú rendelés");
+            }
+            
+        }
+
     }
 }
