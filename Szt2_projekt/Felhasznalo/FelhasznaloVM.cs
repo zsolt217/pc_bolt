@@ -109,12 +109,13 @@ namespace Szt2_projekt
         }
         public bool UzenetKuldes()
         {
-            if (kimenouzenet != String.Empty && selectedUzenet != null)//láttamozza az üzenetet
+            if (kimenouzenet != String.Empty)//láttamozza az üzenetet
             {
-                kezelo.UzenetLattamozasModosit(selectedUzenet.UZENET_ID);
+                if(selectedUzenet != null)
+                    kezelo.UzenetLattamozasModosit(selectedUzenet.UZENET_ID);
                 UzenetBetoltes();
                 OnPropertyChanged("Bejovok");
-                return kezelo.Uzenetletrehozas(selectedUzenet.FELHASZNALO_ID, Uzenetirany.Ugyintezonek, kimenouzenet);
+                return kezelo.Uzenetletrehozas(id, Uzenetirany.Ugyintezonek, kimenouzenet);
             }
             return false;
         }
