@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Szt2_projekt
 {
@@ -76,6 +77,21 @@ namespace Szt2_projekt
             {
                 Megosztott.Logolas("rendelesvezerlotol " + e.InnerException.Message);
                 return false;
+            }
+        }
+
+        public void RendelesMentes(RENDELESEK rendeles)
+        {
+            try
+            {
+                DB.RENDELESEK.Add(rendeles);
+                DB.SaveChanges();
+                MessageBox.Show("Rendelés leadva!");
+            }
+            catch (Exception hiba)
+            {
+                Megosztott.Logolas(hiba.InnerException.Message);
+                MessageBox.Show("Adatbázishiba, nem sikerült rögzíteni.");
             }
         }
     }

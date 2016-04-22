@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Szt2_projekt.Felhasznalo
+namespace Szt2_projekt
 {
     public class KedvencVezerlo
     {

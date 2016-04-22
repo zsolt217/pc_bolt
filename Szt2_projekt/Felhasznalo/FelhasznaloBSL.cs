@@ -13,6 +13,8 @@ namespace Szt2_projekt
         FelhasznaloVM VM;
         KompatibilitasVizsgalo vizsgalo;
         decimal felhasznaloid;
+        RendelesVezerlo rendelesvezerlo;
+            KedvencVezerlo kedvencvezerlo;
         public FelhasznaloBSL(decimal felhasznaloid, FelhasznaloVM Felhasznalovm)
         {
             VM = Felhasznalovm;
@@ -21,6 +23,8 @@ namespace Szt2_projekt
             FelhasznaloAdatbetoltesVMbe(felhasznaloid);
             TermekekBetoltese();
             vizsgalo = new KompatibilitasVizsgalo(VM); //feliratkozik az ablak termékváltozás eseményére
+            rendelesvezerlo = new RendelesVezerlo(Rang.Felhasznalo);
+            kedvencvezerlo = new KedvencVezerlo();
         }
         void FelhasznaloAdatbetoltesVMbe(decimal felhasznaloid)//felhasználóvm elemeinek feltöltése
         {
@@ -107,17 +111,7 @@ namespace Szt2_projekt
                         RENDELES_ID = newId,
                         TAP_ID = VM.SelectedTap.TAP_ID
                     };
-                    try
-                    {
-                        DB.RENDELESEK.Add(uj);
-                        DB.SaveChanges();
-                        MessageBox.Show("Rendelés leadva!");
-                    }
-                    catch (Exception hiba)
-                    {
-                        Megosztott.Logolas(hiba.InnerException.Message);
-                        MessageBox.Show("Adatbázishiba, nem sikerült rögzíteni.");
-                    }
+                    rendelesvezerlo.RendelesMentes(uj);
                 }
                 else
                 {
@@ -156,20 +150,7 @@ namespace Szt2_projekt
                         KEDVENCEK_ID = newId,
                         TAP_ID = VM.SelectedTap.TAP_ID
                     };
-                    try
-                    {
-                        DB.KEDVENCEK.Add(uj);
-                        DB.SaveChanges();
-                        MessageBox.Show("Kedvencek közé mentve");
-
-                    }
-                    catch (Exception hiba)
-                    {
-                        Megosztott.Logolas(hiba.InnerException.Message);
-                        MessageBox.Show("Adatbázishiba, nem sikerült rögzíteni.");
-
-
-                    }
+                    kedvencvezerlo.MentesKedvencekbe(felhasznaloid, uj);
                 }
                 else
                 {

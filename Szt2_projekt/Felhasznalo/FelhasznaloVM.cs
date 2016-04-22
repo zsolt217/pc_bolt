@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using Szt2_projekt.Felhasznalo;
+
 
 namespace Szt2_projekt
 {
@@ -266,17 +267,18 @@ namespace Szt2_projekt
 
         private KEDVENCEK leendoKedvenc;
         private KedvencVezerlo vezerlo;
-        private List<KEDVENCEK> kedvencek; 
-        public List<KEDVENCEK> Kedvencek
+        private ObservableCollection<KEDVENCEK> kedvencek;
+        public ObservableCollection<KEDVENCEK> Kedvencek
         {
-            get { return kedvencek; }
+            get { KedvencBetolt(); return kedvencek; }
             set { kedvencek = value; }
             //OnPropertyChanged();}
         }
 
         public void KedvencBetolt()
         {
-            kedvencek = vezerlo.KedvencekBetoltese(id);
+            //kedvencek = vezerlo.KedvencekBetoltese(id);
+            kedvencek= new ObservableCollection<KEDVENCEK>(vezerlo.KedvencekBetoltese(id));
         }
 
         public void KedvencMentes()
@@ -298,6 +300,6 @@ namespace Szt2_projekt
 
         #endregion
 
-       
+
     }
 }
