@@ -74,6 +74,33 @@ namespace Szt2_projekt
             VM.Tapok = tapok;
             VM.SelectedTap = VM.Tapok.Last();
         }
+        //public void RendelesMentes()
+        //{
+        //    if (VM.SelectedAlaplap.TIPUSSZAM.Contains("*")||VM.SelectedCpu.TIPUSSZAM.Contains("*")||
+        //        VM.SelectedHaz.TIPUSSZAM.Contains("*")||VM.SelectedTap.TIPUSSZAM.Contains("*")||VM.SelectedHdd.TIPUSSZAM.Contains("*")||
+        //        VM.SelectedMemoria.TIPUSSZAM.Contains("*"))
+
+        //    {
+        //        MessageBox.Show("Nem sikerült a megrendelést rögzíteni, mert a konfiguráció hiányos! Kérjük válassz ki minden minden alkatrészből egyet!");
+        //    }
+        //    el
+        //    decimal osszFogyasztas = vm.FOGYASZTAS + gpu.FOGYASZTAS;
+
+        //    if (alaplap.CPUFOGLALAT == cpu.CPUFOGLALAT &&
+        //        alaplap.MEMORIATIPUS != memoria.MEMORIATIPUS &&
+        //        tap.TELJESITMENY >= osszFogyasztas)
+        //    {
+        //        kompatibilis = true;
+        //    }
+        //    //else
+        //    //{
+        //    //    if (kompatibilitas.Kompatibilis(alaplap, memoria, hdd, ssd, tap, haz, cpu, gpu))
+        //    //    {
+        //    //        MessageBox.Show("Sikeresen hozzáadva a rendelésekhez!");
+        //    //        //TODO RENDELÉSEKHEZ HOZZÁADNI!
+        //    //    }
+        //    //}
+        //}
 
     }
 }
