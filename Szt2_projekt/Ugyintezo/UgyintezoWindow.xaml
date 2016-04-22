@@ -25,7 +25,7 @@
             <TabItem Header="Megrendelések">
                 <Grid>
                     <Label  Content="Megrendelések:" HorizontalAlignment="Left" Margin="47,37,0,0" VerticalAlignment="Top"/>
-                    <ListBox ItemsSource="{Binding Rendelesek}" SelectedItem="{Binding Selectedrendeles}" HorizontalAlignment="Left" Height="144" Margin="47,75,0,0" VerticalAlignment="Top" Width="249">
+                    <ListBox x:Name="listboxRendelesek" ItemsSource="{Binding Rendelesek}" SelectedItem="{Binding Selectedrendeles}" HorizontalAlignment="Left" Height="144" Margin="47,75,0,0" VerticalAlignment="Top" Width="249">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid Height="40" Width="210" Background="{Binding LATTA_E, Converter={StaticResource Converter}}">
@@ -35,7 +35,7 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <Button Content="Megtekintés" HorizontalAlignment="Left" Margin="336,75,0,0" VerticalAlignment="Top" Width="124"/>
+                    <Button Content="Megtekintés" HorizontalAlignment="Left" Margin="336,75,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click"/>
                     <Label Content="Kiválasztott megrendelés állapota:" HorizontalAlignment="Left" Margin="47,257,0,0" VerticalAlignment="Top"/>
                     <ComboBox ItemsSource="{Binding RendelesAllapotok}"  SelectedItem="{Binding Selectedallapot}" HorizontalAlignment="Left" Height="26" Margin="260,257,0,0" VerticalAlignment="Top" Width="129"/>
 
