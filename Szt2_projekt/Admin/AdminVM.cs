@@ -22,7 +22,7 @@ namespace Szt2_projekt //szval érted,be sem tölti az ablakot
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
-    
+
         //AdatbazisEntities ab = new AdatbazisEntities();
         public AdminVM()
         {
@@ -44,11 +44,11 @@ namespace Szt2_projekt //szval érted,be sem tölti az ablakot
             ablak.FelhasznaloTablaGrid.DataContext = modositando;
             ablak.SzemelyesTablaGrid.DataContext = modositando.SZEMELYES_ADATOK;
             ablak.ShowDialog();
-            if (ablak.passwordBox1.Password!=string.Empty)
+            if (ablak.passwordBox1.Password != string.Empty)
             {
                 modositando.JELSZO = ablak.passwordBox1.Password; // a passwordboxot nem lehet bindingolni
             }
-           
+
         }
 
 
