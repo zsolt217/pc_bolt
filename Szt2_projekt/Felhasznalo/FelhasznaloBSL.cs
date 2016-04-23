@@ -37,6 +37,7 @@ namespace Szt2_projekt
                     VM.Email = aktFelhasznalo.First().email;
                     VM.Keresztnev = aktFelhasznalo.First().keresztnev;
                     VM.Vezeteknev = aktFelhasznalo.First().vezeteknev;
+                    VM.Telefonszam = aktFelhasznalo.First().telefonszam;
                     VM.Felhasznalonev = aktFelhasznalo.First().felhnev;
                 }
             }

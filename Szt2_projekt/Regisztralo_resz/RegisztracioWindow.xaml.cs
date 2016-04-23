@@ -31,6 +31,8 @@ namespace Szt2_projekt
         {
             InitializeComponent();
             VM = new RegisztraloVM(felhid);
+            this.Title = string.Format("Személyes adatok módosítása: {0}", VM.Felhasznalonev);
+            this.regButton.Content = "Módosítás";
             DataContext = VM;
         }
 

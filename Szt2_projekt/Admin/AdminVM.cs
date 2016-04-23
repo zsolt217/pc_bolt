@@ -41,6 +41,7 @@ namespace Szt2_projekt //szval érted,be sem tölti az ablakot
         {
             AdminFelhasznaloFelvetelWindow ablak = new AdminFelhasznaloFelvetelWindow();
             ablak.felvetelButton.IsEnabled = false;
+            ablak.Title = string.Format("Felhasználó módosítás: {0} ({1})", modositando.NEV, modositando.BEOSZTAS); 
             ablak.FelhasznaloTablaGrid.DataContext = modositando;
             ablak.SzemelyesTablaGrid.DataContext = modositando.SZEMELYES_ADATOK;
             ablak.ShowDialog();

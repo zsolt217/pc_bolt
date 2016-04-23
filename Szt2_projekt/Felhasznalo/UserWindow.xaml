@@ -123,6 +123,6 @@
             </TabItem>
         </TabControl>
         <Button Click="Kijelentkezo_Click" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="504,0,0,5" VerticalAlignment="Bottom" Width="124"/>
-        <Label Content="{Binding Felhasznalonev}" HorizontalAlignment="Left" Margin="418,489,0,0" VerticalAlignment="Top" Width="81" Height="20" />
+        <Label Content="{Binding Felhasznalonev}" HorizontalAlignment="Left" Margin="424,0,0,5" VerticalAlignment="Bottom" Width="75" Height="25" />
     </Grid>
 </Window>

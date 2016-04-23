@@ -30,16 +30,9 @@ namespace Szt2_projekt
 
             admin = new AdminVM();
             this.DataContext = admin;
-
-            ab = new AdatbazisEntities();
-
-            var felhasznalok = from akt in ab.FELHASZNALO
-                               orderby akt.NEV
-                               select akt.NEV;
-
-            lBoxAdminFelhasznalok.ItemsSource = felhasznalok.ToList();
-
+            Frissit();
         }
+
         private void Kijelentkezes_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -55,6 +48,7 @@ namespace Szt2_projekt
         #region Felhasználós cuccok
         void Frissit() // egyelőre ezzel a megoldással "frissül" a listbox(mármint minden gombnyomás után lefut a lekérdezés)
         {
+            ab = new AdatbazisEntities();
             var felhasznalok = from akt in ab.FELHASZNALO
                                orderby akt.NEV
                                select akt.NEV;
@@ -118,7 +112,6 @@ namespace Szt2_projekt
         #region Termékes cuccok
         private void button_Copy2_Click(object sender, RoutedEventArgs e) //Termék hozzáadása
         {
-            //admin.TermekHozzaAdas(this); VM-nek nem kell átadni a Window-t
             TermekModositoWindow ablak = new TermekModositoWindow();
             ablak.modositasButton.IsEnabled = false;
             if (ablak.ShowDialog() == true)
@@ -131,8 +124,8 @@ namespace Szt2_projekt
         {
             if (lBoxAdminTermekek.SelectedIndex != -1)
             {
-                //admin.TermekModositas(this); VM-nek nem kell átadni a Window-t
                 TermekModositoWindow ablak = new TermekModositoWindow(admin.KivalasztottCsoport, admin.KivalasztottTipusszam);
+                ablak.Title = string.Format("Termék módosítás: {0} ({1})", admin.KivalasztottTipusszam, admin.KivalasztottCsoport);
                 ablak.felvetelButton.IsEnabled = false;
                 ablak.modositasButton.IsEnabled = true;
                 if (ablak.ShowDialog() == true)
