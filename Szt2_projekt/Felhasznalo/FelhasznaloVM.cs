@@ -151,26 +151,42 @@ namespace Szt2_projekt
         #region Termekek
         List<ALAPLAP> alaplapok;
         ALAPLAP selectedAlaplap;
+        decimal selectedAlaplapAr;
         List<CPU> cpuk;
         CPU selectedCpu;
+        decimal selectedCpuAr;
         List<GPU> gpuk;
         GPU selectedGpu;
+        decimal selectedGpuAr;
         List<HAZ> hazak;
         HAZ selectedHaz;
+        decimal selectedHazAr;
         List<HDD> hddk;
         HDD selectedHdd;
+        decimal selectedHddAr;
         List<MEMORIA> memoriak;
         MEMORIA selectedMemoria;
+        decimal selectedMemoriaAr;
         List<SSD> ssdk;
         SSD selectedSsd;
+        decimal selectedSsdAr;
         List<TAP> tapok;
         TAP selectedTap;
+        decimal selectedTapAr;
+
         public bool felhasznalovaltoztatasengedelyezes;//annak a megoldására h ha kompatibilitasvizsgalo szűri vmely listát akk a selecteditemet módosítja és így új elemre is generál változásvizsgálatot=>végtelen ciklus hibával
+
+        public decimal RendelesOsszeg {
+            get
+            {
+                return selectedAlaplapAr + selectedCpuAr + selectedGpuAr + selectedMemoriaAr + selectedGpuAr + selectedHddAr + selectedSsdAr + selectedTapAr + selectedHazAr;
+            }
+        }
 
         public TAP SelectedTap
         {
             get { return selectedTap; }
-            set { selectedTap = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
+            set { selectedTap = value; OnPropertyChanged(); if (value != null) selectedTapAr = selectedTap.AR; OnPropertyChanged("RendelesOsszeg"); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<TAP> Tapok
@@ -182,7 +198,7 @@ namespace Szt2_projekt
         public SSD SelectedSsd
         {
             get { return selectedSsd; }
-            set { selectedSsd = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
+            set { selectedSsd = value; OnPropertyChanged(); if (value != null) selectedSsdAr = selectedSsd.AR; OnPropertyChanged("RendelesOsszeg"); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<SSD> Ssdk
@@ -194,7 +210,7 @@ namespace Szt2_projekt
         public MEMORIA SelectedMemoria
         {
             get { return selectedMemoria; }
-            set { selectedMemoria = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
+            set { selectedMemoria = value; OnPropertyChanged(); if (value != null) selectedMemoriaAr = selectedMemoria.AR; OnPropertyChanged("RendelesOsszeg"); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
         public List<MEMORIA> Memoriak
         {
@@ -205,7 +221,7 @@ namespace Szt2_projekt
         public HDD SelectedHdd
         {
             get { return selectedHdd; }
-            set { selectedHdd = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
+            set { selectedHdd = value; OnPropertyChanged(); if (value != null) selectedHddAr = selectedHdd.AR; OnPropertyChanged("RendelesOsszeg"); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<HDD> Hddk
@@ -217,7 +233,7 @@ namespace Szt2_projekt
         public HAZ SelectedHaz
         {
             get { return selectedHaz; }
-            set { selectedHaz = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
+            set { selectedHaz = value; OnPropertyChanged(); if (value != null) selectedHazAr = selectedHaz.AR; OnPropertyChanged("RendelesOsszeg"); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<HAZ> Hazak
@@ -229,7 +245,7 @@ namespace Szt2_projekt
         public GPU SelectedGpu
         {
             get { return selectedGpu; }
-            set { selectedGpu = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
+            set { selectedGpu = value; OnPropertyChanged(); if (value != null) selectedGpuAr = selectedGpu.AR; OnPropertyChanged("RendelesOsszeg"); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<GPU> Gpuk
@@ -241,7 +257,7 @@ namespace Szt2_projekt
         public CPU SelectedCpu
         {
             get { return selectedCpu; }
-            set { selectedCpu = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
+            set { selectedCpu = value; OnPropertyChanged(); if (value != null) selectedCpuAr = selectedCpu.AR; OnPropertyChanged("RendelesOsszeg"); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<CPU> Cpuk
@@ -253,7 +269,7 @@ namespace Szt2_projekt
         public ALAPLAP SelectedAlaplap
         {
             get { return selectedAlaplap; }
-            set { selectedAlaplap = value; OnPropertyChanged(); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
+            set { selectedAlaplap = value; OnPropertyChanged(); if(value != null) selectedAlaplapAr = selectedAlaplap.AR; OnPropertyChanged("RendelesOsszeg"); if (felhasznalovaltoztatasengedelyezes) TermekValtozas(); }
         }
 
         public List<ALAPLAP> Alaplapok

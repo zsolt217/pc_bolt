@@ -88,7 +88,7 @@ namespace Szt2_projekt
                 VM.SelectedHaz.TIPUSSZAM.Contains("*") || VM.SelectedTap.TIPUSSZAM.Contains("*") || VM.SelectedHdd.TIPUSSZAM.Contains("*") ||
                 VM.SelectedMemoria.TIPUSSZAM.Contains("*"))
             {
-                MessageBox.Show("Nem sikerült a megrendelést rögzíteni, mert a konfiguráció hiányos! Kérjük válassz ki minden minden alkatrészből egyet!");
+                MessageBox.Show("Nem sikerült a megrendelést rögzíteni, mert a konfiguráció hiányos! Kérjük válassz ki minden alkatrészből egyet!");
             }
             else
             {
@@ -120,6 +120,7 @@ namespace Szt2_projekt
                 }
             }
         }
+
 
         public void KedvencekMentes()
         {
