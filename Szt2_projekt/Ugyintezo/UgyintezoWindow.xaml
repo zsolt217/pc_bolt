@@ -53,11 +53,11 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <Label Content="{Binding UzenetSzoveg }" Margin="238,37,10,297"/>
-                    <TextBox Text="{Binding Kimenouzenet}" HorizontalAlignment="Left" Height="165" Margin="238,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="388"/>
+                    <TextBox Text="{Binding Kimenouzenet}" HorizontalAlignment="Left" Height="165" Margin="238,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="388" AcceptsReturn="True"/>
                     <Button Content="Válasz küldése" HorizontalAlignment="Left" Margin="392,395,0,0" VerticalAlignment="Top" Width="90" Click="ValaszKuldese_Click"/>
                     <Label Content="Válasz:" HorizontalAlignment="Left" Margin="238,192,0,0" VerticalAlignment="Top" Width="56"/>
                     <Label Content="Bejövő üzenetek:" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
+                    <TextBlock Margin="238,37,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding UzenetSzoveg }" VerticalAlignment="Top" Width="388" Height="150"/>
                 </Grid>
             </TabItem>
         </TabControl>

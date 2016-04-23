@@ -137,6 +137,7 @@ namespace Szt2_projekt
                     Email = aktFelhasznalo.First().email;
                     Keresztnev = aktFelhasznalo.First().keresztnev;
                     Vezeteknev = aktFelhasznalo.First().vezeteknev;
+                    Telefonszam = aktFelhasznalo.First().telefonszam;
                     Felhasznalonev = aktFelhasznalo.First().felhnev;
                     felhid = felhasznaloid;
                 }

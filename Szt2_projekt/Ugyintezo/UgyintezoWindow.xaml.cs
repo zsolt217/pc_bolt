@@ -64,6 +64,7 @@ namespace Szt2_projekt
             if (lBoxAdminTermekek.SelectedIndex != -1)
             {
                 TermekModositoWindow ablak = new TermekModositoWindow(VM.KivalasztottCsoport, VM.KivalasztottTipusszam);
+                ablak.Title = string.Format("Termék módosítás: {0} ({1})", VM.KivalasztottTipusszam, VM.KivalasztottCsoport);
                 ablak.felvetelButton.IsEnabled = false;
                 ablak.modositasButton.IsEnabled = true;
                 if (ablak.ShowDialog() == true)
