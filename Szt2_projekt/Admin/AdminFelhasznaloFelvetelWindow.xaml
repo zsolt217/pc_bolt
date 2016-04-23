@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Szt2_projekt.Admin.AdminFelhasznaloFelvetelWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="AdminFelhasznaloFelvetelWindow" Height="550" Width="500">
+        Title="Felhasználó hozzáadás | módosítás" Height="550" Width="500">
     <Grid Margin="0,-3,0,3">
         <Grid x:Name="FelhasznaloTablaGrid">
             <Label x:Name="label" Content="Felhasználó név:" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="44,10,0,0" Width="108"/>

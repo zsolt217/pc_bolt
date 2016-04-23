@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Szt2_projekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="350">
+        Title="Bejelentkezés" Height="250" Width="350">
     <Grid>
         <Label x:Name="label" Content="Név:" HorizontalAlignment="Left" Margin="64,68,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Jelszó:" HorizontalAlignment="Left" Margin="64,108,0,0" VerticalAlignment="Top"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Szt2_projekt"
         mc:Ignorable="d"
-        Title="RegisztracioWindow" Height="497" Width="400">
+        Title="Regisztráció" Height="497" Width="400">
     <Grid Margin="0,-3,0,3">
         <Label  Content="Felhasználó név:" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="44,10,0,0" Width="108"/>
         <Label  Content="Telefonszám:" HorizontalAlignment="Left" Margin="44,258,0,0" VerticalAlignment="Top"/>
