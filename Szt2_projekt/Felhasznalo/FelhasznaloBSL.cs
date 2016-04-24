@@ -126,6 +126,36 @@ namespace Szt2_projekt
             }
         }
 
+        public void RendelesMenteseKedvencbol(KEDVENCEK selectedKedvenc)
+        {
+            var p = DB.RENDELESEK.OrderByDescending(x => x.RENDELES_ID).FirstOrDefault();
+            int newId = (null == p ? 0 : (int)p.RENDELES_ID) + 1;
+            RENDELESEK uj = new RENDELESEK
+            {
+                ALAPLAP_ID = selectedKedvenc.ALAPLAP_ID,
+                CPU_ID = selectedKedvenc.CPU_ID,
+                FELHASZNALO_ID = felhasznaloid,
+                GPU_ID = selectedKedvenc.GPU_ID,
+                HAZ_ID = selectedKedvenc.HAZ_ID,
+                HDD_ID = selectedKedvenc.HDD_ID,
+                MEMORIA_ID = selectedKedvenc.MEMORIA_ID,
+                SSD_ID = (selectedKedvenc.SSD.TIPUSSZAM.Contains("*") ? (decimal?)null : selectedKedvenc.SSD_ID),
+                RENDELES_ID = newId,
+                TAP_ID = selectedKedvenc.TAP_ID
+            };
+            try
+            {
+                DB.RENDELESEK.Add(uj);
+                DB.SaveChanges();
+                MessageBox.Show("Rendelés leadva!");
+            }
+            catch (Exception hiba)
+            {
+                Megosztott.Logolas(hiba.InnerException.Message);
+                MessageBox.Show("Adatbázishiba, nem sikerült rögzíteni.");
+            }
+        }
+
         public void KedvencekMentes()
         {
             if (VM.SelectedAlaplap.TIPUSSZAM.Contains("*") || VM.SelectedCpu.TIPUSSZAM.Contains("*") ||

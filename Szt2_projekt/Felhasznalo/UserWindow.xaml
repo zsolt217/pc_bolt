@@ -55,7 +55,7 @@
 
                     <Button x:Name="MegrendelésButton" Content="Megrendelés!" Margin="24,383,171,25" Width="85" Height="30" Click="MegrendelésButton_Click" />
                     <Button x:Name="MentésButton" Content="Mentés!" Margin="160,383,35,25" Width="85" Height="30" Click="MentésButton_Click"/>
-                    <Grid x:Name="AlkatreszAdatokGrid" Grid.Column="1">                       
+                    <Grid x:Name="AlkatreszAdatokGrid" Grid.Column="1">
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
@@ -72,7 +72,7 @@
                         </Grid.RowDefinitions>
 
 
-                       
+
                         <Label x:Name="lbl1" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
                         <Label x:Name="lbl2" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
                         <Label x:Name="lbl3"  Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
@@ -80,7 +80,7 @@
                         <Label x:Name="lbl5"  Grid.Column="0" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
                         <Label x:Name="lbl6" Grid.Column="0" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
                         <Label x:Name="lbl7"  Grid.Column="0" Grid.Row="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="10"></Label>
-                     
+
 
 
                         <Label x:Name="lbl11" Content="" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10"></Label>
@@ -97,10 +97,9 @@
 
             <TabItem Header="Kedvencek">
                 <Grid>
-                    <Button x:Name="kedvencMegrendelesButton" Content="Megrendelés!" HorizontalAlignment="Left" Margin="118,383,0,0" VerticalAlignment="Top" Width="100"/>
+                    <Button x:Name="kedvencMegrendelesButton" Content="Megrendelés!" HorizontalAlignment="Left" Margin="118,383,0,0" VerticalAlignment="Top" Width="100" Click="kedvencMegrendelesButton_Click"/>
                     <Button x:Name="kedvencModositasButton" Content="Módosítás!" HorizontalAlignment="Left" Margin="475,383,0,0" VerticalAlignment="Top" Width="100"/>
-                    <ComboBox x:Name="cBoxKedvenc" ItemsSource="{Binding Kedvencek}"  SelectedItem="{Binding SelectedKedvenc}" HorizontalAlignment="Left" Margin="118,52,0,0" VerticalAlignment="Top" Width="457"/>
-                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="230" Margin="118,98,0,0" VerticalAlignment="Top" Width="457"/>
+                    <ListBox x:Name="listBox" ItemsSource="{Binding Kedvencek}"  SelectedItem="{Binding SelectedKedvenc}" HorizontalAlignment="Left" Height="318" Margin="118,10,0,0" VerticalAlignment="Top" Width="457"/>
                 </Grid>
             </TabItem>
 

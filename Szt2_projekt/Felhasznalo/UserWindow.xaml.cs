@@ -17,6 +17,7 @@ namespace Szt2_projekt
         FelhasznaloVM VM;
         FelhasznaloBSL BS;
         decimal id;
+
         //KompatibilitasVizsgalo kompatibilitas;
 
         public UserWindow(decimal felhasznaloid)
@@ -28,6 +29,11 @@ namespace Szt2_projekt
             id = felhasznaloid;
             DataContext = VM;
 
+        }
+
+        private void kedvencMegrendelesButton_Click(object sender, RoutedEventArgs e)
+        {
+            BS.RendelesMenteseKedvencbol(VM.SelectedKedvenc);
         }
 
         private void MegrendelésButton_Click(object sender, RoutedEventArgs e)
@@ -587,5 +593,7 @@ namespace Szt2_projekt
                 LabelNullaz();
             }
         }
+
+
     }
 }

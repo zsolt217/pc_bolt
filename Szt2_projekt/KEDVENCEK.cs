@@ -38,7 +38,8 @@ namespace Szt2_projekt
 
         public override string ToString()
         {
-            return KEDVENCEK_ID + ". kedvenced " + FELHASZNALO.NEV;
+            return "Alaplap: " + ALAPLAP.TIPUSSZAM + "\nCPU: " + CPU.TIPUSSZAM + "\nGPU: " + GPU.TIPUSSZAM + "\nHáz: " + HAZ.TIPUSSZAM + 
+                "\nHDD: " + HDD.TIPUSSZAM + "\nSSD: " + SSD.TIPUSSZAM + "\nMemória: " + MEMORIA.TIPUSSZAM + "\nTáp: " + TAP.TIPUSSZAM;
         }
     }
 }
