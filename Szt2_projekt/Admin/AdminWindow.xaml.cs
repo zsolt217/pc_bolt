@@ -90,7 +90,7 @@ namespace Szt2_projekt
                 }
                 catch (Exception j)
                 {
-                    MessageBox.Show(j.Message);
+                    MessageBox.Show("A felhasználót nem lehet törölni,mert megrendelése van!");
                 }
             }
         }
