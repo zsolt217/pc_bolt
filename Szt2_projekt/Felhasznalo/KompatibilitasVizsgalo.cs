@@ -141,8 +141,8 @@ namespace Szt2_projekt
                 if (!VM.SelectedCpu.TIPUSSZAM.Contains("*"))
                 {
                     VM.felhasznalovaltoztatasengedelyezes = false;
-                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => (VM.SelectedHaz.TIPUSSZAM.Contains("*") ? true : x.MERETSZABVANY.Contains(VM.SelectedHaz.MERETSZABVANY)) &&
-                       (VM.SelectedMemoria.TIPUSSZAM.Contains("*") ? true : x.MEMORIATIPUS.Contains(VM.SelectedMemoria.MEMORIATIPUS))).ToList(); //ha van memória vagy táp akk ennek megfelelően szűri az alaplapokat
+                    List<ALAPLAP> alaplapok = DB.ALAPLAP.Where(x => (VM.SelectedHaz.TIPUSSZAM.Contains("*") ? true : x.MERETSZABVANY.Equals(VM.SelectedHaz.MERETSZABVANY)) &&
+                       (VM.SelectedMemoria.TIPUSSZAM.Contains("*") ? true : x.MEMORIATIPUS.Contains(VM.SelectedMemoria.MEMORIATIPUS)) && x.CPUFOGLALAT.Equals(VM.SelectedCpu.CPUFOGLALAT)).ToList(); //ha van memória vagy táp akk ennek megfelelően szűri az alaplapokat
                     alaplapok.Add(new ALAPLAP { TIPUSSZAM = "*nincs elem kivalasztva" });
                     if (!VM.SelectedAlaplap.TIPUSSZAM.Contains("*"))
                     {
