@@ -86,13 +86,13 @@ namespace Szt2_projekt
             labelek.Add(lbl5);
             labelek.Add(lbl6);
             labelek.Add(lbl7);
-            alaplaplabelnevek = new string[] { "Ár (Ft):", "Név:", "Processzor foglalat:", "Memóriaslotok száma:", "Memóriatípus:", "Chipset:", "Méretszabvány:" };
-            tarololabelnevek = new string[] { "Ár (Ft):", "Név:", "Kapacitás (MB):" };
-            proclabelnevek = new string[] { "Ár (Ft):", "Név:", "Foglalat:", "Fogyasztás (W):", "Órajel (Mhz):", "Magok száma:" };
-            gpulabelnevek = new string[] { "Ár (Ft):", "Név:", "Fogyasztás (W):", "Memória (GB):" };
-            ramlabelnevek = new string[] { "Ár (Ft):", "Név:", "Típus:", "Órajel (Mhz):", "Kapacitás: (MB)" };
-            taplabelnevek = new string[] { "Ár: (Ft)", "Név:", "Teljesítmény: (W)" };
-            hazlabelnevek = new string[] { "Ár (Ft):", "Név:", "Méretszabvány:" };
+            alaplaplabelnevek = new string[] { "Ár:", "Név:", "Processzor foglalat:", "Memóriaslotok száma:", "Memóriatípus:", "Chipset:", "Méretszabvány:" };
+            tarololabelnevek = new string[] { "Ár:", "Név:", "Kapacitás:" };
+            proclabelnevek = new string[] { "Ár:", "Név:", "Foglalat:", "Fogyasztás:", "Órajel:", "Magok száma:" };
+            gpulabelnevek = new string[] { "Ár:", "Név:", "Fogyasztás:", "Memória:" };
+            ramlabelnevek = new string[] { "Ár:", "Név:", "Típus:", "Órajel:", "Kapacitás:" };
+            taplabelnevek = new string[] { "Ár:", "Név:", "Teljesítmény:" };
+            hazlabelnevek = new string[] { "Ár:", "Név:", "Méretszabvány:" };
 
         }
         string[] alaplaplabelnevek;
